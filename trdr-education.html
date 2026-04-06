@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <title>TRDR Education</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=IBM+Plex+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0A0C0F;
+      --bg-card:   #111318;
+      --bg-hover:  #161A21;
+      --border:    rgba(255,255,255,0.07);
+      --border-md: rgba(255,255,255,0.13);
+      --text:      #E8E9EC;
+      --text-muted:#6B7280;
+      --text-dim:  #3D4451;
+      --teal:      #00C98D;
+      --teal-dim:  rgba(0,201,141,0.10);
+      --teal-mid:  rgba(0,201,141,0.20);
+      --amber:     #F5A623;
+      --amber-dim: rgba(245,166,35,0.10);
+      --red:       #F05252;
+      --red-dim:   rgba(240,82,82,0.10);
+      --blue:      #6EB3F7;
+      --blue-dim:  rgba(110,179,247,0.10);
+      --purple:    #A78BFA;
+      --purple-dim:rgba(167,139,250,0.10);
+      --font-display: 'Syne', sans-serif;
+      --font-body:    'DM Sans', sans-serif;
+      --font-mono:    'IBM Plex Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.6;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── SCROLLBAR ─── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--border-md); border-radius: 99px; }
+
+    /* ─── TOP BAR ─── */
+    .top-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10,12,15,0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      height: 56px;
+      display: flex;
+      align-items: center;
+      padding: 0 2rem;
+      gap: 2rem;
+    }
+
+    .logo {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 17px;
+      letter-spacing: -0.04em;
+      color: var(--text);
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo-mark {
+      width: 26px;
+      height: 26px;
+      border-radius: 6px;
+      background: var(--teal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .logo-mark svg { display: block; }
+
+    .logo-edu {
+      font-size: 11px;
+      font-weight: 400;
+      font-family: var(--font-mono);
+      color: var(--teal);
+      letter-spacing: 0.08em;
+      margin-left: 2px;
+      opacity: 0.9;
+    }
+
+    .top-nav {
+      display: flex;
+      gap: 2px;
+      flex: 1;
+    }
+
+    .nav-link {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      padding: 6px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      transition: color 0.15s, background 0.15s;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .nav-link:hover { color: var(--text); background: var(--bg-hover); }
+    .nav-link.active { color: var(--text); background: var(--bg-hover); }
+
+    .top-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-left: auto;
+    }
+
+    .search-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0 12px;
+      height: 36px;
+      width: 200px;
+    }
+
+    .search-bar svg { color: var(--text-muted); flex-shrink: 0; }
+
+    .search-bar input {
+      background: none;
+      border: none;
+      outline: none;
+      font-size: 13px;
+      color: var(--text);
+      font-family: var(--font-body);
+      width: 100%;
+    }
+
+    .search-bar input::placeholder { color: var(--text-muted); }
+
+    .avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--teal-dim);
+      border: 1px solid var(--teal-mid);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 600;
+      font-family: var(--font-mono);
+      color: var(--teal);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      border-bottom: 1px solid var(--border);
+      padding: 3rem 2rem 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 3rem;
+      align-items: start;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -80px;
+      left: -80px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(0,201,141,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--teal);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .eyebrow-line {
+      width: 24px;
+      height: 1px;
+      background: var(--teal);
+      opacity: 0.5;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: 40px;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+
+    .hero-title span { color: var(--teal); }
+
+    .hero-desc {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      max-width: 520px;
+      margin-bottom: 2rem;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 2.5rem;
+    }
+
+    .stat { display: flex; flex-direction: column; gap: 3px; }
+
+    .stat-num {
+      font-family: var(--font-mono);
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--teal);
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* ─── PROGRESS WIDGET ─── */
+    .progress-widget {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .progress-widget::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--teal), transparent);
+    }
+
+    .pw-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--teal);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .pw-title {
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      line-height: 1.3;
+    }
+
+    .pw-meta {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+    }
+
+    .pw-bar-wrap {
+      background: var(--border);
+      border-radius: 999px;
+      height: 3px;
+      margin-bottom: 6px;
+      overflow: hidden;
+    }
+
+    .pw-bar-fill {
+      height: 100%;
+      background: var(--teal);
+      border-radius: 999px;
+      position: relative;
+    }
+
+    .pw-bar-fill::after {
+      content: '';
+      position: absolute;
+      right: 0; top: 50%;
+      transform: translateY(-50%);
+      width: 8px; height: 8px;
+      background: var(--teal);
+      border-radius: 50%;
+    }
+
+    .pw-pct {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+    }
+
+    .pw-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 10px;
+      border-radius: 10px;
+      background: var(--teal-dim);
+      border: 1px solid var(--teal-mid);
+      color: var(--teal);
+      font-size: 13px;
+      font-weight: 500;
+      font-family: var(--font-body);
+      cursor: pointer;
+      transition: background 0.15s;
+      text-decoration: none;
+    }
+
+    .pw-btn:hover { background: var(--teal-mid); }
+
+    /* ─── MAIN ─── */
+    .main {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2rem 2rem 4rem;
+    }
+
+    /* ─── SECTION HEADER ─── */
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.25rem;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .section-link {
+      font-size: 13px;
+      color: var(--teal);
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-family: var(--font-body);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      transition: opacity 0.15s;
+      text-decoration: none;
+    }
+
+    .section-link:hover { opacity: 0.7; }
+
+    /* ─── CATEGORIES ─── */
+    .categories-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+
+    .cat-chip {
+      padding: 7px 16px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      color: var(--text-muted);
+      font-family: var(--font-body);
+      transition: all 0.15s;
+    }
+
+    .cat-chip:hover {
+      border-color: var(--border-md);
+      color: var(--text);
+    }
+
+    .cat-chip.active {
+      border-color: var(--teal-mid);
+      background: var(--teal-dim);
+      color: var(--teal);
+    }
+
+    /* ─── COURSE GRID ─── */
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+      margin-bottom: 3rem;
+    }
+
+    .course-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: border-color 0.2s, transform 0.2s;
+      animation: fadeUp 0.4s both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .course-card:hover {
+      border-color: var(--border-md);
+      transform: translateY(-2px);
+    }
+
+    .card-thumb {
+      height: 130px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .thumb-teal   { background: rgba(0,201,141,0.08); }
+    .thumb-amber  { background: rgba(245,166,35,0.08); }
+    .thumb-blue   { background: rgba(110,179,247,0.08); }
+    .thumb-purple { background: rgba(167,139,250,0.08); }
+    .thumb-coral  { background: rgba(240,82,82,0.08); }
+
+    .thumb-glyph {
+      font-family: var(--font-mono);
+      font-size: 36px;
+      font-weight: 500;
+      opacity: 0.15;
+      user-select: none;
+    }
+
+    .thumb-teal   .thumb-glyph { color: var(--teal); opacity: 0.3; }
+    .thumb-amber  .thumb-glyph { color: var(--amber); opacity: 0.3; }
+    .thumb-blue   .thumb-glyph { color: var(--blue); opacity: 0.3; }
+    .thumb-purple .thumb-glyph { color: var(--purple); opacity: 0.3; }
+    .thumb-coral  .thumb-glyph { color: var(--red); opacity: 0.3; }
+
+    .badge-level {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      font-size: 10px;
+      font-weight: 500;
+      padding: 3px 9px;
+      border-radius: 999px;
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .lvl-i { background: rgba(0,201,141,0.15); color: var(--teal); }
+    .lvl-m { background: rgba(245,166,35,0.15); color: var(--amber); }
+    .lvl-a { background: rgba(240,82,82,0.15); color: var(--red); }
+
+    .badge-new {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 10px;
+      font-weight: 600;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: var(--teal);
+      color: #0A0C0F;
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .card-body { padding: 1.125rem 1.125rem 1.25rem; }
+
+    .card-cat {
+      font-size: 11px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-family: var(--font-mono);
+      margin-bottom: 6px;
+    }
+
+    .card-title {
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.35;
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+    }
+
+    .card-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+
+    .card-meta .dot {
+      width: 3px; height: 3px;
+      border-radius: 50%;
+      background: var(--text-dim);
+    }
+
+    .rating { color: var(--amber); }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+    }
+
+    .instructor {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .avatar-xs {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 9px;
+      font-weight: 600;
+      font-family: var(--font-mono);
+    }
+
+    .av-teal   { background: rgba(0,201,141,0.12); color: var(--teal); }
+    .av-amber  { background: rgba(245,166,35,0.12); color: var(--amber); }
+    .av-blue   { background: rgba(110,179,247,0.12); color: var(--blue); }
+    .av-purple { background: rgba(167,139,250,0.12); color: var(--purple); }
+
+    .instructor-name { font-size: 12px; color: var(--text-muted); }
+
+    .btn-enroll {
+      font-size: 12px;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--teal-mid);
+      color: var(--teal);
+      background: var(--teal-dim);
+      cursor: pointer;
+      font-family: var(--font-body);
+      transition: background 0.15s;
+    }
+
+    .btn-enroll:hover { background: var(--teal-mid); }
+
+    /* ─── DIVIDER ─── */
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 0 0 2.5rem;
+    }
+
+    /* ─── LESSONS ─── */
+    .lessons-list { display: flex; flex-direction: column; gap: 8px; }
+
+    .lesson-row {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s;
+    }
+
+    .lesson-row:hover { border-color: var(--border-md); background: var(--bg-hover); }
+    .lesson-row.is-active { border-color: rgba(0,201,141,0.3); }
+
+    .lesson-num {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-dim);
+      min-width: 20px;
+    }
+
+    .lesson-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .li-done   { background: rgba(0,201,141,0.12); }
+    .li-active { background: rgba(110,179,247,0.12); }
+    .li-locked { background: var(--bg-hover); }
+
+    .lesson-info { flex: 1; min-width: 0; }
+
+    .lesson-title {
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .lesson-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .lesson-badge {
+      font-size: 10px;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-family: var(--font-mono);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .lb-done   { background: rgba(0,201,141,0.12); color: var(--teal); }
+    .lb-active { background: rgba(110,179,247,0.12); color: var(--blue); }
+    .lb-locked { background: var(--bg-hover); color: var(--text-dim); }
+
+    .lesson-row.is-locked { opacity: 0.5; }
+
+    /* ─── FEATURED VIDEO ─── */
+    .featured-video-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 2.5rem;
+      align-items: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .fv-tag {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--teal);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .fv-title {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .fv-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .fv-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .fv-badge {
+      font-size: 11px;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(245,166,35,0.12);
+      color: var(--amber);
+      font-family: var(--font-mono);
+    }
+
+    .fv-dot {
+      width: 3px; height: 3px;
+      border-radius: 50%;
+      background: var(--text-dim);
+    }
+
+    .fv-info {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .featured-video-player {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 0 0 12px 12px;
+      overflow: hidden;
+      background: var(--bg-card);
+    }
+
+    .fv-player-wrap {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .fv-controls {
+      background: var(--bg-hover);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .fv-ctrl-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .fv-ctrl-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-right: 2px;
+    }
+
+    .fv-ctrl-btn {
+      font-size: 11px;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-family: var(--font-body);
+      transition: all 0.15s;
+    }
+
+    .fv-ctrl-btn:hover { border-color: var(--border-md); color: var(--text); }
+    .fv-ctrl-btn.active {
+      background: var(--teal-dim);
+      border-color: var(--teal-mid);
+      color: var(--teal);
+    }
+
+    .fv-note {
+      background: var(--bg-hover);
+      border-top: 1px solid var(--border);
+      padding: 8px 14px;
+      font-size: 11px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+    }
+
+    @media (max-width: 900px) {
+      .featured-video-wrap {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ─── TICKER STRIP ─── */
+    .ticker-strip {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      background: var(--bg-card);
+    }
+
+    .ticker-inner {
+      display: flex;
+      gap: 2.5rem;
+      animation: ticker 30s linear infinite;
+      white-space: nowrap;
+      padding: 0 1rem;
+    }
+
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    .ticker-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .ticker-sym { color: var(--text); font-weight: 500; }
+    .ticker-up { color: var(--teal); }
+    .ticker-dn { color: var(--red); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .progress-widget { display: none; }
+      .hero-title { font-size: 28px; }
+    }
+
+    @media (max-width: 640px) {
+      .top-bar { padding: 0 1rem; }
+      .search-bar { display: none; }
+      .main { padding: 1.5rem 1rem 3rem; }
+      .hero { padding: 2rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── TOP BAR ─── -->
+  <nav class="top-bar">
+    <div class="logo">
+      <div class="logo-mark">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <path d="M2 10L5.5 6L8 8.5L11 4" stroke="#0A0C0F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      TRDR
+      <span class="logo-edu">EDUCATION</span>
+    </div>
+
+    <div class="top-nav">
+      <a class="nav-link active" href="#">Cursos</a>
+      <a class="nav-link" href="#">Trilhas</a>
+      <a class="nav-link" href="#">Ao vivo</a>
+      <a class="nav-link" href="#">Certificados</a>
+    </div>
+
+    <div class="top-right">
+      <div class="search-bar">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+          <circle cx="6.5" cy="6.5" r="5" stroke="currentColor" stroke-width="1.3"/>
+          <path d="M10.5 10.5L14 14" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+        </svg>
+        <input type="text" placeholder="Buscar cursos..." />
+      </div>
+      <div class="avatar">JR</div>
+    </div>
+  </nav>
+
+  <!-- ─── TICKER ─── -->
+  <div class="ticker-strip">
+    <div class="ticker-inner">
+      <div class="ticker-item"><span class="ticker-sym">PETR4</span> <span class="ticker-up">▲ 2.14%</span> R$38,72</div>
+      <div class="ticker-item"><span class="ticker-sym">VALE3</span> <span class="ticker-dn">▼ 0.87%</span> R$67,11</div>
+      <div class="ticker-item"><span class="ticker-sym">IBOV</span>  <span class="ticker-up">▲ 1.03%</span> 129.450</div>
+      <div class="ticker-item"><span class="ticker-sym">WINFUT</span><span class="ticker-up">▲ 0.56%</span> 129.300</div>
+      <div class="ticker-item"><span class="ticker-sym">BTC</span>   <span class="ticker-dn">▼ 1.42%</span> $82.400</div>
+      <div class="ticker-item"><span class="ticker-sym">MGLU3</span> <span class="ticker-up">▲ 3.21%</span> R$8,44</div>
+      <div class="ticker-item"><span class="ticker-sym">BBAS3</span> <span class="ticker-dn">▼ 0.33%</span> R$25,87</div>
+      <div class="ticker-item"><span class="ticker-sym">USDBRL</span><span class="ticker-up">▲ 0.18%</span> R$5,92</div>
+      <!-- duplicate for seamless loop -->
+      <div class="ticker-item"><span class="ticker-sym">PETR4</span> <span class="ticker-up">▲ 2.14%</span> R$38,72</div>
+      <div class="ticker-item"><span class="ticker-sym">VALE3</span> <span class="ticker-dn">▼ 0.87%</span> R$67,11</div>
+      <div class="ticker-item"><span class="ticker-sym">IBOV</span>  <span class="ticker-up">▲ 1.03%</span> 129.450</div>
+      <div class="ticker-item"><span class="ticker-sym">WINFUT</span><span class="ticker-up">▲ 0.56%</span> 129.300</div>
+      <div class="ticker-item"><span class="ticker-sym">BTC</span>   <span class="ticker-dn">▼ 1.42%</span> $82.400</div>
+      <div class="ticker-item"><span class="ticker-sym">MGLU3</span> <span class="ticker-up">▲ 3.21%</span> R$8,44</div>
+      <div class="ticker-item"><span class="ticker-sym">BBAS3</span> <span class="ticker-dn">▼ 0.33%</span> R$25,87</div>
+      <div class="ticker-item"><span class="ticker-sym">USDBRL</span><span class="ticker-up">▲ 0.18%</span> R$5,92</div>
+    </div>
+  </div>
+
+  <!-- ─── HERO ─── -->
+  <section class="hero">
+    <div>
+      <div class="hero-eyebrow">
+        <span class="eyebrow-line"></span>
+        Plataforma educacional de trading
+      </div>
+      <h1 class="hero-title">
+        Aprenda a operar<br>com <span>consistência</span>
+      </h1>
+      <p class="hero-desc">
+        Do básico ao avançado — análise técnica, gestão de risco, renda variável e muito mais.
+        Aulas práticas desenvolvidas por traders profissionais para resultados reais.
+      </p>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num">48</span>
+          <span class="stat-label">cursos ativos</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">312</span>
+          <span class="stat-label">aulas gravadas</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">9.4k</span>
+          <span class="stat-label">alunos</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">98%</span>
+          <span class="stat-label">aprovação</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="progress-widget">
+      <div class="pw-label">// em andamento</div>
+      <div class="pw-title">Análise Técnica Avançada</div>
+      <div class="pw-meta">Aula 7 de 14 &nbsp;·&nbsp; 2h 30min restantes</div>
+      <div class="pw-bar-wrap">
+        <div class="pw-bar-fill" style="width: 48%"></div>
+      </div>
+      <div class="pw-pct">48% concluído</div>
+      <a class="pw-btn" href="#">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+          <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.2"/>
+          <polygon points="6.5,5.5 11,8 6.5,10.5" fill="currentColor"/>
+        </svg>
+        Continuar assistindo
+      </a>
+    </div>
+  </section>
+
+  <!-- ─── MAIN ─── -->
+  <div class="main">
+
+    <!-- CATEGORIAS -->
+    <div class="section-header">
+      <h2 class="section-title">Categorias</h2>
+    </div>
+    <div class="categories-row">
+      <button class="cat-chip active" onclick="filterCat(this,'Todos')">Todos</button>
+      <button class="cat-chip" onclick="filterCat(this,'Análise Técnica')">Análise Técnica</button>
+      <button class="cat-chip" onclick="filterCat(this,'Análise Fundamentalista')">Análise Fundamentalista</button>
+      <button class="cat-chip" onclick="filterCat(this,'Gestão de Risco')">Gestão de Risco</button>
+      <button class="cat-chip" onclick="filterCat(this,'Opções')">Opções</button>
+      <button class="cat-chip" onclick="filterCat(this,'Cripto')">Cripto</button>
+      <button class="cat-chip" onclick="filterCat(this,'Day Trade')">Day Trade</button>
+    </div>
+
+    <!-- CURSOS -->
+    <div class="section-header">
+      <h2 class="section-title">Cursos em destaque</h2>
+      <a class="section-link" href="#">Ver todos →</a>
+    </div>
+
+    <div class="courses-grid" id="coursesGrid">
+
+      <div class="course-card" data-cat="Análise Técnica" style="animation-delay:0.05s">
+        <div class="card-thumb thumb-teal">
+          <span class="thumb-glyph">△▽</span>
+          <span class="badge-level lvl-m">Intermediário</span>
+          <span class="badge-new">Novo</span>
+        </div>
+        <div class="card-body">
+          <div class="card-cat">Análise Técnica</div>
+          <div class="card-title">Padrões de Candlestick: Leitura Profissional</div>
+          <div class="card-meta">
+            <span>14 aulas</span><span class="dot"></span>
+            <span>4h 20min</span><span class="dot"></span>
+            <span class="rating">★</span> 4.9
+          </div>
+          <div class="card-footer">
+            <div class="instructor">
+              <div class="avatar-xs av-teal">MR</div>
+              <span class="instructor-name">Marcos Ribeiro</span>
+            </div>
+            <button class="btn-enroll">Matricular</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="course-card" data-cat="Gestão de Risco" style="animation-delay:0.10s">
+        <div class="card-thumb thumb-amber">
+          <span class="thumb-glyph">R²</span>
+          <span class="badge-level lvl-i">Iniciante</span>
+        </div>
+        <div class="card-body">
+          <div class="card-cat">Gestão de Risco</div>
+          <div class="card-title">Stop Loss e Position Sizing na Prática</div>
+          <div class="card-meta">
+            <span>10 aulas</span><span class="dot"></span>
+            <span>3h 10min</span><span class="dot"></span>
+            <span class="rating">★</span> 4.8
+          </div>
+          <div class="card-footer">
+            <div class="instructor">
+              <div class="avatar-xs av-amber">CL</div>
+              <span class="instructor-name">Carla Lopes</span>
+            </div>
+            <button class="btn-enroll">Matricular</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="course-card" data-cat="Opções" style="animation-delay:0.15s">
+        <div class="card-thumb thumb-blue">
+          <span class="thumb-glyph">Δ θ</span>
+          <span class="badge-level lvl-a">Avançado</span>
+        </div>
+        <div class="card-body">
+          <div class="card-cat">Opções</div>
+          <div class="card-title">Greeks e Estruturas: Dominando Derivativos</div>
+          <div class="card-meta">
+            <span>18 aulas</span><span class="dot"></span>
+            <span>6h 45min</span><span class="dot"></span>
+            <span class="rating">★</span> 4.7
+          </div>
+          <div class="card-footer">
+            <div class="instructor">
+              <div class="avatar-xs av-blue">PT</div>
+              <span class="instructor-name">Paulo Torres</span>
+            </div>
+            <button class="btn-enroll">Matricular</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="course-card" data-cat="Day Trade" style="animation-delay:0.20s">
+        <div class="card-thumb thumb-coral">
+          <span class="thumb-glyph">⟶⟶</span>
+          <span class="badge-level lvl-m">Intermediário</span>
+        </div>
+        <div class="card-body">
+          <div class="card-cat">Day Trade</div>
+          <div class="card-title">Scalping no Mini-Índice: Setup e Execução</div>
+          <div class="card-meta">
+            <span>12 aulas</span><span class="dot"></span>
+            <span>5h 00min</span><span class="dot"></span>
+            <span class="rating">★</span> 4.9
+          </div>
+          <div class="card-footer">
+            <div class="instructor">
+              <div class="avatar-xs av-teal">FA</div>
+              <span class="instructor-name">Felipe Araujo</span>
+            </div>
+            <button class="btn-enroll">Matricular</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="course-card" data-cat="Análise Fundamentalista" style="animation-delay:0.25s">
+        <div class="card-thumb thumb-purple">
+          <span class="thumb-glyph">P/E</span>
+          <span class="badge-level lvl-i">Iniciante</span>
+        </div>
+        <div class="card-body">
+          <div class="card-cat">Análise Fundamentalista</div>
+          <div class="card-title">Leitura de Balanços e Valuation de Ações</div>
+          <div class="card-meta">
+            <span>16 aulas</span><span class="dot"></span>
+            <span>5h 30min</span><span class="dot"></span>
+            <span class="rating">★</span> 4.8
+          </div>
+          <div class="card-footer">
+            <div class="instructor">
+              <div class="avatar-xs av-purple">AC</div>
+              <span class="instructor-name">Ana Costa</span>
+            </div>
+            <button class="btn-enroll">Matricular</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="course-card" data-cat="Cripto" style="animation-delay:0.30s">
+        <div class="card-thumb thumb-teal">
+          <span class="thumb-glyph">₿</span>
+          <span class="badge-level lvl-i">Iniciante</span>
+          <span class="badge-new">Novo</span>
+        </div>
+        <div class="card-body">
+          <div class="card-cat">Cripto</div>
+          <div class="card-title">DeFi e Blockchain: Fundamentos para Traders</div>
+          <div class="card-meta">
+            <span>9 aulas</span><span class="dot"></span>
+            <span>2h 50min</span><span class="dot"></span>
+            <span class="rating">★</span> 4.6
+          </div>
+          <div class="card-footer">
+            <div class="instructor">
+              <div class="avatar-xs av-amber">RM</div>
+              <span class="instructor-name">Rafael Melo</span>
+            </div>
+            <button class="btn-enroll">Matricular</button>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /courses-grid -->
+
+    <div class="divider"></div>
+
+    <!-- AULA EM DESTAQUE -->
+    <div class="section-header">
+      <h2 class="section-title">Aula em destaque</h2>
+      <span class="section-link">Ondas de Elliott · Análise Técnica</span>
+    </div>
+
+    <div class="featured-video-wrap">
+      <div class="featured-video-left">
+        <div class="fv-tag">// aula gratuita</div>
+        <h3 class="fv-title">Ondas de Elliott com IA</h3>
+        <p class="fv-desc">Entenda como identificar e operar utilizando a teoria das Ondas de Elliott — um dos métodos mais sofisticados de análise técnica, aplicado com inteligência artificial.</p>
+        <div class="fv-meta">
+          <span class="fv-badge">Intermediário</span>
+          <span class="fv-dot"></span>
+          <span class="fv-info">Análise Técnica</span>
+          <span class="fv-dot"></span>
+          <span class="fv-info">★ 4.9</span>
+        </div>
+      </div>
+
+      <div class="fv-player-wrap">
+        <!-- Barra de controles de idioma e legenda -->
+        <div class="fv-controls">
+          <div class="fv-ctrl-group">
+            <span class="fv-ctrl-label">Idioma</span>
+            <button class="fv-ctrl-btn active" onclick="switchLang(this,'pt')">🇧🇷 PT</button>
+            <button class="fv-ctrl-btn" onclick="switchLang(this,'en')">🇺🇸 EN</button>
+          </div>
+          <div class="fv-ctrl-group">
+            <span class="fv-ctrl-label">Legendas</span>
+            <button class="fv-ctrl-btn" onclick="switchSub(this,'none')">Off</button>
+            <button class="fv-ctrl-btn active" onclick="switchSub(this,'pt')">PT</button>
+            <button class="fv-ctrl-btn" onclick="switchSub(this,'en')">EN</button>
+          </div>
+        </div>
+
+        <!-- Player -->
+        <div class="featured-video-player">
+          <iframe
+            id="vimeoPlayer"
+            src="https://player.vimeo.com/video/1180617823?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&texttrack=pt"
+            frameborder="0"
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            style="width:100%;height:100%;border-radius:0 0 12px 12px;display:block;"
+            title="Ondas de Elliott">
+          </iframe>
+        </div>
+
+
+      </div>
+    </div>
+
+    <script src="https://player.vimeo.com/api/player.js"></script>
+    <script>
+      const videos = {
+        pt: '1180617823',
+        en: '1180619949'
+      };
+
+      const subtracks = {
+        pt: 'pt',
+        en: 'en',
+        none: ''
+      };
+
+      let currentLang = 'pt';
+      let currentSub  = 'pt';
+
+      function buildSrc(lang, sub) {
+        const id = videos[lang];
+        const track = subtracks[sub];
+        const texttrack = track ? `&texttrack=${track}` : '';
+        return `https://player.vimeo.com/video/${id}?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479${texttrack}`;
+      }
+
+      function updatePlayer() {
+        document.getElementById('vimeoPlayer').src = buildSrc(currentLang, currentSub);
+      }
+
+      function switchLang(btn, lang) {
+        currentLang = lang;
+        btn.closest('.fv-ctrl-group').querySelectorAll('.fv-ctrl-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        updatePlayer();
+      }
+
+      function switchSub(btn, sub) {
+        currentSub = sub;
+        btn.closest('.fv-ctrl-group').querySelectorAll('.fv-ctrl-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        updatePlayer();
+      }
+    </script>
+
+    <div class="divider"></div>
+
+    <!-- AULAS -->
+    <div class="section-header">
+      <h2 class="section-title">Aulas — Análise Técnica Avançada</h2>
+      <a class="section-link" href="#">Ver curso completo →</a>
+    </div>
+
+    <div class="lessons-list">
+
+      <div class="lesson-row">
+        <span class="lesson-num">01</span>
+        <div class="lesson-icon li-done">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M3.5 8L6.5 11L12.5 5" stroke="var(--teal)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="lesson-info">
+          <div class="lesson-title">Introdução à Análise Técnica</div>
+          <div class="lesson-sub">Teoria de Dow · 32 min</div>
+        </div>
+        <span class="lesson-badge lb-done">Concluída</span>
+      </div>
+
+      <div class="lesson-row">
+        <span class="lesson-num">02</span>
+        <div class="lesson-icon li-done">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M3.5 8L6.5 11L12.5 5" stroke="var(--teal)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="lesson-info">
+          <div class="lesson-title">Suportes, Resistências e Tendências</div>
+          <div class="lesson-sub">Zonas de preço · 45 min</div>
+        </div>
+        <span class="lesson-badge lb-done">Concluída</span>
+      </div>
+
+      <div class="lesson-row is-active">
+        <span class="lesson-num">03</span>
+        <div class="lesson-icon li-active">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <polygon points="5.5,4.5 11.5,8 5.5,11.5" fill="var(--blue)"/>
+          </svg>
+        </div>
+        <div class="lesson-info">
+          <div class="lesson-title">Médias Móveis: EMA, SMA e VWAP</div>
+          <div class="lesson-sub">Em andamento · 38 min</div>
+        </div>
+        <span class="lesson-badge lb-active">Em andamento</span>
+      </div>
+
+      <div class="lesson-row is-locked">
+        <span class="lesson-num">04</span>
+        <div class="lesson-icon li-locked">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <rect x="4.5" y="7.5" width="7" height="5.5" rx="1.5" stroke="var(--text-dim)" stroke-width="1.2"/>
+            <path d="M6 7.5V5.5a2 2 0 014 0v2" stroke="var(--text-dim)" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="lesson-info">
+          <div class="lesson-title">Indicadores de Volume e OBV</div>
+          <div class="lesson-sub">Confirmação de tendência · 42 min</div>
+        </div>
+        <span class="lesson-badge lb-locked">Bloqueada</span>
+      </div>
+
+      <div class="lesson-row is-locked">
+        <span class="lesson-num">05</span>
+        <div class="lesson-icon li-locked">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <rect x="4.5" y="7.5" width="7" height="5.5" rx="1.5" stroke="var(--text-dim)" stroke-width="1.2"/>
+            <path d="M6 7.5V5.5a2 2 0 014 0v2" stroke="var(--text-dim)" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="lesson-info">
+          <div class="lesson-title">RSI, MACD e Bandas de Bollinger</div>
+          <div class="lesson-sub">Osciladores avançados · 55 min</div>
+        </div>
+        <span class="lesson-badge lb-locked">Bloqueada</span>
+      </div>
+
+      <div class="lesson-row is-locked">
+        <span class="lesson-num">06</span>
+        <div class="lesson-icon li-locked">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <rect x="4.5" y="7.5" width="7" height="5.5" rx="1.5" stroke="var(--text-dim)" stroke-width="1.2"/>
+            <path d="M6 7.5V5.5a2 2 0 014 0v2" stroke="var(--text-dim)" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="lesson-info">
+          <div class="lesson-title">Fibonacci e Zonas de Reversão</div>
+          <div class="lesson-sub">Retracements avançados · 50 min</div>
+        </div>
+        <span class="lesson-badge lb-locked">Bloqueada</span>
+      </div>
+
+    </div>
+
+  </div><!-- /main -->
+
+  <script>
+    function filterCat(el, cat) {
+      document.querySelectorAll('.cat-chip').forEach(c => c.classList.remove('active'));
+      el.classList.add('active');
+      const cards = document.querySelectorAll('.course-card');
+      let delay = 0.05;
+      cards.forEach(card => {
+        const match = cat === 'Todos' || card.dataset.cat === cat;
+        card.style.display = match ? '' : 'none';
+        if (match) {
+          card.style.animationDelay = delay + 's';
+          card.style.animation = 'none';
+          void card.offsetWidth;
+          card.style.animation = 'fadeUp 0.3s both';
+          delay += 0.05;
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
