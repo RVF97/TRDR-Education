@@ -185,9 +185,9 @@
       border-bottom: 1px solid var(--border);
       padding: 5rem 2rem 4rem;
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr 1fr;
       gap: 3rem;
-      align-items: start;
+      align-items: center;
       position: relative;
       overflow: hidden;
       min-height: 480px;
@@ -232,7 +232,67 @@
       z-index: 2;
     }
 
-    .hero::before {
+    .hero-player-wrap {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-player-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--teal);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-player-label::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--teal);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    .hero-player-box {
+      border: 1px solid var(--border-md);
+      border-radius: 14px;
+      overflow: hidden;
+      background: var(--bg-card);
+    }
+
+    .hero-player-controls {
+      background: rgba(0,0,0,0.4);
+      border-bottom: 1px solid var(--border);
+      padding: 8px 14px;
+      display: flex;
+      gap: 1.25rem;
+    }
+
+    .hero-player-video {
+      width: 100%;
+      aspect-ratio: 16/9;
+    }
+
+    .hero-player-video iframe {
+      width: 100%;
+      height: 100%;
+      display: block;
+      border: none;
+    }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-player-wrap { display: none; }
+    }
       content: '';
       position: absolute;
       top: -80px;
@@ -542,9 +602,9 @@
       letter-spacing: 0.05em;
     }
 
-    .lvl-i { background: rgba(0,201,141,0.15); color: var(--teal); }
-    .lvl-m { background: rgba(245,166,35,0.15); color: var(--amber); }
-    .lvl-a { background: rgba(240,82,82,0.15); color: var(--red); }
+    .lvl-i { background: rgba(0,212,255,0.9); color: #000; font-weight: 700; }
+    .lvl-m { background: rgba(235,169,0,0.9); color: #000; font-weight: 700; }
+    .lvl-a { background: rgba(219,68,86,0.9); color: #fff; font-weight: 700; }
 
     .badge-new {
       position: absolute;
@@ -1302,21 +1362,35 @@
       </div>
     </div>
 
+    <!-- Hero player -->
+    <div class="hero-player-wrap">
+      <div class="hero-player-label">Curso Básico · Aula 1.1</div>
+      <div class="hero-player-box">
+        <div class="hero-player-controls">
+          <div class="fv-ctrl-group">
+            <span class="fv-ctrl-label">Idioma</span>
+            <button class="fv-ctrl-btn active" onclick="switchModalLang(this,'market','pt')">🇧🇷 PT</button>
+            <button class="fv-ctrl-btn" onclick="switchModalLang(this,'market','en')">🇺🇸 EN</button>
+          </div>
+          <div class="fv-ctrl-group">
+            <span class="fv-ctrl-label">Legendas</span>
+            <button class="fv-ctrl-btn" onclick="switchModalSub(this,'market','none')">Off</button>
+            <button class="fv-ctrl-btn active" onclick="switchModalSub(this,'market','pt')">PT</button>
+            <button class="fv-ctrl-btn" onclick="switchModalSub(this,'market','en')">EN</button>
+          </div>
+        </div>
+        <div class="hero-player-video">
+          <iframe id="player-market"
+            src="https://player.vimeo.com/video/1180619949?title=0&byline=0&portrait=0&badge=0&autopause=0&texttrack=pt"
+            allow="autoplay; fullscreen; picture-in-picture"
+            referrerpolicy="strict-origin-when-cross-origin">
+          </iframe>
+        </div>
+      </div>
+    </div>
+
   </section>
-
-  <!-- ─── MAIN ─── -->
   <div class="main">
-
-    <!-- CATEGORIAS -->
-    <div class="section-header">
-      <h2 class="section-title">Categorias</h2>
-    </div>
-    <div class="categories-row">
-      <button class="cat-chip active" onclick="filterCat(this,'Todos')">Todos</button>
-      <button class="cat-chip" onclick="filterCat(this,'Análise Técnica')">Análise Técnica</button>
-      <button class="cat-chip" onclick="filterCat(this,'Gestão de Risco')">Gestão de Risco</button>
-      <button class="cat-chip" onclick="filterCat(this,'Day Trade')">Day Trade</button>
-    </div>
 
     <!-- CURSOS -->
     <div class="section-header">
@@ -1332,13 +1406,12 @@
           <span class="badge-level lvl-i">Básico</span>
         </div>
         <div class="card-body">
-          <div class="card-cat">Análise Técnica</div>
-          <div class="card-title">Fundamentos do Trading</div>
+          <div class="card-title">Curso Básico</div>
           <div class="card-meta">
             <span>9 aulas</span><span class="dot"></span>
             <span>Preço, estrutura, setup</span>
           </div>
-          <div class="card-desc">Preço vs indicador, estrutura de mercado, suporte e resistência, candlestick, timeframes e regras essenciais.</div>
+          <div class="card-desc">Comece por aqui para entender os pontos-chave do mercado financeiro e iniciar suas operações com o pé direito.</div>
           <div class="card-footer">
             <div class="instructor">
               <div class="avatar-xs av-teal">TR</div>
@@ -1355,13 +1428,12 @@
           <span class="badge-level lvl-m">Intermediário</span>
         </div>
         <div class="card-body">
-          <div class="card-cat">Análise Técnica</div>
-          <div class="card-title">Setup, Entrada e Gestão</div>
+          <div class="card-title">Curso Intermediário</div>
           <div class="card-meta">
             <span>11 aulas</span><span class="dot"></span>
             <span>Execução prática</span>
           </div>
-          <div class="card-desc">Setup principal, critérios de entrada, stop loss técnico, alvo mínimo 1:2, quando não operar e análise de exemplos reais.</div>
+          <div class="card-desc">Refine sua leitura de mercado com dados, técnicas de leitura e estratégias.</div>
           <div class="card-footer">
             <div class="instructor">
               <div class="avatar-xs av-blue">TR</div>
@@ -1378,13 +1450,12 @@
           <span class="badge-level lvl-a">Avançado</span>
         </div>
         <div class="card-body">
-          <div class="card-cat">Gestão de Risco</div>
-          <div class="card-title">Risco, Psicologia e Leitura ao Vivo</div>
+          <div class="card-title">Curso Avançado</div>
           <div class="card-meta">
             <span>14 aulas</span><span class="dot"></span>
             <span>Mente e banca</span>
           </div>
-          <div class="card-desc">Gestão de banca, drawdown, viés cognitivo, overtrading, revenge trade, FOMO, disciplina e rotina profissional.</div>
+          <div class="card-desc">Domine a gestão de risco, psicologia do trader e aprenda a tomar decisões sob pressão com consistência.</div>
           <div class="card-footer">
             <div class="instructor">
               <div class="avatar-xs av-amber">TR</div>
@@ -1402,13 +1473,12 @@
           <span class="badge-new">Top</span>
         </div>
         <div class="card-body">
-          <div class="card-cat">Day Trade</div>
-          <div class="card-title">Operação Profissional</div>
+          <div class="card-title">Curso Profissional</div>
           <div class="card-meta">
             <span>20 aulas</span><span class="dot"></span>
             <span>Nível institucional</span>
           </div>
-          <div class="card-desc">Liquidez, stop hunt, falso rompimento, execução sob pressão, plano de trade, diário, revisão semanal e consistência.</div>
+          <div class="card-desc">Opere como um profissional — liquidez, execução sob pressão, plano de trade e rotina de alto desempenho.</div>
           <div class="card-footer">
             <div class="instructor">
               <div class="avatar-xs av-teal">TR</div>
@@ -1425,13 +1495,12 @@
           <span class="badge-level lvl-m">Intermediário</span>
         </div>
         <div class="card-body">
-          <div class="card-cat">Análise Técnica</div>
-          <div class="card-title">Indicadores: Uso Correto</div>
+          <div class="card-title">Indicadores</div>
           <div class="card-meta">
             <span>20 aulas</span><span class="dot"></span>
             <span>EMA, RSI, VWAP, Fibonacci</span>
           </div>
-          <div class="card-desc">Tendência, momento, volatilidade e volume. EMA, Bollinger Bands, RSI, VWAP, Fibonacci e confluência com price action.</div>
+          <div class="card-desc">Entenda como usar indicadores de forma correta — sem ruído, com contexto e integrados ao price action.</div>
           <div class="card-footer">
             <div class="instructor">
               <div class="avatar-xs av-purple">TR</div>
