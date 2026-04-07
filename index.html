@@ -7,7 +7,7 @@
   <title>TRDR Education</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=IBM+Plex+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=IBM+Plex+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@800&family=Bebas+Neue&display=swap" rel="stylesheet" />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -99,7 +99,7 @@
       font-size: 11px;
       font-weight: 400;
       font-family: var(--font-mono);
-      color: var(--teal);
+      color: #ffffff;
       letter-spacing: 0.08em;
       margin-left: 2px;
       opacity: 0.9;
@@ -263,11 +263,11 @@
     }
 
     .hero-title {
-      font-family: var(--font-display);
-      font-size: 40px;
-      font-weight: 800;
-      letter-spacing: -0.04em;
-      line-height: 1.1;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 52px;
+      font-weight: 400;
+      letter-spacing: 2px;
+      line-height: 1.05;
       margin-bottom: 16px;
       color: var(--text);
     }
@@ -516,7 +516,14 @@
       user-select: none;
     }
 
-    .thumb-teal   .thumb-glyph { color: var(--teal); opacity: 0.3; }
+    .card-thumb[style*="background-image"] .thumb-glyph { display: none; }
+    .card-thumb[style*="background-image"]::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 60%);
+      pointer-events: none;
+    }
     .thumb-amber  .thumb-glyph { color: var(--amber); opacity: 0.3; }
     .thumb-blue   .thumb-glyph { color: var(--blue); opacity: 0.3; }
     .thumb-purple .thumb-glyph { color: var(--purple); opacity: 0.3; }
@@ -1320,7 +1327,7 @@
     <div class="courses-grid" id="coursesGrid">
 
       <div class="course-card" data-cat="Análise Técnica" style="animation-delay:0.05s" onclick="openModal('course-basico')">
-        <div class="card-thumb thumb-teal">
+        <div class="card-thumb thumb-teal" style="background-image:url('https://rvf97.github.io/TRDR-Education/Basico.jpg');background-size:cover;background-position:center;">
           <span class="thumb-glyph">01</span>
           <span class="badge-level lvl-i">Básico</span>
         </div>
@@ -1343,7 +1350,7 @@
       </div>
 
       <div class="course-card" data-cat="Análise Técnica" style="animation-delay:0.10s" onclick="openModal('course-intermediario')">
-        <div class="card-thumb thumb-blue">
+        <div class="card-thumb thumb-blue" style="background-image:url('https://rvf97.github.io/TRDR-Education/Intermediario.jpg');background-size:cover;background-position:center;">
           <span class="thumb-glyph">02</span>
           <span class="badge-level lvl-m">Intermediário</span>
         </div>
@@ -1366,7 +1373,7 @@
       </div>
 
       <div class="course-card" data-cat="Gestão de Risco" style="animation-delay:0.15s" onclick="openModal('course-avancado')">
-        <div class="card-thumb thumb-amber">
+        <div class="card-thumb thumb-amber" style="background-image:url('https://rvf97.github.io/TRDR-Education/Avan%C3%A7ado.jpg');background-size:cover;background-position:center;">
           <span class="thumb-glyph">03</span>
           <span class="badge-level lvl-a">Avançado</span>
         </div>
@@ -1389,7 +1396,7 @@
       </div>
 
       <div class="course-card" data-cat="Day Trade" style="animation-delay:0.20s" onclick="openModal('course-profissional')">
-        <div class="card-thumb thumb-coral">
+        <div class="card-thumb thumb-coral" style="background-image:url('https://rvf97.github.io/TRDR-Education/Profissional.jpg');background-size:cover;background-position:center;">
           <span class="thumb-glyph">04</span>
           <span class="badge-level lvl-a">Profissional</span>
           <span class="badge-new">Top</span>
@@ -1413,7 +1420,7 @@
       </div>
 
       <div class="course-card" data-cat="Análise Técnica" style="animation-delay:0.25s" onclick="openModal('course-indicadores')">
-        <div class="card-thumb thumb-purple">
+        <div class="card-thumb thumb-purple" style="background-image:url('https://rvf97.github.io/TRDR-Education/Indicadores.jpg');background-size:cover;background-position:center;">
           <span class="thumb-glyph">05</span>
           <span class="badge-level lvl-m">Intermediário</span>
         </div>
