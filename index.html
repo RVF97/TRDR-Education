@@ -1381,9 +1381,10 @@
         </div>
         <div class="hero-player-video">
           <iframe id="player-market"
-            src="https://player.vimeo.com/video/1180619949?title=0&byline=0&portrait=0&badge=0&autopause=0&texttrack=pt"
-            allow="autoplay; fullscreen; picture-in-picture"
-            referrerpolicy="strict-origin-when-cross-origin">
+            src="https://www.youtube.com/embed/OTSTgy0tCxI?rel=0&modestbranding=1"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
           </iframe>
         </div>
       </div>
@@ -1728,9 +1729,10 @@
             </div>
             <div class="modal-video">
               <iframe id="player-elliott"
-                src="https://player.vimeo.com/video/1180049262?title=0&byline=0&portrait=0&badge=0&autopause=0&texttrack=pt"
-                allow="autoplay; fullscreen; picture-in-picture"
-                referrerpolicy="strict-origin-when-cross-origin">
+                src="https://www.youtube.com/embed/OTSTgy0tCxI?rel=0&modestbranding=1"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen>
               </iframe>
             </div>
           </div>
@@ -1795,9 +1797,10 @@
             </div>
             <div class="modal-video">
               <iframe id="player-market"
-                src="https://player.vimeo.com/video/1180619949?title=0&byline=0&portrait=0&badge=0&autopause=0&texttrack=pt"
-                allow="autoplay; fullscreen; picture-in-picture"
-                referrerpolicy="strict-origin-when-cross-origin">
+                src="https://www.youtube.com/embed/OTSTgy0tCxI?rel=0&modestbranding=1"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen>
               </iframe>
             </div>
           </div>
@@ -1876,23 +1879,22 @@
 
     /* ── MODAL LANG/SUB SWITCHER ── */
     const modalVideos = {
-      elliott: { pt: '1180049262', en: '1180049262' },
-      market:  { pt: '1180619949', en: '1180617823' }
+      elliott: { pt: 'OTSTgy0tCxI', en: 'OTSTgy0tCxI' },
+      market:  { pt: 'OTSTgy0tCxI', en: 'OTSTgy0tCxI' }
     };
 
-    const modalSubs = { pt: 'pt', en: 'en', none: '' };
+    const modalSubs = { pt: '', en: '', none: '' };
 
     const modalState = {
-      elliott: { lang: 'pt', sub: 'pt' },
-      market:  { lang: 'pt', sub: 'pt' }
+      elliott: { lang: 'pt', sub: 'none' },
+      market:  { lang: 'pt', sub: 'none' }
     };
 
     function updateModalPlayer(key) {
-      const { lang, sub } = modalState[key];
+      const { lang } = modalState[key];
       const id = modalVideos[key][lang];
-      const track = modalSubs[sub] ? `&texttrack=${modalSubs[sub]}` : '';
       document.getElementById(`player-${key}`).src =
-        `https://player.vimeo.com/video/${id}?title=0&byline=0&portrait=0&badge=0&autopause=0${track}`;
+        `https://www.youtube.com/embed/${id}?rel=0&modestbranding=1`;
     }
 
     function switchModalLang(btn, key, lang) {
@@ -1934,6 +1936,6 @@
     </button>
   </nav>
 
-  <script src="https://player.vimeo.com/api/player.js"></script>
+
 </body>
 </html>
