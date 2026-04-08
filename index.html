@@ -1883,18 +1883,34 @@
       market:  { pt: 'OTSTgy0tCxI', en: 'OTSTgy0tCxI' }
     };
 
-    const modalSubs = { pt: '', en: '', none: '' };
-
     const modalState = {
       elliott: { lang: 'pt', sub: 'none' },
       market:  { lang: 'pt', sub: 'none' }
     };
 
+    function buildYTSrc(id, sub) {
+      let params = 'rel=0&modestbranding=1';
+      if (sub === 'none') {
+        params += '&cc_load_policy=0';
+      } else {
+        params += `&cc_load_policy=1&cc_lang_pref=${sub}`;
+      }
+      return `https://www.youtube.com/embed/${id}?${params}`;
+    }
+
     function updateModalPlayer(key) {
-      const { lang } = modalState[key];
+      const { lang, sub } = modalState[key];
       const id = modalVideos[key][lang];
-      document.getElementById(`player-${key}`).src =
-        `https://www.youtube.com/embed/${id}?rel=0&modestbranding=1`;
+      document.getElementById(`player-${key}`).src = buildYTSrc(id, sub);
+    }
+
+    /* also update hero player-market when it exists */
+    function updateHeroPlayer() {
+      const el = document.getElementById('player-market');
+      if (!el) return;
+      const { lang, sub } = modalState['market'];
+      const id = modalVideos['market'][lang];
+      el.src = buildYTSrc(id, sub);
     }
 
     function switchModalLang(btn, key, lang) {
@@ -1902,6 +1918,7 @@
       btn.closest('.fv-ctrl-group').querySelectorAll('.fv-ctrl-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       updateModalPlayer(key);
+      updateHeroPlayer();
     }
 
     function switchModalSub(btn, key, sub) {
@@ -1909,6 +1926,7 @@
       btn.closest('.fv-ctrl-group').querySelectorAll('.fv-ctrl-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       updateModalPlayer(key);
+      updateHeroPlayer();
     }
   </script>
 
