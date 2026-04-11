@@ -1092,7 +1092,40 @@
       .modal-body { grid-template-columns: 1fr; }
     }
 
-    /* ─── TICKER STRIP ─── */
+    /* ─── LANG SELECTOR ─── */
+    .lang-selector {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 3px;
+    }
+
+    .lang-btn {
+      font-size: 11px;
+      font-weight: 600;
+      font-family: var(--font-mono);
+      padding: 4px 9px;
+      border-radius: 6px;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.15s;
+      letter-spacing: 0.04em;
+    }
+
+    .lang-btn:hover { color: var(--text); }
+    .lang-btn.active {
+      background: var(--teal);
+      color: #000;
+    }
+
+    @media (max-width: 640px) {
+      .lang-selector { display: none; }
+    }
     .ticker-strip {
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
@@ -1284,16 +1317,21 @@
     </div>
 
     <div class="top-nav">
-      <a class="nav-link active" href="#">Cursos</a>
+      <a class="nav-link active" href="#" data-i18n="nav_courses">Cursos</a>
     </div>
 
     <div class="top-right">
+      <div class="lang-selector">
+        <button class="lang-btn active" onclick="setLang('pt')">PT</button>
+        <button class="lang-btn" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" onclick="setLang('es')">ES</button>
+      </div>
       <div class="search-bar">
         <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
           <circle cx="6.5" cy="6.5" r="5" stroke="currentColor" stroke-width="1.3"/>
           <path d="M10.5 10.5L14 14" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
         </svg>
-        <input type="text" placeholder="Buscar cursos..." />
+        <input type="text" data-i18n-placeholder="search_placeholder" placeholder="Buscar cursos..." />
       </div>
       <div class="avatar">JR</div>
     </div>
@@ -1333,38 +1371,38 @@
     <div>
       <div class="hero-eyebrow">
         <span class="eyebrow-line"></span>
-        Plataforma educacional de trading
+        <span data-i18n="hero_eyebrow">Plataforma educacional de trading</span>
       </div>
-      <h1 class="hero-title">
-        Aprenda a operar<br>com <span>consistência</span>
+      <h1 class="hero-title" data-i18n="hero_title">
+        Aprenda a operar<br>com <span data-i18n="hero_title_span">consistência</span>
       </h1>
-      <p class="hero-desc">
+      <p class="hero-desc" data-i18n="hero_desc">
         Do básico ao avançado — análise técnica, gestão de risco, renda variável e muito mais.
         Aulas práticas desenvolvidas por traders profissionais para resultados reais.
       </p>
       <div class="hero-stats">
         <div class="stat">
           <span class="stat-num">48</span>
-          <span class="stat-label">cursos ativos</span>
+          <span class="stat-label" data-i18n="stat_courses">cursos ativos</span>
         </div>
         <div class="stat">
           <span class="stat-num">312</span>
-          <span class="stat-label">aulas gravadas</span>
+          <span class="stat-label" data-i18n="stat_lessons">aulas gravadas</span>
         </div>
         <div class="stat">
           <span class="stat-num">9.4k</span>
-          <span class="stat-label">alunos</span>
+          <span class="stat-label" data-i18n="stat_students">alunos</span>
         </div>
         <div class="stat">
           <span class="stat-num">98%</span>
-          <span class="stat-label">aprovação</span>
+          <span class="stat-label" data-i18n="stat_approval">aprovação</span>
         </div>
       </div>
     </div>
 
     <!-- Hero player -->
     <div class="hero-player-wrap">
-      <div class="hero-player-label">Curso Básico · Aula 1.1</div>
+      <div class="hero-player-label" data-i18n="hero_player_label">Curso Básico · Aula 1.1</div>
       <div class="hero-player-box">
         <div class="hero-player-controls">
           <div class="fv-ctrl-group">
@@ -1389,8 +1427,8 @@
 
     <!-- CURSOS -->
     <div class="section-header">
-      <h2 class="section-title">Cursos em destaque</h2>
-      <a class="section-link" href="#">Ver todos →</a>
+      <h2 class="section-title" data-i18n="section_courses">Cursos em destaque</h2>
+      <a class="section-link" href="#" data-i18n="see_all">Ver todos →</a>
     </div>
 
     <div class="courses-grid" id="coursesGrid">
@@ -1401,18 +1439,18 @@
           <span class="badge-level lvl-i">Básico</span>
         </div>
         <div class="card-body">
-          <div class="card-title">Curso Básico</div>
+          <div class="card-title" data-i18n="course1_title">Curso Básico</div>
           <div class="card-meta">
             <span>9 aulas</span><span class="dot"></span>
             <span>Preço, estrutura, setup</span>
           </div>
-          <div class="card-desc">Comece por aqui para entender os pontos-chave do mercado financeiro e iniciar suas operações com o pé direito.</div>
+          <div class="card-desc" data-i18n="course1_desc">Comece por aqui para entender os pontos-chave do mercado financeiro e iniciar suas operações com o pé direito.</div>
           <div class="card-footer">
             <div class="instructor">
               <div class="avatar-xs av-teal">TR</div>
               <span class="instructor-name">TRDR Education</span>
             </div>
-            <button class="btn-enroll">Ver curso</button>
+            <button class="btn-enroll" data-i18n="btn_view">Ver curso</button>
           </div>
         </div>
       </div>
@@ -1423,18 +1461,18 @@
           <span class="badge-level lvl-m">Intermediário</span>
         </div>
         <div class="card-body">
-          <div class="card-title">Curso Intermediário</div>
+          <div class="card-title" data-i18n="course2_title">Curso Intermediário</div>
           <div class="card-meta">
             <span>11 aulas</span><span class="dot"></span>
             <span>Execução prática</span>
           </div>
-          <div class="card-desc">Refine sua leitura de mercado com dados, técnicas de leitura e estratégias.</div>
+          <div class="card-desc" data-i18n="course2_desc">Refine sua leitura de mercado com dados, técnicas de leitura e estratégias.</div>
           <div class="card-footer">
             <div class="instructor">
               <div class="avatar-xs av-blue">TR</div>
               <span class="instructor-name">TRDR Education</span>
             </div>
-            <button class="btn-enroll">Ver curso</button>
+            <button class="btn-enroll" data-i18n="btn_view">Ver curso</button>
           </div>
         </div>
       </div>
@@ -1445,18 +1483,18 @@
           <span class="badge-level lvl-a">Avançado</span>
         </div>
         <div class="card-body">
-          <div class="card-title">Curso Avançado</div>
+          <div class="card-title" data-i18n="course3_title">Curso Avançado</div>
           <div class="card-meta">
             <span>14 aulas</span><span class="dot"></span>
             <span>Mente e banca</span>
           </div>
-          <div class="card-desc">Domine a gestão de risco, psicologia do trader e aprenda a tomar decisões sob pressão com consistência.</div>
+          <div class="card-desc" data-i18n="course3_desc">Domine a gestão de risco, psicologia do trader e aprenda a tomar decisões sob pressão com consistência.</div>
           <div class="card-footer">
             <div class="instructor">
               <div class="avatar-xs av-amber">TR</div>
               <span class="instructor-name">TRDR Education</span>
             </div>
-            <button class="btn-enroll">Ver curso</button>
+            <button class="btn-enroll" data-i18n="btn_view">Ver curso</button>
           </div>
         </div>
       </div>
@@ -1468,18 +1506,18 @@
           <span class="badge-new">Top</span>
         </div>
         <div class="card-body">
-          <div class="card-title">Curso Profissional</div>
+          <div class="card-title" data-i18n="course4_title">Curso Profissional</div>
           <div class="card-meta">
             <span>20 aulas</span><span class="dot"></span>
             <span>Nível institucional</span>
           </div>
-          <div class="card-desc">Opere como um profissional — liquidez, execução sob pressão, plano de trade e rotina de alto desempenho.</div>
+          <div class="card-desc" data-i18n="course4_desc">Opere como um profissional — liquidez, execução sob pressão, plano de trade e rotina de alto desempenho.</div>
           <div class="card-footer">
             <div class="instructor">
               <div class="avatar-xs av-teal">TR</div>
               <span class="instructor-name">TRDR Education</span>
             </div>
-            <button class="btn-enroll">Ver curso</button>
+            <button class="btn-enroll" data-i18n="btn_view">Ver curso</button>
           </div>
         </div>
       </div>
@@ -1490,18 +1528,18 @@
           <span class="badge-level lvl-m">Intermediário</span>
         </div>
         <div class="card-body">
-          <div class="card-title">Indicadores</div>
+          <div class="card-title" data-i18n="course5_title">Indicadores</div>
           <div class="card-meta">
             <span>20 aulas</span><span class="dot"></span>
             <span>EMA, RSI, VWAP, Fibonacci</span>
           </div>
-          <div class="card-desc">Entenda como usar indicadores de forma correta — sem ruído, com contexto e integrados ao price action.</div>
+          <div class="card-desc" data-i18n="course5_desc">Entenda como usar indicadores de forma correta — sem ruído, com contexto e integrados ao price action.</div>
           <div class="card-footer">
             <div class="instructor">
               <div class="avatar-xs av-purple">TR</div>
               <span class="instructor-name">TRDR Education</span>
             </div>
-            <button class="btn-enroll">Ver curso</button>
+            <button class="btn-enroll" data-i18n="btn_view">Ver curso</button>
           </div>
         </div>
       </div>
@@ -1531,7 +1569,7 @@
           </div>
           <div class="modal-lesson" onclick="closeModal('course-basico');openModal('modal-hmw')">
             <div class="ml-icon ml-locked"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="4.5" y="7.5" width="7" height="5.5" rx="1.5" stroke="var(--text-dim)" stroke-width="1.2"/><path d="M6 7.5V5.5a2 2 0 014 0v2" stroke="var(--text-dim)" stroke-width="1.2" stroke-linecap="round"/></svg></div>
-            <div class="ml-info"><div class="ml-title">1.2 — How Markets Work</div><div class="ml-sub">PT / EN disponível</div></div>
+            <div class="ml-info"><div class="ml-title">1.2 — Livro de Ofertas — O coração do mercado</div><div class="ml-sub">PT / EN disponível</div></div>
           </div>
           <div class="modal-lesson" onclick="closeModal('course-basico');openModal('modal-elliott')">
             <div class="ml-icon ml-locked"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="4.5" y="7.5" width="7" height="5.5" rx="1.5" stroke="var(--text-dim)" stroke-width="1.2"/><path d="M6 7.5V5.5a2 2 0 014 0v2" stroke="var(--text-dim)" stroke-width="1.2" stroke-linecap="round"/></svg></div>
@@ -1704,7 +1742,7 @@
       <div class="modal-header">
         <div class="modal-header-left">
           <span class="modal-tag">// Curso Básico · Aula 1.2</span>
-          <span class="modal-title">How Markets Work</span>
+          <span class="modal-title">Livro de Ofertas — O coração do mercado</span>
         </div>
         <button class="modal-close" onclick="closeModal('modal-hmw')">✕</button>
       </div>
@@ -1720,7 +1758,7 @@
             </div>
             <div class="modal-video">
               <iframe id="player-hmw"
-                src="https://www.youtube.com/embed/OTSTgy0tCxI?rel=0&modestbranding=1"
+                src="https://www.youtube.com/embed/hM62wuvXH9g?rel=0&modestbranding=1"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 referrerpolicy="strict-origin-when-cross-origin"
                 allowfullscreen>
@@ -1738,7 +1776,7 @@
             </div>
             <div class="modal-lesson ml-active">
               <div class="ml-icon ml-active"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><polygon points="5.5,4.5 11.5,8 5.5,11.5" fill="var(--blue)"/></svg></div>
-              <div class="ml-info"><div class="ml-title">1.2 — How Markets Work</div><div class="ml-sub">Em andamento</div></div>
+              <div class="ml-info"><div class="ml-title">1.2 — Livro de Ofertas — O coração do mercado</div><div class="ml-sub">Em andamento</div></div>
             </div>
             <div class="modal-lesson" onclick="closeModal('modal-hmw'); openModal('modal-elliott')">
               <div class="ml-icon ml-locked"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="4.5" y="7.5" width="7" height="5.5" rx="1.5" stroke="var(--text-dim)" stroke-width="1.2"/><path d="M6 7.5V5.5a2 2 0 014 0v2" stroke="var(--text-dim)" stroke-width="1.2" stroke-linecap="round"/></svg></div>
@@ -1856,7 +1894,7 @@
             </div>
             <div class="modal-lesson ml-active">
               <div class="ml-icon ml-active"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><polygon points="5.5,4.5 11.5,8 5.5,11.5" fill="var(--blue)"/></svg></div>
-              <div class="ml-info"><div class="ml-title">How Markets Work</div><div class="ml-sub">24 min</div></div>
+              <div class="ml-info"><div class="ml-title">Livro de Ofertas — O coração do mercado</div><div class="ml-sub">24 min</div></div>
             </div>
             <div class="modal-lesson is-locked" style="opacity:0.4;cursor:default;">
               <div class="ml-icon ml-locked"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="4.5" y="7.5" width="7" height="5.5" rx="1.5" stroke="var(--text-dim)" stroke-width="1.2"/><path d="M6 7.5V5.5a2 2 0 014 0v2" stroke="var(--text-dim)" stroke-width="1.2" stroke-linecap="round"/></svg></div>
@@ -1922,7 +1960,7 @@
     const modalVideos = {
       elliott: { pt: 'bzrMIYiUsZ8', en: 'bzrMIYiUsZ8' },
       market:  { pt: 'bzrMIYiUsZ8', en: 'Ke2I238xLuI' },
-      hmw:     { pt: 'OTSTgy0tCxI', en: 'OTSTgy0tCxI' }
+      hmw:     { pt: 'hM62wuvXH9g', en: 'l4sZOE_L3J8' }
     };
 
     const modalState = {
@@ -1970,6 +2008,70 @@
       btn.classList.add('active');
       updateModalPlayer(key);
       updateHeroPlayer();
+    }
+
+    /* ── i18n ── */
+    const translations = {
+      pt: {
+        nav_courses: 'Cursos',
+        search_placeholder: 'Buscar cursos...',
+        hero_eyebrow: 'Plataforma educacional de trading',
+        hero_title_span: 'consistência',
+        hero_desc: 'Do básico ao avançado — análise técnica, gestão de risco, renda variável e muito mais. Aulas práticas desenvolvidas por traders profissionais para resultados reais.',
+        stat_courses: 'cursos ativos', stat_lessons: 'aulas gravadas', stat_students: 'alunos', stat_approval: 'aprovação',
+        hero_player_label: 'Curso Básico · Aula 1.1',
+        section_courses: 'Cursos em destaque', see_all: 'Ver todos →', btn_view: 'Ver curso',
+        course1_title: 'Curso Básico', course1_desc: 'Comece por aqui para entender os pontos-chave do mercado financeiro e iniciar suas operações com o pé direito.',
+        course2_title: 'Curso Intermediário', course2_desc: 'Refine sua leitura de mercado com dados, técnicas de leitura e estratégias.',
+        course3_title: 'Curso Avançado', course3_desc: 'Domine a gestão de risco, psicologia do trader e aprenda a tomar decisões sob pressão com consistência.',
+        course4_title: 'Curso Profissional', course4_desc: 'Opere como um profissional — liquidez, execução sob pressão, plano de trade e rotina de alto desempenho.',
+        course5_title: 'Indicadores', course5_desc: 'Entenda como usar indicadores de forma correta — sem ruído, com contexto e integrados ao price action.',
+      },
+      en: {
+        nav_courses: 'Courses',
+        search_placeholder: 'Search courses...',
+        hero_eyebrow: 'Trading educational platform',
+        hero_title_span: 'consistency',
+        hero_desc: 'From basics to advanced — technical analysis, risk management, variable income and much more. Practical classes developed by professional traders for real results.',
+        stat_courses: 'active courses', stat_lessons: 'recorded lessons', stat_students: 'students', stat_approval: 'approval rate',
+        hero_player_label: 'Basic Course · Lesson 1.1',
+        section_courses: 'Featured courses', see_all: 'See all →', btn_view: 'View course',
+        course1_title: 'Basic Course', course1_desc: 'Start here to understand the key points of the financial market and begin your trading journey on the right foot.',
+        course2_title: 'Intermediate Course', course2_desc: 'Refine your market reading with data, reading techniques and strategies.',
+        course3_title: 'Advanced Course', course3_desc: 'Master risk management, trader psychology and learn to make decisions under pressure with consistency.',
+        course4_title: 'Professional Course', course4_desc: 'Operate like a professional — liquidity, execution under pressure, trade plan and high performance routine.',
+        course5_title: 'Indicators', course5_desc: 'Understand how to use indicators correctly — without noise, with context and integrated with price action.',
+      },
+      es: {
+        nav_courses: 'Cursos',
+        search_placeholder: 'Buscar cursos...',
+        hero_eyebrow: 'Plataforma educativa de trading',
+        hero_title_span: 'consistencia',
+        hero_desc: 'De lo básico a lo avanzado — análisis técnico, gestión de riesgo, renta variable y mucho más. Clases prácticas desarrolladas por traders profesionales para resultados reales.',
+        stat_courses: 'cursos activos', stat_lessons: 'clases grabadas', stat_students: 'alumnos', stat_approval: 'aprobación',
+        hero_player_label: 'Curso Básico · Lección 1.1',
+        section_courses: 'Cursos destacados', see_all: 'Ver todos →', btn_view: 'Ver curso',
+        course1_title: 'Curso Básico', course1_desc: 'Empieza aquí para entender los puntos clave del mercado financiero e iniciar tus operaciones con el pie derecho.',
+        course2_title: 'Curso Intermedio', course2_desc: 'Refina tu lectura del mercado con datos, técnicas de análisis y estrategias.',
+        course3_title: 'Curso Avanzado', course3_desc: 'Domina la gestión de riesgo, psicología del trader y aprende a tomar decisiones bajo presión con consistencia.',
+        course4_title: 'Curso Profesional', course4_desc: 'Opera como un profesional — liquidez, ejecución bajo presión, plan de trading y rutina de alto rendimiento.',
+        course5_title: 'Indicadores', course5_desc: 'Entiende cómo usar los indicadores correctamente — sin ruido, con contexto e integrados al price action.',
+      }
+    };
+
+    function setLang(lang) {
+      document.querySelectorAll('.lang-btn').forEach(b => {
+        b.classList.toggle('active', b.textContent.toLowerCase() === lang);
+      });
+      const t = translations[lang];
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key] !== undefined) el.textContent = t[key];
+      });
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (t[key]) el.placeholder = t[key];
+      });
     }
   </script>
 
