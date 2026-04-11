@@ -1652,7 +1652,7 @@
         container.innerHTML = html;
       }
 
-      // Update hero player label
+      // Update hero player label + video + buttons
       const heroLabel = document.querySelector('.hero-player-label');
       const heroAula = TRDR_CURSOS[0]?.aulas.find(a => a.destaque_hero);
       if (heroLabel && heroAula) {
@@ -1660,13 +1660,17 @@
         heroLabel.textContent = `${prefix} ${heroAula.numero}`;
       }
 
-      // Update hero player video
       if (heroAula) {
         const heroIframe = document.getElementById('player-market');
-        if (heroIframe) {
-          const vid = lang === 'en' && heroAula.video_en ? heroAula.video_en : heroAula.video_pt;
-          heroIframe.src = `https://www.youtube.com/embed/${vid}?rel=0&modestbranding=1`;
-        }
+        const videoLang = lang === 'en' ? 'en' : 'pt';
+        const vid = videoLang === 'en' && heroAula.video_en ? heroAula.video_en : heroAula.video_pt;
+        if (heroIframe) heroIframe.src = `https://www.youtube.com/embed/${vid}?rel=0&modestbranding=1`;
+
+        // Sync hero PT/EN buttons
+        document.querySelectorAll('.hero-player-controls .fv-ctrl-btn').forEach(btn => {
+          const btnLang = btn.getAttribute('onclick')?.includes("'en'") ? 'en' : 'pt';
+          btn.classList.toggle('active', btnLang === videoLang);
+        });
       }
     }
 
