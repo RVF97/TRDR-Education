@@ -1124,7 +1124,25 @@
     }
 
     @media (max-width: 640px) {
-      .lang-selector { display: none; }
+      .lang-selector { display: flex; }
+      .lang-btn { padding: 3px 7px; font-size: 10px; }
+
+      /* Fix modal close button on mobile */
+      .modal-close {
+        position: sticky;
+        top: 0.5rem;
+        flex-shrink: 0;
+        align-self: flex-start;
+        z-index: 10;
+      }
+
+      .modal-header {
+        padding: 1rem 1.25rem;
+        position: sticky;
+        top: 0;
+        background: var(--bg-card);
+        z-index: 10;
+      }
     }
     .ticker-strip {
       border-top: 1px solid var(--border);
@@ -1227,11 +1245,20 @@
         padding: 1.5rem 1rem 1.25rem;
         grid-template-columns: 1fr;
       }
-      .hero-title { font-size: 26px; }
-      .hero-eyebrow { font-size: 10px; }
-      .hero-desc { font-size: 14px; }
+      .hero-title { font-size: 38px; }
+      .hero-eyebrow { font-size: 12px; }
+      .hero-desc { font-size: 15px; }
       .hero-stats { gap: 1.5rem; }
-      .stat-num { font-size: 18px; }
+      .stat-num { font-size: 26px; }
+      .stat-label { font-size: 12px; }
+
+      /* Show player below hero content on mobile */
+      .hero-player-wrap {
+        display: block !important;
+        width: 100%;
+      }
+
+      .hero-player-label { font-size: 11px; }
 
       /* Main */
       .main {
