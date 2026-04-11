@@ -1373,8 +1373,8 @@
         <span class="eyebrow-line"></span>
         <span data-i18n="hero_eyebrow">Plataforma educacional de trading</span>
       </div>
-      <h1 class="hero-title" data-i18n="hero_title">
-        Aprenda a operar<br>com <span data-i18n="hero_title_span">consistência</span>
+      <h1 class="hero-title" id="hero-title-el">
+        Aprenda a operar<br>com <span id="hero-title-span" style="color:var(--teal)">consistência</span>
       </h1>
       <p class="hero-desc" data-i18n="hero_desc">
         Do básico ao avançado — análise técnica, gestão de risco, renda variável e muito mais.
@@ -1555,34 +1555,34 @@
     <div class="modal">
       <div class="modal-header">
         <div class="modal-header-left">
-          <span class="modal-tag">// Nível 1 · Análise Técnica</span>
-          <span class="modal-title">Fundamentos do Trading</span>
+          <span class="modal-tag" data-i18n="modal_basico_tag">// Nível 1 · Análise Técnica</span>
+          <span class="modal-title" data-i18n="modal_basico_title">Fundamentos do Trading</span>
         </div>
         <button class="modal-close" onclick="closeModal('course-basico')">✕</button>
       </div>
       <div class="modal-body" style="grid-template-columns:1fr;">
-        <div class="modal-sidebar-title" style="margin-bottom:14px;">11 aulas · Clique para assistir</div>
+        <div class="modal-sidebar-title" style="margin-bottom:14px;" data-i18n="modal_lessons_click">11 aulas · Clique para assistir</div>
         <div class="modal-lesson-list">
           <div class="modal-lesson" onclick="closeModal('course-basico');openModal('modal-market')">
             <div class="ml-icon ml-active"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><polygon points="5.5,4.5 11.5,8 5.5,11.5" fill="var(--blue)"/></svg></div>
-            <div class="ml-info"><div class="ml-title">1.1 — Mercado Futuro: Onde o Daytrade Ganha Forma</div><div class="ml-sub">Em andamento</div></div>
+            <div class="ml-info"><div class="ml-title" data-i18n="l1_1">1.1 — Mercado Futuro: Onde o Daytrade Ganha Forma</div><div class="ml-sub" data-i18n="sub_in_progress">Em andamento</div></div>
           </div>
           <div class="modal-lesson" onclick="closeModal('course-basico');openModal('modal-hmw')">
             <div class="ml-icon ml-locked"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="4.5" y="7.5" width="7" height="5.5" rx="1.5" stroke="var(--text-dim)" stroke-width="1.2"/><path d="M6 7.5V5.5a2 2 0 014 0v2" stroke="var(--text-dim)" stroke-width="1.2" stroke-linecap="round"/></svg></div>
-            <div class="ml-info"><div class="ml-title">1.2 — Livro de Ofertas — O coração do mercado</div><div class="ml-sub">PT / EN disponível</div></div>
+            <div class="ml-info"><div class="ml-title" data-i18n="l1_2">1.2 — Livro de Ofertas — O coração do mercado</div><div class="ml-sub" data-i18n="sub_pt_en">PT / EN disponível</div></div>
           </div>
           <div class="modal-lesson" onclick="closeModal('course-basico');openModal('modal-elliott')">
             <div class="ml-icon ml-locked"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="4.5" y="7.5" width="7" height="5.5" rx="1.5" stroke="var(--text-dim)" stroke-width="1.2"/><path d="M6 7.5V5.5a2 2 0 014 0v2" stroke="var(--text-dim)" stroke-width="1.2" stroke-linecap="round"/></svg></div>
-            <div class="ml-info"><div class="ml-title">1.3 — Ondas de Elliott com IA</div><div class="ml-sub">PT disponível</div></div>
+            <div class="ml-info"><div class="ml-title" data-i18n="l1_3">1.3 — Ondas de Elliott com IA</div><div class="ml-sub" data-i18n="sub_pt_only">PT disponível</div></div>
           </div>
-          <div class="modal-lesson" style="opacity:.4;cursor:default;"><div class="ml-icon ml-locked"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="4.5" y="7.5" width="7" height="5.5" rx="1.5" stroke="var(--text-dim)" stroke-width="1.2"/><path d="M6 7.5V5.5a2 2 0 014 0v2" stroke="var(--text-dim)" stroke-width="1.2" stroke-linecap="round"/></svg></div><div class="ml-info"><div class="ml-title">1.4 — Preço vs Indicador</div><div class="ml-sub">Em breve</div></div></div>
-          <div class="modal-lesson" style="opacity:.4;cursor:default;"><div class="ml-icon ml-locked"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="4.5" y="7.5" width="7" height="5.5" rx="1.5" stroke="var(--text-dim)" stroke-width="1.2"/><path d="M6 7.5V5.5a2 2 0 014 0v2" stroke="var(--text-dim)" stroke-width="1.2" stroke-linecap="round"/></svg></div><div class="ml-info"><div class="ml-title">1.5 — Estrutura de Mercado</div><div class="ml-sub">Em breve</div></div></div>
-          <div class="modal-lesson" style="opacity:.4;cursor:default;"><div class="ml-icon ml-locked"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="4.5" y="7.5" width="7" height="5.5" rx="1.5" stroke="var(--text-dim)" stroke-width="1.2"/><path d="M6 7.5V5.5a2 2 0 014 0v2" stroke="var(--text-dim)" stroke-width="1.2" stroke-linecap="round"/></svg></div><div class="ml-info"><div class="ml-title">1.6 — Suporte e Resistência</div><div class="ml-sub">Em breve</div></div></div>
-          <div class="modal-lesson" style="opacity:.4;cursor:default;"><div class="ml-icon ml-locked"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="4.5" y="7.5" width="7" height="5.5" rx="1.5" stroke="var(--text-dim)" stroke-width="1.2"/><path d="M6 7.5V5.5a2 2 0 014 0v2" stroke="var(--text-dim)" stroke-width="1.2" stroke-linecap="round"/></svg></div><div class="ml-info"><div class="ml-title">1.7 — Candlestick Útil</div><div class="ml-sub">Em breve</div></div></div>
-          <div class="modal-lesson" style="opacity:.4;cursor:default;"><div class="ml-icon ml-locked"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="4.5" y="7.5" width="7" height="5.5" rx="1.5" stroke="var(--text-dim)" stroke-width="1.2"/><path d="M6 7.5V5.5a2 2 0 014 0v2" stroke="var(--text-dim)" stroke-width="1.2" stroke-linecap="round"/></svg></div><div class="ml-info"><div class="ml-title">1.8 — Timeframes</div><div class="ml-sub">Em breve</div></div></div>
-          <div class="modal-lesson" style="opacity:.4;cursor:default;"><div class="ml-icon ml-locked"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="4.5" y="7.5" width="7" height="5.5" rx="1.5" stroke="var(--text-dim)" stroke-width="1.2"/><path d="M6 7.5V5.5a2 2 0 014 0v2" stroke="var(--text-dim)" stroke-width="1.2" stroke-linecap="round"/></svg></div><div class="ml-info"><div class="ml-title">1.9 — O que é Setup</div><div class="ml-sub">Em breve</div></div></div>
-          <div class="modal-lesson" style="opacity:.4;cursor:default;"><div class="ml-icon ml-locked"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="4.5" y="7.5" width="7" height="5.5" rx="1.5" stroke="var(--text-dim)" stroke-width="1.2"/><path d="M6 7.5V5.5a2 2 0 014 0v2" stroke="var(--text-dim)" stroke-width="1.2" stroke-linecap="round"/></svg></div><div class="ml-info"><div class="ml-title">1.10 — Regra nº1</div><div class="ml-sub">Em breve</div></div></div>
-          <div class="modal-lesson" style="opacity:.4;cursor:default;"><div class="ml-icon ml-locked"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="4.5" y="7.5" width="7" height="5.5" rx="1.5" stroke="var(--text-dim)" stroke-width="1.2"/><path d="M6 7.5V5.5a2 2 0 014 0v2" stroke="var(--text-dim)" stroke-width="1.2" stroke-linecap="round"/></svg></div><div class="ml-info"><div class="ml-title">1.11 — Horários de Mercado</div><div class="ml-sub">Em breve</div></div></div>
+          <div class="modal-lesson" style="opacity:.4;cursor:default;"><div class="ml-icon ml-locked"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="4.5" y="7.5" width="7" height="5.5" rx="1.5" stroke="var(--text-dim)" stroke-width="1.2"/><path d="M6 7.5V5.5a2 2 0 014 0v2" stroke="var(--text-dim)" stroke-width="1.2" stroke-linecap="round"/></svg></div><div class="ml-info"><div class="ml-title" data-i18n="l1_4">1.4 — Preço vs Indicador</div><div class="ml-sub" data-i18n="sub_soon">Em breve</div></div></div>
+          <div class="modal-lesson" style="opacity:.4;cursor:default;"><div class="ml-icon ml-locked"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="4.5" y="7.5" width="7" height="5.5" rx="1.5" stroke="var(--text-dim)" stroke-width="1.2"/><path d="M6 7.5V5.5a2 2 0 014 0v2" stroke="var(--text-dim)" stroke-width="1.2" stroke-linecap="round"/></svg></div><div class="ml-info"><div class="ml-title" data-i18n="l1_5">1.5 — Estrutura de Mercado</div><div class="ml-sub" data-i18n="sub_soon">Em breve</div></div></div>
+          <div class="modal-lesson" style="opacity:.4;cursor:default;"><div class="ml-icon ml-locked"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="4.5" y="7.5" width="7" height="5.5" rx="1.5" stroke="var(--text-dim)" stroke-width="1.2"/><path d="M6 7.5V5.5a2 2 0 014 0v2" stroke="var(--text-dim)" stroke-width="1.2" stroke-linecap="round"/></svg></div><div class="ml-info"><div class="ml-title" data-i18n="l1_6">1.6 — Suporte e Resistência</div><div class="ml-sub" data-i18n="sub_soon">Em breve</div></div></div>
+          <div class="modal-lesson" style="opacity:.4;cursor:default;"><div class="ml-icon ml-locked"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="4.5" y="7.5" width="7" height="5.5" rx="1.5" stroke="var(--text-dim)" stroke-width="1.2"/><path d="M6 7.5V5.5a2 2 0 014 0v2" stroke="var(--text-dim)" stroke-width="1.2" stroke-linecap="round"/></svg></div><div class="ml-info"><div class="ml-title" data-i18n="l1_7">1.7 — Candlestick Útil</div><div class="ml-sub" data-i18n="sub_soon">Em breve</div></div></div>
+          <div class="modal-lesson" style="opacity:.4;cursor:default;"><div class="ml-icon ml-locked"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="4.5" y="7.5" width="7" height="5.5" rx="1.5" stroke="var(--text-dim)" stroke-width="1.2"/><path d="M6 7.5V5.5a2 2 0 014 0v2" stroke="var(--text-dim)" stroke-width="1.2" stroke-linecap="round"/></svg></div><div class="ml-info"><div class="ml-title" data-i18n="l1_8">1.8 — Timeframes</div><div class="ml-sub" data-i18n="sub_soon">Em breve</div></div></div>
+          <div class="modal-lesson" style="opacity:.4;cursor:default;"><div class="ml-icon ml-locked"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="4.5" y="7.5" width="7" height="5.5" rx="1.5" stroke="var(--text-dim)" stroke-width="1.2"/><path d="M6 7.5V5.5a2 2 0 014 0v2" stroke="var(--text-dim)" stroke-width="1.2" stroke-linecap="round"/></svg></div><div class="ml-info"><div class="ml-title" data-i18n="l1_9">1.9 — O que é Setup</div><div class="ml-sub" data-i18n="sub_soon">Em breve</div></div></div>
+          <div class="modal-lesson" style="opacity:.4;cursor:default;"><div class="ml-icon ml-locked"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="4.5" y="7.5" width="7" height="5.5" rx="1.5" stroke="var(--text-dim)" stroke-width="1.2"/><path d="M6 7.5V5.5a2 2 0 014 0v2" stroke="var(--text-dim)" stroke-width="1.2" stroke-linecap="round"/></svg></div><div class="ml-info"><div class="ml-title" data-i18n="l1_10">1.10 — Regra nº1</div><div class="ml-sub" data-i18n="sub_soon">Em breve</div></div></div>
+          <div class="modal-lesson" style="opacity:.4;cursor:default;"><div class="ml-icon ml-locked"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="4.5" y="7.5" width="7" height="5.5" rx="1.5" stroke="var(--text-dim)" stroke-width="1.2"/><path d="M6 7.5V5.5a2 2 0 014 0v2" stroke="var(--text-dim)" stroke-width="1.2" stroke-linecap="round"/></svg></div><div class="ml-info"><div class="ml-title" data-i18n="l1_11">1.11 — Horários de Mercado</div><div class="ml-sub" data-i18n="sub_soon">Em breve</div></div></div>
         </div>
       </div>
     </div>
@@ -1601,7 +1601,7 @@
         <button class="modal-close" onclick="closeModal('course-intermediario')">✕</button>
       </div>
       <div class="modal-body" style="grid-template-columns:1fr;">
-        <div class="modal-sidebar-title" style="margin-bottom:14px;">11 aulas · Em produção</div>
+        <div class="modal-sidebar-title" style="margin-bottom:14px;" data-i18n="modal_lessons_prod">11 aulas · Em produção</div>
         <div class="modal-lesson-list">
           <div class="modal-lesson" style="opacity:.4;cursor:default;"><div class="ml-icon ml-locked"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="4.5" y="7.5" width="7" height="5.5" rx="1.5" stroke="var(--text-dim)" stroke-width="1.2"/><path d="M6 7.5V5.5a2 2 0 014 0v2" stroke="var(--text-dim)" stroke-width="1.2" stroke-linecap="round"/></svg></div><div class="ml-info"><div class="ml-title">2.1 — Setup Principal</div><div class="ml-sub">Rompimento + pullback · Em breve</div></div></div>
           <div class="modal-lesson" style="opacity:.4;cursor:default;"><div class="ml-icon ml-locked"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="4.5" y="7.5" width="7" height="5.5" rx="1.5" stroke="var(--text-dim)" stroke-width="1.2"/><path d="M6 7.5V5.5a2 2 0 014 0v2" stroke="var(--text-dim)" stroke-width="1.2" stroke-linecap="round"/></svg></div><div class="ml-info"><div class="ml-title">2.2 — Entrada</div><div class="ml-sub">Critérios objetivos (zona + reação) · Em breve</div></div></div>
@@ -1776,14 +1776,14 @@
             </div>
             <div class="modal-lesson ml-active">
               <div class="ml-icon ml-active"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><polygon points="5.5,4.5 11.5,8 5.5,11.5" fill="var(--blue)"/></svg></div>
-              <div class="ml-info"><div class="ml-title">1.2 — Livro de Ofertas — O coração do mercado</div><div class="ml-sub">Em andamento</div></div>
+              <div class="ml-info"><div class="ml-title" data-i18n="l1_2">1.2 — Livro de Ofertas — O coração do mercado</div><div class="ml-sub" data-i18n="sub_in_progress">Em andamento</div></div>
             </div>
             <div class="modal-lesson" onclick="closeModal('modal-hmw'); openModal('modal-elliott')">
               <div class="ml-icon ml-locked"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="4.5" y="7.5" width="7" height="5.5" rx="1.5" stroke="var(--text-dim)" stroke-width="1.2"/><path d="M6 7.5V5.5a2 2 0 014 0v2" stroke="var(--text-dim)" stroke-width="1.2" stroke-linecap="round"/></svg></div>
-              <div class="ml-info"><div class="ml-title">1.3 — Ondas de Elliott</div><div class="ml-sub">PT disponível</div></div>
+              <div class="ml-info"><div class="ml-title">1.3 — Ondas de Elliott</div><div class="ml-sub" data-i18n="sub_pt_only">PT disponível</div></div>
             </div>
-            <div class="modal-lesson" style="opacity:.4;cursor:default;"><div class="ml-icon ml-locked"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="4.5" y="7.5" width="7" height="5.5" rx="1.5" stroke="var(--text-dim)" stroke-width="1.2"/><path d="M6 7.5V5.5a2 2 0 014 0v2" stroke="var(--text-dim)" stroke-width="1.2" stroke-linecap="round"/></svg></div><div class="ml-info"><div class="ml-title">1.4 — Preço vs Indicador</div><div class="ml-sub">Em breve</div></div></div>
-            <div class="modal-lesson" style="opacity:.4;cursor:default;"><div class="ml-icon ml-locked"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="4.5" y="7.5" width="7" height="5.5" rx="1.5" stroke="var(--text-dim)" stroke-width="1.2"/><path d="M6 7.5V5.5a2 2 0 014 0v2" stroke="var(--text-dim)" stroke-width="1.2" stroke-linecap="round"/></svg></div><div class="ml-info"><div class="ml-title">1.5 — Estrutura de Mercado</div><div class="ml-sub">Em breve</div></div></div>
+            <div class="modal-lesson" style="opacity:.4;cursor:default;"><div class="ml-icon ml-locked"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="4.5" y="7.5" width="7" height="5.5" rx="1.5" stroke="var(--text-dim)" stroke-width="1.2"/><path d="M6 7.5V5.5a2 2 0 014 0v2" stroke="var(--text-dim)" stroke-width="1.2" stroke-linecap="round"/></svg></div><div class="ml-info"><div class="ml-title" data-i18n="l1_4">1.4 — Preço vs Indicador</div><div class="ml-sub" data-i18n="sub_soon">Em breve</div></div></div>
+            <div class="modal-lesson" style="opacity:.4;cursor:default;"><div class="ml-icon ml-locked"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="4.5" y="7.5" width="7" height="5.5" rx="1.5" stroke="var(--text-dim)" stroke-width="1.2"/><path d="M6 7.5V5.5a2 2 0 014 0v2" stroke="var(--text-dim)" stroke-width="1.2" stroke-linecap="round"/></svg></div><div class="ml-info"><div class="ml-title" data-i18n="l1_5">1.5 — Estrutura de Mercado</div><div class="ml-sub" data-i18n="sub_soon">Em breve</div></div></div>
           </div>
         </div>
       </div>
@@ -1875,7 +1875,7 @@
               </div>
             </div>
             <div class="modal-video">
-              <iframe id="player-market"
+              <iframe id="player-market-modal"
                 src="https://www.youtube.com/embed/bzrMIYiUsZ8?rel=0&modestbranding=1"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 referrerpolicy="strict-origin-when-cross-origin"
@@ -1982,16 +1982,19 @@
     function updateModalPlayer(key) {
       const { lang, sub } = modalState[key];
       const id = modalVideos[key][lang];
-      document.getElementById(`player-${key}`).src = buildYTSrc(id, sub);
+      const src = buildYTSrc(id, sub);
+      const el = document.getElementById(`player-${key}`);
+      if (el) el.src = src;
+      const elModal = document.getElementById(`player-${key}-modal`);
+      if (elModal) elModal.src = src;
     }
 
     /* also update hero player-market when it exists */
     function updateHeroPlayer() {
-      const el = document.getElementById('player-market');
-      if (!el) return;
       const { lang, sub } = modalState['market'];
       const id = modalVideos['market'][lang];
-      el.src = buildYTSrc(id, sub);
+      const el = document.getElementById('player-market');
+      if (el) el.src = buildYTSrc(id, sub);
     }
 
     function switchModalLang(btn, key, lang) {
@@ -2026,6 +2029,25 @@
         course3_title: 'Curso Avançado', course3_desc: 'Domine a gestão de risco, psicologia do trader e aprenda a tomar decisões sob pressão com consistência.',
         course4_title: 'Curso Profissional', course4_desc: 'Opere como um profissional — liquidez, execução sob pressão, plano de trade e rotina de alto desempenho.',
         course5_title: 'Indicadores', course5_desc: 'Entenda como usar indicadores de forma correta — sem ruído, com contexto e integrados ao price action.',
+        modal_basico_tag: '// Nível 1 · Análise Técnica',
+        modal_basico_title: 'Fundamentos do Trading',
+        modal_lessons_click: '11 aulas · Clique para assistir',
+        modal_lessons_prod: '11 aulas · Em produção',
+        sub_in_progress: 'Em andamento',
+        sub_pt_en: 'PT / EN disponível',
+        sub_pt_only: 'PT disponível',
+        sub_soon: 'Em breve',
+        l1_1: '1.1 — Mercado Futuro: Onde o Daytrade Ganha Forma',
+        l1_2: '1.2 — Livro de Ofertas — O coração do mercado',
+        l1_3: '1.3 — Ondas de Elliott com IA',
+        l1_4: '1.4 — Preço vs Indicador',
+        l1_5: '1.5 — Estrutura de Mercado',
+        l1_6: '1.6 — Suporte e Resistência',
+        l1_7: '1.7 — Candlestick Útil',
+        l1_8: '1.8 — Timeframes',
+        l1_9: '1.9 — O que é Setup',
+        l1_10: '1.10 — Regra nº1',
+        l1_11: '1.11 — Horários de Mercado',
       },
       en: {
         nav_courses: 'Courses',
@@ -2041,6 +2063,25 @@
         course3_title: 'Advanced Course', course3_desc: 'Master risk management, trader psychology and learn to make decisions under pressure with consistency.',
         course4_title: 'Professional Course', course4_desc: 'Operate like a professional — liquidity, execution under pressure, trade plan and high performance routine.',
         course5_title: 'Indicators', course5_desc: 'Understand how to use indicators correctly — without noise, with context and integrated with price action.',
+        modal_basico_tag: '// Level 1 · Technical Analysis',
+        modal_basico_title: 'Trading Fundamentals',
+        modal_lessons_click: '11 lessons · Click to watch',
+        modal_lessons_prod: '11 lessons · In production',
+        sub_in_progress: 'In progress',
+        sub_pt_en: 'PT / EN available',
+        sub_pt_only: 'PT available',
+        sub_soon: 'Coming soon',
+        l1_1: '1.1 — Futures Market: Where Daytrading Takes Shape',
+        l1_2: '1.2 — Order Book — The Heart of the Market',
+        l1_3: '1.3 — Elliott Waves with AI',
+        l1_4: '1.4 — Price vs Indicator',
+        l1_5: '1.5 — Market Structure',
+        l1_6: '1.6 — Support and Resistance',
+        l1_7: '1.7 — Useful Candlestick',
+        l1_8: '1.8 — Timeframes',
+        l1_9: '1.9 — What is a Setup',
+        l1_10: '1.10 — Rule #1',
+        l1_11: '1.11 — Market Hours',
       },
       es: {
         nav_courses: 'Cursos',
@@ -2056,7 +2097,32 @@
         course3_title: 'Curso Avanzado', course3_desc: 'Domina la gestión de riesgo, psicología del trader y aprende a tomar decisiones bajo presión con consistencia.',
         course4_title: 'Curso Profesional', course4_desc: 'Opera como un profesional — liquidez, ejecución bajo presión, plan de trading y rutina de alto rendimiento.',
         course5_title: 'Indicadores', course5_desc: 'Entiende cómo usar los indicadores correctamente — sin ruido, con contexto e integrados al price action.',
+        modal_basico_tag: '// Nivel 1 · Análisis Técnico',
+        modal_basico_title: 'Fundamentos del Trading',
+        modal_lessons_click: '11 clases · Haz clic para ver',
+        modal_lessons_prod: '11 clases · En producción',
+        sub_in_progress: 'En curso',
+        sub_pt_en: 'PT / EN disponible',
+        sub_pt_only: 'PT disponible',
+        sub_soon: 'Próximamente',
+        l1_1: '1.1 — Mercado de Futuros: Donde el Daytrade Toma Forma',
+        l1_2: '1.2 — Libro de Órdenes — El corazón del mercado',
+        l1_3: '1.3 — Ondas de Elliott con IA',
+        l1_4: '1.4 — Precio vs Indicador',
+        l1_5: '1.5 — Estructura de Mercado',
+        l1_6: '1.6 — Soporte y Resistencia',
+        l1_7: '1.7 — Candlestick Útil',
+        l1_8: '1.8 — Temporalidades',
+        l1_9: '1.9 — Qué es un Setup',
+        l1_10: '1.10 — Regla nº1',
+        l1_11: '1.11 — Horarios del Mercado',
       }
+    };
+
+    const heroTitles = {
+      pt: 'Aprenda a operar<br>com <span id="hero-title-span" style="color:var(--teal)">consistência</span>',
+      en: 'Learn to trade<br>with <span id="hero-title-span" style="color:var(--teal)">consistency</span>',
+      es: 'Aprende a operar<br>con <span id="hero-title-span" style="color:var(--teal)">consistencia</span>',
     };
 
     function setLang(lang) {
@@ -2064,10 +2130,18 @@
         b.classList.toggle('active', b.textContent.toLowerCase() === lang);
       });
       const t = translations[lang];
+
+      // Hero title special case
+      const titleEl = document.getElementById('hero-title-el');
+      if (titleEl) titleEl.innerHTML = heroTitles[lang];
+
+      // All other data-i18n elements
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (t[key] !== undefined) el.textContent = t[key];
       });
+
+      // Placeholders
       document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
         const key = el.getAttribute('data-i18n-placeholder');
         if (t[key]) el.placeholder = t[key];
