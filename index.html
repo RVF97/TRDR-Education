@@ -1127,21 +1127,22 @@
       .lang-selector { display: flex; }
       .lang-btn { padding: 3px 7px; font-size: 10px; }
 
-      /* Fix modal close button on mobile */
-      .modal-close {
-        position: sticky;
-        top: 0.5rem;
-        flex-shrink: 0;
-        align-self: flex-start;
-        z-index: 10;
-      }
+      /* Fix lesson titles wrapping */
+      .lesson-title { white-space: normal; overflow: visible; text-overflow: unset; }
+      .ml-title { white-space: normal; overflow: visible; text-overflow: unset; }
 
-      .modal-header {
-        padding: 1rem 1.25rem;
-        position: sticky;
-        top: 0;
-        background: var(--bg-card);
-        z-index: 10;
+      /* Fix modal close — large touch target at top right */
+      .modal-close {
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: var(--bg-hover);
+        border: 1px solid var(--border-md);
+        font-size: 20px;
+        z-index: 300;
       }
     }
     .ticker-strip {
