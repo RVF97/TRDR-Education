@@ -1436,13 +1436,13 @@
       <div class="course-card" data-cat="Análise Técnica" style="animation-delay:0.05s" onclick="openModal('course-basico')">
         <div class="card-thumb thumb-teal" style="background-image:url('https://rvf97.github.io/TRDR-Education/Basico.jpg');background-size:cover;background-position:center;">
           <span class="thumb-glyph">01</span>
-          <span class="badge-level lvl-i">Básico</span>
+          <span class="badge-level lvl-i" data-i18n="badge_basic">Básico</span>
         </div>
         <div class="card-body">
           <div class="card-title" data-i18n="course1_title">Curso Básico</div>
           <div class="card-meta">
             <span>9 aulas</span><span class="dot"></span>
-            <span>Preço, estrutura, setup</span>
+            <span data-i18n="meta1">Preço, estrutura, setup</span>
           </div>
           <div class="card-desc" data-i18n="course1_desc">Comece por aqui para entender os pontos-chave do mercado financeiro e iniciar suas operações com o pé direito.</div>
           <div class="card-footer">
@@ -1458,13 +1458,13 @@
       <div class="course-card" data-cat="Análise Técnica" style="animation-delay:0.10s" onclick="openModal('course-intermediario')">
         <div class="card-thumb thumb-blue" style="background-image:url('https://rvf97.github.io/TRDR-Education/Intermediario.jpg');background-size:cover;background-position:center;">
           <span class="thumb-glyph">02</span>
-          <span class="badge-level lvl-m">Intermediário</span>
+          <span class="badge-level lvl-m" data-i18n="badge_inter">Intermediário</span>
         </div>
         <div class="card-body">
           <div class="card-title" data-i18n="course2_title">Curso Intermediário</div>
           <div class="card-meta">
             <span>11 aulas</span><span class="dot"></span>
-            <span>Execução prática</span>
+            <span data-i18n="meta2">Execução prática</span>
           </div>
           <div class="card-desc" data-i18n="course2_desc">Refine sua leitura de mercado com dados, técnicas de leitura e estratégias.</div>
           <div class="card-footer">
@@ -1480,13 +1480,13 @@
       <div class="course-card" data-cat="Gestão de Risco" style="animation-delay:0.15s" onclick="openModal('course-avancado')">
         <div class="card-thumb thumb-amber" style="background-image:url('https://rvf97.github.io/TRDR-Education/Avan%C3%A7ado.jpg');background-size:cover;background-position:center;">
           <span class="thumb-glyph">03</span>
-          <span class="badge-level lvl-a">Avançado</span>
+          <span class="badge-level lvl-a" data-i18n="badge_adv">Avançado</span>
         </div>
         <div class="card-body">
           <div class="card-title" data-i18n="course3_title">Curso Avançado</div>
           <div class="card-meta">
             <span>14 aulas</span><span class="dot"></span>
-            <span>Mente e banca</span>
+            <span data-i18n="meta3">Mente e banca</span>
           </div>
           <div class="card-desc" data-i18n="course3_desc">Domine a gestão de risco, psicologia do trader e aprenda a tomar decisões sob pressão com consistência.</div>
           <div class="card-footer">
@@ -1502,14 +1502,14 @@
       <div class="course-card" data-cat="Day Trade" style="animation-delay:0.20s" onclick="openModal('course-profissional')">
         <div class="card-thumb thumb-coral" style="background-image:url('https://rvf97.github.io/TRDR-Education/Profissional.jpg');background-size:cover;background-position:center;">
           <span class="thumb-glyph">04</span>
-          <span class="badge-level lvl-a">Profissional</span>
+          <span class="badge-level lvl-a" data-i18n="badge_pro">Profissional</span>
           <span class="badge-new">Top</span>
         </div>
         <div class="card-body">
           <div class="card-title" data-i18n="course4_title">Curso Profissional</div>
           <div class="card-meta">
             <span>20 aulas</span><span class="dot"></span>
-            <span>Nível institucional</span>
+            <span data-i18n="meta4">Nível institucional</span>
           </div>
           <div class="card-desc" data-i18n="course4_desc">Opere como um profissional — liquidez, execução sob pressão, plano de trade e rotina de alto desempenho.</div>
           <div class="card-footer">
@@ -1525,13 +1525,13 @@
       <div class="course-card" data-cat="Análise Técnica" style="animation-delay:0.25s" onclick="openModal('course-indicadores')">
         <div class="card-thumb thumb-purple" style="background-image:url('https://rvf97.github.io/TRDR-Education/Indicadores.jpg');background-size:cover;background-position:center;">
           <span class="thumb-glyph">05</span>
-          <span class="badge-level lvl-m">Intermediário</span>
+          <span class="badge-level lvl-m" data-i18n="badge_inter">Intermediário</span>
         </div>
         <div class="card-body">
           <div class="card-title" data-i18n="course5_title">Indicadores</div>
           <div class="card-meta">
             <span>20 aulas</span><span class="dot"></span>
-            <span>EMA, RSI, VWAP, Fibonacci</span>
+            <span data-i18n="meta5">EMA, RSI, VWAP, Fibonacci</span>
           </div>
           <div class="card-desc" data-i18n="course5_desc">Entenda como usar indicadores de forma correta — sem ruído, com contexto e integrados ao price action.</div>
           <div class="card-footer">
@@ -2048,6 +2048,8 @@
         l1_9: '1.9 — O que é Setup',
         l1_10: '1.10 — Regra nº1',
         l1_11: '1.11 — Horários de Mercado',
+        badge_basic: 'Básico', badge_inter: 'Intermediário', badge_adv: 'Avançado', badge_pro: 'Profissional',
+        meta1: 'Preço, estrutura, setup', meta2: 'Execução prática', meta3: 'Mente e banca', meta4: 'Nível institucional', meta5: 'EMA, RSI, VWAP, Fibonacci',
       },
       en: {
         nav_courses: 'Courses',
@@ -2082,6 +2084,8 @@
         l1_9: '1.9 — What is a Setup',
         l1_10: '1.10 — Rule #1',
         l1_11: '1.11 — Market Hours',
+        badge_basic: 'Basic', badge_inter: 'Intermediate', badge_adv: 'Advanced', badge_pro: 'Professional',
+        meta1: 'Price, structure, setup', meta2: 'Practical execution', meta3: 'Mind and capital', meta4: 'Institutional level', meta5: 'EMA, RSI, VWAP, Fibonacci',
       },
       es: {
         nav_courses: 'Cursos',
@@ -2116,6 +2120,8 @@
         l1_9: '1.9 — Qué es un Setup',
         l1_10: '1.10 — Regla nº1',
         l1_11: '1.11 — Horarios del Mercado',
+        badge_basic: 'Básico', badge_inter: 'Intermedio', badge_adv: 'Avanzado', badge_pro: 'Profesional',
+        meta1: 'Precio, estructura, setup', meta2: 'Ejecución práctica', meta3: 'Mente y capital', meta4: 'Nivel institucional', meta5: 'EMA, RSI, VWAP, Fibonacci',
       }
     };
 
