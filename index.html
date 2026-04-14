@@ -678,7 +678,34 @@
       margin-bottom: 14px;
     }
 
-    /* Carousel arrows */
+    /* Carousel dots indicator */
+    .carousel-dots {
+      display: none;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+      margin-top: 14px;
+    }
+    .carousel-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--border-md);
+      transition: background 0.2s, width 0.2s;
+    }
+    .carousel-dot.active {
+      background: var(--teal);
+      width: 18px;
+      border-radius: 3px;
+    }
+    .carousel-hint {
+      display: none;
+      text-align: center;
+      font-size: 11px;
+      color: var(--text-dim);
+      font-family: var(--font-mono);
+      letter-spacing: 0.05em;
+      margin-top: 8px;
+    }
     .carousel-btn {
       position: absolute;
       top: 50%;
@@ -1283,7 +1310,7 @@
       }
       .hero-title { font-size: 64px; }
       .hero-eyebrow { font-size: 14px; }
-      .hero-desc { font-size: 13px !important; color: #C8CDD8; }
+      .hero-desc { font-size: 15px !important; color: #C8CDD8; }
       .hero-stats { gap: 1.5rem; }
       .stat-num { font-size: 22px; }
       .stat-label { font-size: 11px; }
@@ -1292,6 +1319,7 @@
       .hero-player-wrap {
         display: block !important;
         width: 100%;
+        margin-top: -1rem;
       }
 
       .hero-player-label { font-size: 11px; }
@@ -1326,6 +1354,8 @@
         scroll-snap-stop: always;
       }
       .carousel-btn { display: none; }
+      .carousel-dots { display: flex; }
+      .carousel-hint { display: block; }
 
       /* Course cards — touch friendly */
       .course-card { cursor: pointer; }
@@ -1462,24 +1492,6 @@
         Do básico ao avançado — análise técnica, gestão de risco, renda variável e muito mais.
         Aulas práticas desenvolvidas por traders profissionais para resultados reais.
       </p>
-      <div class="hero-stats">
-        <div class="stat">
-          <span class="stat-num">48</span>
-          <span class="stat-label" data-i18n="stat_courses">cursos ativos</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num">312</span>
-          <span class="stat-label" data-i18n="stat_lessons">aulas gravadas</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num">9.4k</span>
-          <span class="stat-label" data-i18n="stat_students">alunos</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num">98%</span>
-          <span class="stat-label" data-i18n="stat_approval">aprovação</span>
-        </div>
-      </div>
     </div>
 
     <!-- Hero player -->
@@ -1520,7 +1532,9 @@
         <!-- gerado automaticamente por cursos.js -->
       </div>
       <button class="carousel-btn next" onclick="scrollCarousel(1)">›</button>
-    </div><!-- /courses-grid-wrap -->
+    </div>
+    <div class="carousel-dots" id="carouselDots"></div>
+    <p class="carousel-hint">deslize para ver mais ›</p>
 
   </div><!-- /main -->
 
@@ -1739,6 +1753,24 @@
       const card = grid?.querySelector('.course-card');
       const amount = card ? (card.offsetWidth + 16) * dir : 300 * dir;
       grid?.scrollBy({ left: amount, behavior: 'smooth' });
+    }
+
+    function buildDots() {
+      const dots = document.getElementById('carouselDots');
+      const grid = document.getElementById('coursesGrid');
+      if (!dots || !grid) return;
+      const count = grid.querySelectorAll('.course-card').length;
+      dots.innerHTML = Array.from({ length: count }, (_, i) =>
+        `<div class="carousel-dot ${i === 0 ? 'active' : ''}" data-i="${i}"></div>`
+      ).join('');
+      grid.addEventListener('scroll', () => {
+        const card = grid.querySelector('.course-card');
+        if (!card) return;
+        const idx = Math.round(grid.scrollLeft / (card.offsetWidth + 12));
+        dots.querySelectorAll('.carousel-dot').forEach((d, i) =>
+          d.classList.toggle('active', i === idx)
+        );
+      }, { passive: true });
     }
 
     function filterCat(el, cat) {
@@ -2002,10 +2034,11 @@
 
       // Re-render courses and modals in new language
       renderAll();
+      buildDots();
     }
 
     // Initialize on page load
-    document.addEventListener('DOMContentLoaded', () => renderAll());
+    document.addEventListener('DOMContentLoaded', () => { renderAll(); buildDots(); });
   </script>
 
   <!-- ─── MOBILE BOTTOM NAV ─── -->
