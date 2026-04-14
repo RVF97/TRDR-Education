@@ -1281,12 +1281,12 @@
         padding: 1.5rem 1rem 1.25rem;
         grid-template-columns: 1fr;
       }
-      .hero-title { font-size: 38px; }
-      .hero-eyebrow { font-size: 12px; }
-      .hero-desc { font-size: 15px; }
+      .hero-title { font-size: 46px; }
+      .hero-eyebrow { font-size: 13px; }
+      .hero-desc { font-size: 16px; }
       .hero-stats { gap: 1.5rem; }
-      .stat-num { font-size: 26px; }
-      .stat-label { font-size: 12px; }
+      .stat-num { font-size: 30px; }
+      .stat-label { font-size: 13px; }
 
       /* Show player below hero content on mobile */
       .hero-player-wrap {
@@ -1313,8 +1313,18 @@
       .categories-row::-webkit-scrollbar { display: none; }
       .cat-chip { flex-shrink: 0; }
 
-      /* Courses carousel — 1 card on mobile */
-      .course-card { flex: 0 0 85vw; min-width: unset; }
+      /* Carousel — 1 card at a time, centered */
+      .courses-grid {
+        scroll-snap-type: x mandatory;
+        padding: 0 1rem;
+        gap: 12px;
+      }
+      .course-card {
+        flex: 0 0 88vw;
+        min-width: unset;
+        scroll-snap-align: center;
+        scroll-snap-stop: always;
+      }
       .carousel-btn { display: none; }
 
       /* Course cards — touch friendly */
