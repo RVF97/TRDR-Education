@@ -1441,36 +1441,67 @@
 
   <!-- ─── TICKER ─── -->
   <div class="ticker-strip">
-    <div class="ticker-inner">
-      <div class="ticker-item"><span class="ticker-sym">DXY</span> <span class="ticker-dn">▼ 0.31%</span> 104.21</div>
-      <div class="ticker-item"><span class="ticker-sym">NASDAQ</span> <span class="ticker-up">▲ 0.84%</span> 17.842</div>
-      <div class="ticker-item"><span class="ticker-sym">SP500</span> <span class="ticker-up">▲ 0.52%</span> 5.234</div>
-      <div class="ticker-item"><span class="ticker-sym">DOW JONES</span> <span class="ticker-up">▲ 0.38%</span> 38.906</div>
-      <div class="ticker-item"><span class="ticker-sym">BITCOIN</span> <span class="ticker-up">▲ 1.24%</span> $83.420</div>
-      <div class="ticker-item"><span class="ticker-sym">BRENT</span> <span class="ticker-dn">▼ 0.67%</span> $84.12</div>
-      <div class="ticker-item"><span class="ticker-sym">WTI</span> <span class="ticker-dn">▼ 0.54%</span> $80.47</div>
-      <div class="ticker-item"><span class="ticker-sym">VIX</span> <span class="ticker-up">▲ 2.10%</span> 15.82</div>
-      <div class="ticker-item"><span class="ticker-sym">GOLD</span> <span class="ticker-up">▲ 0.43%</span> $2.318</div>
-      <div class="ticker-item"><span class="ticker-sym">SILVER</span> <span class="ticker-dn">▼ 0.22%</span> $27.14</div>
-      <div class="ticker-item"><span class="ticker-sym">ETHEREUM</span> <span class="ticker-up">▲ 0.91%</span> $3.124</div>
-      <div class="ticker-item"><span class="ticker-sym">IBOV</span> <span class="ticker-up">▲ 1.03%</span> 129.450</div>
-      <div class="ticker-item"><span class="ticker-sym">EWZ</span> <span class="ticker-up">▲ 0.76%</span> $31.48</div>
-      <!-- duplicate for seamless loop -->
-      <div class="ticker-item"><span class="ticker-sym">DXY</span> <span class="ticker-dn">▼ 0.31%</span> 104.21</div>
-      <div class="ticker-item"><span class="ticker-sym">NASDAQ</span> <span class="ticker-up">▲ 0.84%</span> 17.842</div>
-      <div class="ticker-item"><span class="ticker-sym">SP500</span> <span class="ticker-up">▲ 0.52%</span> 5.234</div>
-      <div class="ticker-item"><span class="ticker-sym">DOW JONES</span> <span class="ticker-up">▲ 0.38%</span> 38.906</div>
-      <div class="ticker-item"><span class="ticker-sym">BITCOIN</span> <span class="ticker-up">▲ 1.24%</span> $83.420</div>
-      <div class="ticker-item"><span class="ticker-sym">BRENT</span> <span class="ticker-dn">▼ 0.67%</span> $84.12</div>
-      <div class="ticker-item"><span class="ticker-sym">WTI</span> <span class="ticker-dn">▼ 0.54%</span> $80.47</div>
-      <div class="ticker-item"><span class="ticker-sym">VIX</span> <span class="ticker-up">▲ 2.10%</span> 15.82</div>
-      <div class="ticker-item"><span class="ticker-sym">GOLD</span> <span class="ticker-up">▲ 0.43%</span> $2.318</div>
-      <div class="ticker-item"><span class="ticker-sym">SILVER</span> <span class="ticker-dn">▼ 0.22%</span> $27.14</div>
-      <div class="ticker-item"><span class="ticker-sym">ETHEREUM</span> <span class="ticker-up">▲ 0.91%</span> $3.124</div>
-      <div class="ticker-item"><span class="ticker-sym">IBOV</span> <span class="ticker-up">▲ 1.03%</span> 129.450</div>
-      <div class="ticker-item"><span class="ticker-sym">EWZ</span> <span class="ticker-up">▲ 0.76%</span> $31.48</div>
+    <div class="ticker-inner" id="tickerInner">
+      <div class="ticker-item"><span class="ticker-sym">Carregando...</span></div>
     </div>
   </div>
+
+  <script>
+    const TICKER_SYMBOLS = [
+      { sym: 'DXY',       yahoo: 'DX-Y.NYB',  prefix: '' },
+      { sym: 'NASDAQ',    yahoo: '^IXIC',      prefix: '' },
+      { sym: 'SP500',     yahoo: '^GSPC',      prefix: '' },
+      { sym: 'DOW JONES', yahoo: '^DJI',       prefix: '' },
+      { sym: 'BITCOIN',   yahoo: 'BTC-USD',    prefix: '$' },
+      { sym: 'BRENT',     yahoo: 'BZ=F',       prefix: '$' },
+      { sym: 'WTI',       yahoo: 'CL=F',       prefix: '$' },
+      { sym: 'VIX',       yahoo: '^VIX',       prefix: '' },
+      { sym: 'GOLD',      yahoo: 'GC=F',       prefix: '$' },
+      { sym: 'SILVER',    yahoo: 'SI=F',       prefix: '$' },
+      { sym: 'ETHEREUM',  yahoo: 'ETH-USD',    prefix: '$' },
+      { sym: 'IBOV',      yahoo: '^BVSP',      prefix: '' },
+      { sym: 'EWZ',       yahoo: 'EWZ',        prefix: '$' },
+    ];
+
+    async function fetchTicker() {
+      const symbols = TICKER_SYMBOLS.map(s => s.yahoo).join(',');
+      const url = `https://query1.finance.yahoo.com/v7/finance/quote?symbols=${symbols}&fields=regularMarketPrice,regularMarketChangePercent`;
+
+      try {
+        const res = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`);
+        const data = await res.json();
+        const parsed = JSON.parse(data.contents);
+        const quotes = parsed?.quoteResponse?.result || [];
+
+        if (!quotes.length) throw new Error('no data');
+
+        const inner = document.getElementById('tickerInner');
+        let html = '';
+
+        quotes.forEach(q => {
+          const meta = TICKER_SYMBOLS.find(s => s.yahoo === q.symbol);
+          if (!meta) return;
+          const price = q.regularMarketPrice;
+          const pct = q.regularMarketChangePercent;
+          const up = pct >= 0;
+          const pctStr = (up ? '▲ ' : '▼ ') + Math.abs(pct).toFixed(2) + '%';
+          const priceStr = meta.prefix + (price >= 1000 ? price.toLocaleString('en-US', {maximumFractionDigits: 0}) : price.toFixed(2));
+          const cls = up ? 'ticker-up' : 'ticker-dn';
+          html += `<div class="ticker-item"><span class="ticker-sym">${meta.sym}</span> <span class="${cls}">${pctStr}</span> ${priceStr}</div>`;
+        });
+
+        // Duplicate for seamless loop
+        inner.innerHTML = html + html;
+
+      } catch(e) {
+        console.warn('Ticker fetch failed:', e);
+        // Keep static fallback silently
+      }
+    }
+
+    fetchTicker();
+    setInterval(fetchTicker, 60000); // Atualiza a cada 60s
+  </script>
 
   <!-- ─── HERO ─── -->
   <section class="hero">
