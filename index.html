@@ -1453,6 +1453,8 @@
         <div class="hero-player-video">
           <iframe id="player-market"
             src="https://www.youtube.com/embed/zuqn8kgmeqQ?rel=0&modestbranding=1"
+            data-video-pt="zuqn8kgmeqQ"
+            data-video-en="a0Pr8xmZkQI"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen>
@@ -1663,8 +1665,12 @@
       if (heroAula) {
         const heroIframe = document.getElementById('player-market');
         const videoLang = lang === 'en' ? 'en' : 'pt';
-        const vid = videoLang === 'en' && heroAula.video_en ? heroAula.video_en : heroAula.video_pt;
-        if (heroIframe) heroIframe.src = `https://www.youtube.com/embed/${vid}?rel=0&modestbranding=1`;
+        if (heroIframe) {
+          const vid = videoLang === 'en'
+            ? (heroIframe.dataset.videoEn || heroIframe.dataset.videoPt)
+            : heroIframe.dataset.videoPt;
+          heroIframe.src = `https://www.youtube.com/embed/${vid}?rel=0&modestbranding=1`;
+        }
 
         // Sync hero PT/EN buttons
         document.querySelectorAll('.hero-player-controls .fv-ctrl-btn').forEach(btn => {
