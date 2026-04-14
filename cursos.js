@@ -47,10 +47,10 @@ const TRDR_CURSOS = [
       },
       {
         numero: '1.3',
-        titulo: { pt: 'Ondas de Elliott com IA', en: 'Elliott Waves with AI', es: 'Ondas de Elliott con IA' },
-        descricao: { pt: 'Entenda como identificar e operar utilizando a teoria das Ondas de Elliott — um dos métodos mais sofisticados de análise técnica, aplicado com inteligência artificial.', en: 'Learn how to identify and trade using Elliott Wave theory — one of the most sophisticated technical analysis methods, applied with artificial intelligence.', es: 'Aprende a identificar y operar usando la teoría de las Ondas de Elliott con inteligencia artificial.' },
-        video_pt: 'bzrMIYiUsZ8', // Substitua pelo ID correto quando disponível
-        video_en: 'bzrMIYiUsZ8',
+        titulo: { pt: 'Candlesticks — Como Eles Funcionam', en: 'Candlesticks — How They Work', es: 'Candlesticks — Cómo Funcionan' },
+        descricao: { pt: 'Entenda como ler e interpretar os candlesticks — a linguagem visual do mercado financeiro.', en: 'Understand how to read and interpret candlesticks — the visual language of the financial market.', es: 'Entiende cómo leer e interpretar los candlesticks — el lenguaje visual del mercado financiero.' },
+        video_pt: 'YgAb9wjsgeo',
+        video_en: 'HIWHoiELIR0',
         status: 'ativo'
       },
       {
