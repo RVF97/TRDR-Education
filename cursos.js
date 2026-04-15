@@ -55,11 +55,11 @@ const TRDR_CURSOS = [
       },
       {
         numero: '1.4',
-        titulo: { pt: 'Preço vs Indicador', en: 'Price vs Indicator', es: 'Precio vs Indicador' },
-        descricao: { pt: 'Indicadores são derivativos do preço.', en: 'Indicators are price derivatives.', es: 'Los indicadores son derivados del precio.' },
-        video_pt: '',
-        video_en: '',
-        status: 'em_breve'
+        titulo: { pt: 'Teoria das Ondas de Elliott', en: 'Elliott Waves Theory', es: 'Teoría de las ondas de Elliott' },
+        descricao: { pt: 'Entenda como a psicologia coletiva se reflete no gráfico.', en: 'Understand how collective psychology is reflected in the chart.', es: 'Comprenda cómo se refleja la psicología colectiva en el gráfico.' },
+        video_pt: 'VFzVViNerFc',
+        video_en: 'IF7Hs_uv4Sw',
+        status: 'ativo'
       },
       {
         numero: '1.5',
