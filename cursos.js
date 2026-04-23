@@ -55,8 +55,8 @@ const TRDR_CURSOS = [
       },
       {
         numero: '1.4',
-        titulo: { pt: 'Preço vs Indicador', en: 'Price vs Indicator', es: 'Precio vs Indicador' },
-        descricao: { pt: 'Indicadores são derivativos do preço.', en: 'Indicators are price derivatives.', es: 'Los indicadores son derivados del precio.' },
+        titulo: { pt: 'Teoria das Ondas de Elliott', en: 'Elliott Wave Theory', es: 'Teoría de las Ondas de Elliott' },
+        descricao: { pt: 'Entenda como identificar e operar utilizando a teoria das Ondas de Elliott com inteligência artificial para identificação automática de padrões.', en: 'Learn how to identify and trade using Elliott Wave theory with artificial intelligence for automatic pattern identification.', es: 'Aprende a identificar y operar usando la teoría de las Ondas de Elliott con inteligencia artificial.' },
         video_pt: 'VFzVViNerFc',
         video_en: 'IF7Hs_uv4Sw',
         status: 'ativo'
@@ -71,11 +71,11 @@ const TRDR_CURSOS = [
       },
       {
         numero: '1.6',
-        titulo: { pt: 'Suporte e Resistência', en: 'Support and Resistance', es: 'Soporte y Resistencia' },
-        descricao: { pt: 'Zonas, não linhas, reação de preço.', en: 'Zones, not lines, price reaction.', es: 'Zonas, no líneas, reacción del precio.' },
-        video_pt: '',
-        video_en: '',
-        status: 'em_breve'
+        titulo: { pt: 'Preço vs Indicador', en: 'Price vs Indicator', es: 'Precio vs Indicador' },
+        descricao: { pt: 'Indicadores são derivativos do preço.', en: 'Indicators are price derivatives.', es: 'Los indicadores son derivados del precio.' },
+        video_pt: 'VFzVViNerFc',
+        video_en: 'IF7Hs_uv4Sw',
+        status: 'ativo'
       },
       {
         numero: '1.7',
