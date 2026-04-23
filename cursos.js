@@ -75,7 +75,7 @@ const TRDR_CURSOS = [
         descricao: { pt: 'Indicadores são derivativos do preço.', en: 'Indicators are price derivatives.', es: 'Los indicadores son derivados del precio.' },
         video_pt: 'VFzVViNerFc',
         video_en: 'IF7Hs_uv4Sw',
-        status: 'ativo'
+        status: 'em_breve'
       },
       {
         numero: '1.7',
