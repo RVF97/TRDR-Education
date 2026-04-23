@@ -73,8 +73,8 @@ const TRDR_CURSOS = [
         numero: '1.6',
         titulo: { pt: 'Preço vs Indicador', en: 'Price vs Indicator', es: 'Precio vs Indicador' },
         descricao: { pt: 'Indicadores são derivativos do preço.', en: 'Indicators are price derivatives.', es: 'Los indicadores son derivados del precio.' },
-        video_pt: 'VFzVViNerFc',
-        video_en: 'IF7Hs_uv4Sw',
+        video_pt: '',
+        video_en: '',
         status: 'em_breve'
       },
       {
