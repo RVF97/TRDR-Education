@@ -1,220 +1,2070 @@
-// ============================================================
-//  TRDR EDUCATION — ARQUIVO DE CONTEÚDO
-//  
-//  Como adicionar uma nova aula:
-//  1. Copie um bloco { } existente
-//  2. Cole dentro do array "aulas" do curso correto
-//  3. Preencha os campos
-//  4. Salve e suba no GitHub
-//
-//  Status disponíveis: "ativo" | "em_breve"
-//  Se não tiver versão EN, repita o mesmo ID do PT
-// ============================================================
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <title>TRDR Education</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=IBM+Plex+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@800&family=Bebas+Neue&display=swap" rel="stylesheet" />
 
-const TRDR_CURSOS = [
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  // ─────────────────────────────────────────
-  //  CURSO 1 — BÁSICO
-  // ─────────────────────────────────────────
-  {
-    id: 'basico',
-    nivel: { pt: 'Básico', en: 'Basic', es: 'Básico' },
-    titulo: { pt: 'Curso Básico', en: 'Basic Course', es: 'Curso Básico' },
-    descricao: {
-      pt: 'Comece por aqui para entender os pontos-chave do mercado financeiro e iniciar suas operações com o pé direito.',
-      en: 'Start here to understand the key points of the financial market and begin your trading journey on the right foot.',
-      es: 'Empieza aquí para entender los puntos clave del mercado financiero e iniciar tus operaciones con el pie derecho.'
-    },
-    badge_class: 'lvl-i',
-    imagem: 'Basico.jpg',
-    aulas: [
-      {
-        numero: '1.1',
-        titulo: { pt: 'Mercado Futuro: Onde o Daytrade Ganha Forma', en: 'Futures Market: Where Daytrading Takes Shape', es: 'Mercado de Futuros: Donde el Daytrade Toma Forma' },
-        descricao: { pt: 'Entenda como funciona o mercado futuro — o ambiente onde o daytrade acontece de verdade. Contratos, liquidez, horários e como os grandes players movimentam o mercado.', en: 'Understand how the futures market works — the environment where daytrading actually happens. Contracts, liquidity, hours and how major players move the market.', es: 'Entiende cómo funciona el mercado de futuros. Contratos, liquidez, horarios y cómo los grandes jugadores mueven el mercado.' },
-        video_pt: 'bzrMIYiUsZ8',
-        video_en: 'Ke2I238xLuI',
-        status: 'ativo',
-        destaque_hero: true
-      },
-      {
-        numero: '1.2',
-        titulo: { pt: 'Livro de Ofertas — O coração do mercado', en: 'Order Book — The Heart of the Market', es: 'Libro de Órdenes — El corazón del mercado' },
-        descricao: { pt: 'Entenda como os mercados financeiros funcionam na prática — da formação de preços à dinâmica entre compradores e vendedores, liquidez e microestrutura de mercado.', en: 'Understand how financial markets work in practice — from price formation to the dynamics between buyers and sellers, liquidity and market microstructure.', es: 'Entiende cómo funcionan los mercados financieros en la práctica — desde la formación de precios hasta la dinámica entre compradores y vendedores.' },
-        video_pt: 'hM62wuvXH9g',
-        video_en: 'l4sZOE_L3J8',
-        status: 'ativo'
-      },
-      {
-        numero: '1.3',
-        titulo: { pt: 'Candlesticks — Como Eles Funcionam', en: 'Candlesticks — How They Work', es: 'Candlesticks — Cómo Funcionan' },
-        descricao: { pt: 'Entenda como ler e interpretar os candlesticks — a linguagem visual do mercado financeiro.', en: 'Understand how to read and interpret candlesticks — the visual language of the financial market.', es: 'Entiende cómo leer e interpretar los candlesticks — el lenguaje visual del mercado financiero.' },
-        video_pt: 'YgAb9wjsgeo',
-        video_en: 'HIWHoiELIR0',
-        status: 'ativo'
-      },
-      {
-        numero: '1.4',
-        titulo: { pt: 'Teoria das Ondas de Elliott', en: 'Elliott Wave Theory', es: 'Teoría de las Ondas de Elliott' },
-        descricao: { pt: 'Entenda como identificar e operar utilizando a teoria das Ondas de Elliott com inteligência artificial para identificação automática de padrões.', en: 'Learn how to identify and trade using Elliott Wave theory with artificial intelligence for automatic pattern identification.', es: 'Aprende a identificar y operar usando la teoría de las Ondas de Elliott con inteligencia artificial.' },
-        video_pt: 'VFzVViNerFc',
-        video_en: 'IF7Hs_uv4Sw',
-        status: 'ativo'
-      },
-      {
-        numero: '1.5',
-        titulo: { pt: 'Suporte e Resistência', en: 'Support and Resistance', es: 'Soporte y Resistencia' },
-        descricao: { pt: 'Zonas, não linhas, reação de preço.', en: 'Zones, not lines, price reaction.', es: 'Zonas, no líneas, reacción del precio.' },
-        video_pt: 'IFTC8IN-X30',
-        video_en: 'rdvu1kS37dM',
-        status: 'ativo'
-      },
-      {
-        numero: '1.6',
-        titulo: { pt: 'Estruturas de Mercado', en: 'Market Structure', es: 'Estructura de Mercado' },
-        descricao: { pt: 'Topos, fundos, tendência e lateralização.', en: 'Tops, bottoms, trends and sideways.', es: 'Techos, suelos, tendencia y lateralización.' },
-        video_pt: 'CRBbn49gIzU',
-        video_en: 'B2RDv79lp2c',
-        status: 'ativo'
-      },
-      {
-        numero: '1.7',
-        titulo: { pt: 'Ruptura de Mercado', en: 'Market Breakout', es: 'Ruptura de Mercado' },
-        descricao: { pt: 'Entenda como identificar e operar rompimentos de mercado com consistência.', en: 'Understand how to identify and trade market breakouts with consistency.', es: 'Entiende cómo identificar y operar rupturas de mercado con consistencia.' },
-        video_pt: '8jb1S8nyqUM',
-        video_en: 'xF4_yljsGtU',
-        status: 'ativo'
+    :root {
+      --bg:        #0A0C0F;
+      --bg-card:   #111318;
+      --bg-hover:  #161A21;
+      --border:    rgba(255,255,255,0.07);
+      --border-md: rgba(255,255,255,0.13);
+      --text:      #E8E9EC;
+      --text-muted:#6B7280;
+      --text-dim:  #3D4451;
+      --teal:      #00D4FF;
+      --teal-dim:  rgba(0,212,255,0.10);
+      --teal-mid:  rgba(0,212,255,0.20);
+      --amber:     #F5A623;
+      --amber-dim: rgba(245,166,35,0.10);
+      --red:       #F05252;
+      --red-dim:   rgba(240,82,82,0.10);
+      --blue:      #6EB3F7;
+      --blue-dim:  rgba(110,179,247,0.10);
+      --purple:    #A78BFA;
+      --purple-dim:rgba(167,139,250,0.10);
+      --font-display: 'Syne', sans-serif;
+      --font-body:    'DM Sans', sans-serif;
+      --font-mono:    'IBM Plex Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.6;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── SCROLLBAR ─── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--border-md); border-radius: 99px; }
+
+    /* ─── TOP BAR ─── */
+    .top-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10,12,15,0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      height: 56px;
+      display: flex;
+      align-items: center;
+      padding: 0 2rem;
+      gap: 2rem;
+    }
+
+    .logo {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 17px;
+      letter-spacing: -0.04em;
+      color: var(--text);
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo-mark {
+      width: 26px;
+      height: 26px;
+      border-radius: 6px;
+      background: var(--teal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .logo-mark svg { display: block; }
+
+    .logo-edu {
+      font-size: 11px;
+      font-weight: 400;
+      font-family: var(--font-mono);
+      color: #ffffff;
+      letter-spacing: 0.08em;
+      margin-left: 2px;
+      opacity: 0.9;
+    }
+
+    .top-nav {
+      display: flex;
+      gap: 2px;
+      flex: 1;
+    }
+
+    .nav-link {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      padding: 6px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      transition: color 0.15s, background 0.15s;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .nav-link:hover { color: var(--text); background: var(--bg-hover); }
+    .nav-link.active { color: var(--text); background: var(--bg-hover); }
+
+    .top-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-left: auto;
+    }
+
+    .search-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0 12px;
+      height: 36px;
+      width: 200px;
+    }
+
+    .search-bar svg { color: var(--text-muted); flex-shrink: 0; }
+
+    .search-bar input {
+      background: none;
+      border: none;
+      outline: none;
+      font-size: 13px;
+      color: var(--text);
+      font-family: var(--font-body);
+      width: 100%;
+    }
+
+    .search-bar input::placeholder { color: var(--text-muted); }
+
+    .avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--teal-dim);
+      border: 1px solid var(--teal-mid);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 600;
+      font-family: var(--font-mono);
+      color: var(--teal);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      border-bottom: 1px solid var(--border);
+      padding: 5rem 2rem 4rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      min-height: 480px;
+    }
+
+    /* ─── VIDEO BG ─── */
+    .hero-video-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .hero-video-bg video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 177.78vh;
+      min-width: 100%;
+      height: 56.25vw;
+      min-height: 100%;
+      transform: translate(-50%, -50%);
+      opacity: 0.22;
+      object-fit: cover;
+    }
+
+    .hero-video-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to right,
+        rgba(10,12,15,0.85) 0%,
+        rgba(10,12,15,0.5) 60%,
+        rgba(10,12,15,0.3) 100%
+      );
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .hero > *:not(.hero-video-bg):not(.hero-video-overlay) {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-player-wrap {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-player-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--teal);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-player-label::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--teal);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    .hero-player-box {
+      border: 1px solid var(--border-md);
+      border-radius: 14px;
+      overflow: hidden;
+      background: var(--bg-card);
+    }
+
+    .hero-player-controls {
+      background: rgba(0,0,0,0.4);
+      border-bottom: 1px solid var(--border);
+      padding: 8px 14px;
+      display: flex;
+      gap: 1.25rem;
+    }
+
+    .hero-player-video {
+      width: 100%;
+      aspect-ratio: 16/9;
+    }
+
+    .hero-player-video iframe {
+      width: 100%;
+      height: 100%;
+      display: block;
+      border: none;
+    }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-player-wrap { display: none; }
+    }
+      content: '';
+      position: absolute;
+      top: -80px;
+      left: -80px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(0,212,255,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--teal);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .eyebrow-line {
+      width: 24px;
+      height: 1px;
+      background: var(--teal);
+      opacity: 0.5;
+    }
+
+    .hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 64px;
+      font-weight: 400;
+      letter-spacing: 2px;
+      line-height: 1.05;
+      margin-bottom: 20px;
+      color: var(--text);
+    }
+
+    .hero-title span { color: var(--teal); }
+
+    .hero-desc {
+      font-size: 17px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      max-width: 520px;
+      margin-bottom: 2rem;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 2.5rem;
+    }
+
+    .stat { display: flex; flex-direction: column; gap: 3px; }
+
+    .stat-num {
+      font-family: var(--font-mono);
+      font-size: 28px;
+      font-weight: 500;
+      color: var(--teal);
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* ─── PROGRESS WIDGET ─── */
+    .progress-widget {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .progress-widget::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--teal), transparent);
+    }
+
+    .pw-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--teal);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .pw-title {
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      line-height: 1.3;
+    }
+
+    .pw-meta {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+    }
+
+    .pw-bar-wrap {
+      background: var(--border);
+      border-radius: 999px;
+      height: 3px;
+      margin-bottom: 6px;
+      overflow: hidden;
+    }
+
+    .pw-bar-fill {
+      height: 100%;
+      background: var(--teal);
+      border-radius: 999px;
+      position: relative;
+    }
+
+    .pw-bar-fill::after {
+      content: '';
+      position: absolute;
+      right: 0; top: 50%;
+      transform: translateY(-50%);
+      width: 8px; height: 8px;
+      background: var(--teal);
+      border-radius: 50%;
+    }
+
+    .pw-pct {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+    }
+
+    .pw-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 10px;
+      border-radius: 10px;
+      background: var(--teal-dim);
+      border: 1px solid var(--teal-mid);
+      color: var(--teal);
+      font-size: 13px;
+      font-weight: 500;
+      font-family: var(--font-body);
+      cursor: pointer;
+      transition: background 0.15s;
+      text-decoration: none;
+    }
+
+    .pw-btn:hover { background: var(--teal-mid); }
+
+    /* ─── MAIN ─── */
+    .main {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2rem 2rem 4rem;
+    }
+
+    /* ─── SECTION HEADER ─── */
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.25rem;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .section-link {
+      font-size: 13px;
+      color: var(--teal);
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-family: var(--font-body);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      transition: opacity 0.15s;
+      text-decoration: none;
+    }
+
+    .section-link:hover { opacity: 0.7; }
+
+    /* ─── CATEGORIES ─── */
+    .categories-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+
+    .cat-chip {
+      padding: 7px 16px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      color: var(--text-muted);
+      font-family: var(--font-body);
+      transition: all 0.15s;
+    }
+
+    .cat-chip:hover {
+      border-color: var(--border-md);
+      color: var(--text);
+    }
+
+    .cat-chip.active {
+      border-color: var(--teal-mid);
+      background: var(--teal-dim);
+      color: var(--teal);
+    }
+
+    /* ─── COURSE GRID ─── */
+    /* ─── COURSES CAROUSEL ─── */
+    .courses-grid-wrap {
+      position: relative;
+      margin-bottom: 3rem;
+    }
+
+    .courses-grid {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding-bottom: 4px;
+    }
+
+    .courses-grid::-webkit-scrollbar { display: none; }
+
+    .course-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: border-color 0.2s, transform 0.2s;
+      animation: fadeUp 0.4s both;
+      flex: 0 0 calc(25% - 12px);
+      scroll-snap-align: start;
+      min-width: 260px;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .course-card:hover {
+      border-color: var(--border-md);
+      transform: translateY(-2px);
+    }
+
+    .card-thumb {
+      height: 130px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .thumb-teal   { background: rgba(0,201,141,0.08); }
+    .thumb-amber  { background: rgba(245,166,35,0.08); }
+    .thumb-blue   { background: rgba(110,179,247,0.08); }
+    .thumb-purple { background: rgba(167,139,250,0.08); }
+    .thumb-coral  { background: rgba(240,82,82,0.08); }
+
+    .thumb-glyph {
+      font-family: var(--font-mono);
+      font-size: 36px;
+      font-weight: 500;
+      opacity: 0.15;
+      user-select: none;
+    }
+
+    .card-thumb[style*="background-image"] .thumb-glyph { display: none; }
+    .card-thumb[style*="background-image"]::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .thumb-amber  .thumb-glyph { color: var(--amber); opacity: 0.3; }
+    .thumb-blue   .thumb-glyph { color: var(--blue); opacity: 0.3; }
+    .thumb-purple .thumb-glyph { color: var(--purple); opacity: 0.3; }
+    .thumb-coral  .thumb-glyph { color: var(--red); opacity: 0.3; }
+
+    .badge-level {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      font-size: 10px;
+      font-weight: 500;
+      padding: 3px 9px;
+      border-radius: 999px;
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .lvl-i { background: rgba(0,212,255,0.9); color: #000; font-weight: 700; }
+    .lvl-m { background: rgba(235,169,0,0.9); color: #000; font-weight: 700; }
+    .lvl-a { background: rgba(219,68,86,0.9); color: #fff; font-weight: 700; }
+
+    .badge-new {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 10px;
+      font-weight: 600;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: var(--teal);
+      color: #0A0C0F;
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .card-body { padding: 1.125rem 1.125rem 1.25rem; }
+
+    .card-cat {
+      font-size: 11px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-family: var(--font-mono);
+      margin-bottom: 6px;
+    }
+
+    .card-title {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+      color: var(--text);
+    }
+
+    .card-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .card-meta .dot {
+      width: 3px; height: 3px;
+      border-radius: 50%;
+      background: var(--text-dim);
+    }
+
+    .card-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-bottom: 14px;
+    }
+
+    /* Carousel dots indicator */
+    .carousel-dots {
+      display: none;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+      margin-top: 14px;
+    }
+    .carousel-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--border-md);
+      transition: background 0.2s, width 0.2s;
+    }
+    .carousel-dot.active {
+      background: var(--teal);
+      width: 18px;
+      border-radius: 3px;
+    }
+    .carousel-hint {
+      display: none;
+      text-align: center;
+      font-size: 11px;
+      color: var(--text-dim);
+      font-family: var(--font-mono);
+      letter-spacing: 0.05em;
+      margin-top: 8px;
+    }
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: var(--bg-card);
+      border: 1px solid var(--border-md);
+      color: var(--text);
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      z-index: 5;
+      transition: background 0.15s;
+      font-size: 16px;
+    }
+    .carousel-btn:hover { background: var(--bg-hover); }
+    .carousel-btn.prev { left: -18px; }
+    .carousel-btn.next { right: -18px; }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+    }
+
+    .instructor {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .avatar-xs {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 9px;
+      font-weight: 600;
+      font-family: var(--font-mono);
+    }
+
+    .av-teal   { background: rgba(0,212,255,0.12); color: var(--teal); }
+    .av-amber  { background: rgba(245,166,35,0.12); color: var(--amber); }
+    .av-blue   { background: rgba(110,179,247,0.12); color: var(--blue); }
+    .av-purple { background: rgba(167,139,250,0.12); color: var(--purple); }
+
+    .instructor-name { font-size: 12px; color: var(--text-muted); }
+
+    .btn-enroll {
+      font-size: 12px;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--teal-mid);
+      color: var(--teal);
+      background: var(--teal-dim);
+      cursor: pointer;
+      font-family: var(--font-body);
+      transition: background 0.15s;
+    }
+
+    .btn-enroll:hover { background: var(--teal-mid); }
+
+    /* ─── DIVIDER ─── */
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 0 0 2.5rem;
+    }
+
+    /* ─── LESSONS ─── */
+    .lessons-list { display: flex; flex-direction: column; gap: 8px; }
+
+    .lesson-row {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s;
+    }
+
+    .lesson-row:hover { border-color: var(--border-md); background: var(--bg-hover); }
+    .lesson-row.is-active { border-color: rgba(0,201,141,0.3); }
+
+    .lesson-num {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-dim);
+      min-width: 20px;
+    }
+
+    .lesson-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .li-done   { background: rgba(0,201,100,0.12); }
+    .li-active { background: rgba(110,179,247,0.12); }
+    .li-locked { background: var(--bg-hover); }
+
+    .lesson-info { flex: 1; min-width: 0; }
+
+    .lesson-title {
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .lesson-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .lesson-badge {
+      font-size: 10px;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-family: var(--font-mono);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .lb-done   { background: rgba(0,201,100,0.12); color: #00C864; }
+    .lb-active { background: rgba(110,179,247,0.12); color: var(--blue); }
+    .lb-locked { background: var(--bg-hover); color: var(--text-dim); }
+
+    .lesson-row.is-locked { opacity: 0.5; }
+
+    /* ─── FEATURED VIDEO ─── */
+    .featured-video-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 2.5rem;
+      align-items: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .fv-tag {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--teal);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .fv-title {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .fv-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .fv-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .fv-badge {
+      font-size: 11px;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(245,166,35,0.12);
+      color: var(--amber);
+      font-family: var(--font-mono);
+    }
+
+    .fv-dot {
+      width: 3px; height: 3px;
+      border-radius: 50%;
+      background: var(--text-dim);
+    }
+
+    .fv-info {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .featured-video-player {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 0 0 12px 12px;
+      overflow: hidden;
+      background: var(--bg-card);
+    }
+
+    .fv-player-wrap {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .fv-controls {
+      background: var(--bg-hover);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .fv-ctrl-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .fv-ctrl-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-right: 2px;
+    }
+
+    .fv-ctrl-btn {
+      font-size: 11px;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-family: var(--font-body);
+      transition: all 0.15s;
+    }
+
+    .fv-ctrl-btn:hover { border-color: var(--border-md); color: var(--text); }
+    .fv-ctrl-btn.active {
+      background: var(--teal-dim);
+      border-color: var(--teal-mid);
+      color: var(--teal);
+    }
+
+    .fv-note {
+      background: var(--bg-hover);
+      border-top: 1px solid var(--border);
+      padding: 8px 14px;
+      font-size: 11px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+    }
+
+    @media (max-width: 900px) {
+      .featured-video-wrap {
+        grid-template-columns: 1fr;
       }
-    ]
-  },
+    }
 
-  // ─────────────────────────────────────────
-  //  CURSO 2 — INTERMEDIÁRIO
-  // ─────────────────────────────────────────
-  {
-    id: 'intermediario',
-    nivel: { pt: 'Intermediário', en: 'Intermediate', es: 'Intermedio' },
-    titulo: { pt: 'Curso Intermediário', en: 'Intermediate Course', es: 'Curso Intermedio' },
-    descricao: {
-      pt: 'Refine sua leitura de mercado com dados, técnicas de leitura e estratégias.',
-      en: 'Refine your market reading with data, reading techniques and strategies.',
-      es: 'Refina tu lectura del mercado con datos, técnicas de análisis y estrategias.'
-    },
-    badge_class: 'lvl-m',
-    imagem: 'Intermediario.jpg',
-    aulas: [
-      { numero: '2.1', titulo: { pt: 'Setup Principal', en: 'Main Setup', es: 'Setup Principal' }, descricao: { pt: 'Rompimento + pullback.', en: 'Breakout + pullback.', es: 'Ruptura + pullback.' }, video_pt: '', video_en: '', status: 'em_breve' },
-      { numero: '2.2', titulo: { pt: 'Entrada', en: 'Entry', es: 'Entrada' }, descricao: { pt: 'Critérios objetivos (zona + reação).', en: 'Objective criteria (zone + reaction).', es: 'Criterios objetivos (zona + reacción).' }, video_pt: '', video_en: '', status: 'em_breve' },
-      { numero: '2.3', titulo: { pt: 'Stop Loss', en: 'Stop Loss', es: 'Stop Loss' }, descricao: { pt: 'Base técnica (estrutura).', en: 'Technical base (structure).', es: 'Base técnica (estructura).' }, video_pt: '', video_en: '', status: 'em_breve' },
-      { numero: '2.4', titulo: { pt: 'Alvo', en: 'Target', es: 'Objetivo' }, descricao: { pt: 'Risco/retorno mínimo 1:2.', en: 'Minimum risk/reward 1:2.', es: 'Riesgo/beneficio mínimo 1:2.' }, video_pt: '', video_en: '', status: 'em_breve' },
-      { numero: '2.5', titulo: { pt: 'Quando NÃO Operar', en: 'When NOT to Trade', es: 'Cuándo NO Operar' }, descricao: { pt: 'Mercado lateral ruim, baixa liquidez.', en: 'Bad sideways market, low liquidity.', es: 'Mercado lateral malo, baja liquidez.' }, video_pt: '', video_en: '', status: 'em_breve' },
-      { numero: '2.6', titulo: { pt: 'Exemplos Bons', en: 'Good Examples', es: 'Buenos Ejemplos' }, descricao: { pt: 'Trades corretos explicados.', en: 'Correct trades explained.', es: 'Trades correctos explicados.' }, video_pt: '', video_en: '', status: 'em_breve' },
-      { numero: '2.7', titulo: { pt: 'Exemplos Ruins', en: 'Bad Examples', es: 'Malos Ejemplos' }, descricao: { pt: 'Erros reais.', en: 'Real mistakes.', es: 'Errores reales.' }, video_pt: '', video_en: '', status: 'em_breve' },
-      { numero: '2.8', titulo: { pt: 'Execução de Entrada', en: 'Entry Execution', es: 'Ejecución de Entrada' }, descricao: { pt: 'Timing e confirmação.', en: 'Timing and confirmation.', es: 'Timing y confirmación.' }, video_pt: '', video_en: '', status: 'em_breve' },
-      { numero: '2.9', titulo: { pt: 'Verdade sobre Indicadores', en: 'Truth About Indicators', es: 'Verdad sobre Indicadores' }, descricao: { pt: 'Todos derivam do preço.', en: 'All derive from price.', es: 'Todos derivan del precio.' }, video_pt: '', video_en: '', status: 'em_breve' },
-      { numero: '2.10', titulo: { pt: 'Tipos de Indicadores', en: 'Types of Indicators', es: 'Tipos de Indicadores' }, descricao: { pt: 'Tendência, momento, volume.', en: 'Trend, momentum, volume.', es: 'Tendencia, momento, volumen.' }, video_pt: '', video_en: '', status: 'em_breve' },
-      { numero: '2.11', titulo: { pt: 'Médias Móveis (EMA)', en: 'Moving Averages (EMA)', es: 'Medias Móviles (EMA)' }, descricao: { pt: 'Direção e tendência.', en: 'Direction and trend.', es: 'Dirección y tendencia.' }, video_pt: '', video_en: '', status: 'em_breve' },
-      { numero: '2.12', titulo: { pt: 'VWAP', en: 'VWAP', es: 'VWAP' }, descricao: { pt: 'Preço médio institucional.', en: 'Institutional average price.', es: 'Precio promedio institucional.' }, video_pt: '', video_en: '', status: 'em_breve' }
-    ]
-  },
+    /* ─── MODAL ─── */
+    .modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem;
+    }
 
-  // ─────────────────────────────────────────
-  //  CURSO 3 — AVANÇADO
-  // ─────────────────────────────────────────
-  {
-    id: 'avancado',
-    nivel: { pt: 'Avançado', en: 'Advanced', es: 'Avanzado' },
-    titulo: { pt: 'Curso Avançado', en: 'Advanced Course', es: 'Curso Avanzado' },
-    descricao: {
-      pt: 'Domine a gestão de risco, psicologia do trader e aprenda a tomar decisões sob pressão com consistência.',
-      en: 'Master risk management, trader psychology and learn to make decisions under pressure with consistency.',
-      es: 'Domina la gestión de riesgo, psicología del trader y aprende a tomar decisiones bajo presión con consistencia.'
-    },
-    badge_class: 'lvl-a',
-    imagem: 'Avançado.jpg',
-    aulas: [
-      { numero: '3.1', titulo: { pt: '% por Trade', en: '% per Trade', es: '% por Trade' }, descricao: { pt: '0.5% a 2% por operação.', en: '0.5% to 2% per trade.', es: '0.5% a 2% por operación.' }, video_pt: '', video_en: '', status: 'em_breve' },
-      { numero: '3.2', titulo: { pt: 'Gestão de Banca', en: 'Bankroll Management', es: 'Gestión de Banca' }, descricao: { pt: 'Crescimento progressivo.', en: 'Progressive growth.', es: 'Crecimiento progresivo.' }, video_pt: '', video_en: '', status: 'em_breve' },
-      { numero: '3.3', titulo: { pt: 'Drawdown', en: 'Drawdown', es: 'Drawdown' }, descricao: { pt: 'Perda acumulada.', en: 'Accumulated loss.', es: 'Pérdida acumulada.' }, video_pt: '', video_en: '', status: 'em_breve' },
-      { numero: '3.4', titulo: { pt: 'Sequência de Perdas', en: 'Losing Streaks', es: 'Secuencia de Pérdidas' }, descricao: { pt: 'Probabilidade estatística.', en: 'Statistical probability.', es: 'Probabilidad estadística.' }, video_pt: '', video_en: '', status: 'em_breve' },
-      { numero: '3.5', titulo: { pt: 'Alavancagem', en: 'Leverage', es: 'Apalancamiento' }, descricao: { pt: 'Amplifica tudo.', en: 'Amplifies everything.', es: 'Amplifica todo.' }, video_pt: '', video_en: '', status: 'em_breve' },
-      { numero: '3.6', titulo: { pt: 'Cérebro do Trader', en: 'Trader\'s Brain', es: 'Cerebro del Trader' }, descricao: { pt: 'Viés cognitivo, emoção.', en: 'Cognitive bias, emotion.', es: 'Sesgo cognitivo, emoción.' }, video_pt: '', video_en: '', status: 'em_breve' },
-      { numero: '3.7', titulo: { pt: 'Overtrading', en: 'Overtrading', es: 'Overtrading' }, descricao: { pt: 'Operar demais.', en: 'Trading too much.', es: 'Operar demasiado.' }, video_pt: '', video_en: '', status: 'em_breve' },
-      { numero: '3.8', titulo: { pt: 'Revenge Trade', en: 'Revenge Trade', es: 'Revenge Trade' }, descricao: { pt: 'Querer recuperar.', en: 'Wanting to recover.', es: 'Querer recuperar.' }, video_pt: '', video_en: '', status: 'em_breve' },
-      { numero: '3.9', titulo: { pt: 'FOMO', en: 'FOMO', es: 'FOMO' }, descricao: { pt: 'Medo de ficar fora.', en: 'Fear of missing out.', es: 'Miedo a quedarse fuera.' }, video_pt: '', video_en: '', status: 'em_breve' },
-      { numero: '3.10', titulo: { pt: 'Disciplina', en: 'Discipline', es: 'Disciplina' }, descricao: { pt: 'Execução mecânica.', en: 'Mechanical execution.', es: 'Ejecución mecánica.' }, video_pt: '', video_en: '', status: 'em_breve' },
-      { numero: '3.11', titulo: { pt: 'Rotina', en: 'Routine', es: 'Rutina' }, descricao: { pt: 'Pré, durante, pós mercado.', en: 'Pre, during, post market.', es: 'Pre, durante, post mercado.' }, video_pt: '', video_en: '', status: 'em_breve' },
-      { numero: '3.12', titulo: { pt: 'Leitura ao Vivo', en: 'Live Reading', es: 'Lectura en Vivo' }, descricao: { pt: 'Interpretação em tempo real.', en: 'Real-time interpretation.', es: 'Interpretación en tiempo real.' }, video_pt: '', video_en: '', status: 'em_breve' },
-      { numero: '3.13', titulo: { pt: 'Gestão Durante Trade', en: 'Trade Management', es: 'Gestión Durante Trade' }, descricao: { pt: 'Ajuste de stop/alvo.', en: 'Stop/target adjustment.', es: 'Ajuste de stop/objetivo.' }, video_pt: '', video_en: '', status: 'em_breve' },
-      { numero: '3.14', titulo: { pt: 'Saída Inteligente', en: 'Smart Exit', es: 'Salida Inteligente' }, descricao: { pt: 'Parcial, total, erro.', en: 'Partial, full, error.', es: 'Parcial, total, error.' }, video_pt: '', video_en: '', status: 'em_breve' }
-    ]
-  },
+    .modal-backdrop.open {
+      display: flex;
+      animation: fadeIn 0.2s ease;
+    }
 
-  // ─────────────────────────────────────────
-  //  CURSO 4 — PROFISSIONAL
-  // ─────────────────────────────────────────
-  {
-    id: 'profissional',
-    nivel: { pt: 'Profissional', en: 'Professional', es: 'Profesional' },
-    titulo: { pt: 'Curso Profissional', en: 'Professional Course', es: 'Curso Profesional' },
-    descricao: {
-      pt: 'Opere como um profissional — liquidez, execução sob pressão, plano de trade e rotina de alto desempenho.',
-      en: 'Operate like a professional — liquidity, execution under pressure, trade plan and high performance routine.',
-      es: 'Opera como un profesional — liquidez, ejecución bajo presión, plan de trading y rutina de alto rendimiento.'
-    },
-    badge_class: 'lvl-a',
-    imagem: 'Profissional.jpg',
-    badge_top: true,
-    aulas: [
-      { numero: '4.1', titulo: { pt: 'Liquidez', en: 'Liquidity', es: 'Liquidez' }, descricao: { pt: 'Onde estão as ordens grandes.', en: 'Where large orders are.', es: 'Dónde están las órdenes grandes.' }, video_pt: '', video_en: '', status: 'em_breve' },
-      { numero: '4.2', titulo: { pt: 'Stop Hunt', en: 'Stop Hunt', es: 'Stop Hunt' }, descricao: { pt: 'Mercado varrendo stops antes de ir.', en: 'Market sweeping stops before moving.', es: 'Mercado barriendo stops antes de moverse.' }, video_pt: '', video_en: '', status: 'em_breve' },
-      { numero: '4.3', titulo: { pt: 'Falso Rompimento', en: 'False Breakout', es: 'Falsa Ruptura' }, descricao: { pt: 'Rompimento sem continuidade.', en: 'Breakout without continuity.', es: 'Ruptura sin continuidad.' }, video_pt: '', video_en: '', status: 'em_breve' },
-      { numero: '4.4', titulo: { pt: 'Continuidade vs Exaustão', en: 'Continuity vs Exhaustion', es: 'Continuidad vs Agotamiento' }, descricao: { pt: 'Diferença entre força e fim de movimento.', en: 'Difference between strength and end of move.', es: 'Diferencia entre fuerza y fin de movimiento.' }, video_pt: '', video_en: '', status: 'em_breve' },
-      { numero: '4.5', titulo: { pt: 'Volume (uso correto)', en: 'Volume (correct use)', es: 'Volumen (uso correcto)' }, descricao: { pt: 'Volume como confirmação.', en: 'Volume as confirmation.', es: 'Volumen como confirmación.' }, video_pt: '', video_en: '', status: 'em_breve' },
-      { numero: '4.6', titulo: { pt: 'Contexto Macro', en: 'Macro Context', es: 'Contexto Macro' }, descricao: { pt: 'Direção maior do mercado.', en: 'Larger market direction.', es: 'Dirección mayor del mercado.' }, video_pt: '', video_en: '', status: 'em_breve' },
-      { numero: '4.7', titulo: { pt: 'Sequência de Trades', en: 'Trade Sequence', es: 'Secuencia de Trades' }, descricao: { pt: 'Operar múltiplos cenários.', en: 'Trading multiple scenarios.', es: 'Operar múltiples escenarios.' }, video_pt: '', video_en: '', status: 'em_breve' },
-      { numero: '4.8', titulo: { pt: 'Replay de Mercado', en: 'Market Replay', es: 'Replay de Mercado' }, descricao: { pt: 'Simulação e treino.', en: 'Simulation and training.', es: 'Simulación y entrenamiento.' }, video_pt: '', video_en: '', status: 'em_breve' },
-      { numero: '4.9', titulo: { pt: 'Execução sob Pressão', en: 'Execution Under Pressure', es: 'Ejecución bajo Presión' }, descricao: { pt: 'Velocidade e controle.', en: 'Speed and control.', es: 'Velocidad y control.' }, video_pt: '', video_en: '', status: 'em_breve' },
-      { numero: '4.10', titulo: { pt: 'Plano de Trade', en: 'Trade Plan', es: 'Plan de Trading' }, descricao: { pt: 'Regras completas.', en: 'Complete rules.', es: 'Reglas completas.' }, video_pt: '', video_en: '', status: 'em_breve' },
-      { numero: '4.11', titulo: { pt: 'Checklist', en: 'Checklist', es: 'Checklist' }, descricao: { pt: 'Validação antes de entrar.', en: 'Validation before entering.', es: 'Validación antes de entrar.' }, video_pt: '', video_en: '', status: 'em_breve' },
-      { numero: '4.12', titulo: { pt: 'Diário de Trade', en: 'Trade Journal', es: 'Diario de Trading' }, descricao: { pt: 'Registro detalhado.', en: 'Detailed record.', es: 'Registro detallado.' }, video_pt: '', video_en: '', status: 'em_breve' },
-      { numero: '4.13', titulo: { pt: 'Revisão Semanal', en: 'Weekly Review', es: 'Revisión Semanal' }, descricao: { pt: 'Análise de desempenho.', en: 'Performance analysis.', es: 'Análisis de rendimiento.' }, video_pt: '', video_en: '', status: 'em_breve' },
-      { numero: '4.14', titulo: { pt: 'Ajustes Estratégicos', en: 'Strategic Adjustments', es: 'Ajustes Estratégicos' }, descricao: { pt: 'Evolução baseada em dados.', en: 'Data-based evolution.', es: 'Evolución basada en datos.' }, video_pt: '', video_en: '', status: 'em_breve' },
-      { numero: '4.15', titulo: { pt: 'Rotina Profissional', en: 'Professional Routine', es: 'Rutina Profesional' }, descricao: { pt: 'Padronização diária.', en: 'Daily standardization.', es: 'Estandarización diaria.' }, video_pt: '', video_en: '', status: 'em_breve' },
-      { numero: '4.16', titulo: { pt: 'Consistência', en: 'Consistency', es: 'Consistencia' }, descricao: { pt: 'Repetição controlada.', en: 'Controlled repetition.', es: 'Repetición controlada.' }, video_pt: '', video_en: '', status: 'em_breve' },
-      { numero: '4.17', titulo: { pt: 'RSI', en: 'RSI', es: 'RSI' }, descricao: { pt: 'Divergência e força.', en: 'Divergence and strength.', es: 'Divergencia y fuerza.' }, video_pt: '', video_en: '', status: 'em_breve' },
-      { numero: '4.18', titulo: { pt: 'Confluência', en: 'Confluence', es: 'Confluencia' }, descricao: { pt: 'Combinar fatores.', en: 'Combining factors.', es: 'Combinar factores.' }, video_pt: '', video_en: '', status: 'em_breve' },
-      { numero: '4.19', titulo: { pt: 'Setup com Indicador', en: 'Setup with Indicator', es: 'Setup con Indicador' }, descricao: { pt: 'Integração com preço.', en: 'Integration with price.', es: 'Integración con precio.' }, video_pt: '', video_en: '', status: 'em_breve' },
-      { numero: '4.20', titulo: { pt: 'Limpeza de Gráfico', en: 'Chart Cleanup', es: 'Limpieza de Gráfico' }, descricao: { pt: 'Redução de ruído.', en: 'Noise reduction.', es: 'Reducción de ruido.' }, video_pt: '', video_en: '', status: 'em_breve' }
-    ]
-  },
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
 
-  // ─────────────────────────────────────────
-  //  CURSO 5 — INDICADORES
-  // ─────────────────────────────────────────
-  {
-    id: 'indicadores',
-    nivel: { pt: 'Intermediário', en: 'Intermediate', es: 'Intermedio' },
-    titulo: { pt: 'Indicadores', en: 'Indicators', es: 'Indicadores' },
-    descricao: {
-      pt: 'Entenda como usar indicadores de forma correta — sem ruído, com contexto e integrados ao price action.',
-      en: 'Understand how to use indicators correctly — without noise, with context and integrated with price action.',
-      es: 'Entiende cómo usar los indicadores correctamente — sin ruido, con contexto e integrados al price action.'
-    },
-    badge_class: 'lvl-m',
-    imagem: 'Indicadores.jpg',
-    aulas: [
-      { numero: '5.1', titulo: { pt: 'O que são Indicadores', en: 'What are Indicators', es: 'Qué son los Indicadores' }, descricao: { pt: 'Derivação do preço, atraso matemático.', en: 'Price derivation, mathematical lag.', es: 'Derivación del precio, retraso matemático.' }, video_pt: '', video_en: '', status: 'em_breve' },
-      { numero: '5.2', titulo: { pt: 'Tipos de Indicadores', en: 'Types of Indicators', es: 'Tipos de Indicadores' }, descricao: { pt: 'Tendência, momento, volatilidade, volume.', en: 'Trend, momentum, volatility, volume.', es: 'Tendencia, momento, volatilidad, volumen.' }, video_pt: '', video_en: '', status: 'em_breve' },
-      { numero: '5.3', titulo: { pt: 'Médias Móveis (EMA)', en: 'Moving Averages (EMA)', es: 'Medias Móviles (EMA)' }, descricao: { pt: 'Direção e inclinação.', en: 'Direction and slope.', es: 'Dirección e inclinación.' }, video_pt: '', video_en: '', status: 'em_breve' },
-      { numero: '5.4', titulo: { pt: 'Volume Básico', en: 'Basic Volume', es: 'Volumen Básico' }, descricao: { pt: 'Participação no movimento.', en: 'Participation in movement.', es: 'Participación en el movimiento.' }, video_pt: '', video_en: '', status: 'em_breve' },
-      { numero: '5.5', titulo: { pt: 'Bollinger Bands', en: 'Bollinger Bands', es: 'Bandas de Bollinger' }, descricao: { pt: 'Expansão e compressão.', en: 'Expansion and compression.', es: 'Expansión y compresión.' }, video_pt: '', video_en: '', status: 'em_breve' },
-      { numero: '5.6', titulo: { pt: 'RSI', en: 'RSI', es: 'RSI' }, descricao: { pt: 'Força e divergência.', en: 'Strength and divergence.', es: 'Fuerza y divergencia.' }, video_pt: '', video_en: '', status: 'em_breve' },
-      { numero: '5.7', titulo: { pt: 'VWAP', en: 'VWAP', es: 'VWAP' }, descricao: { pt: 'Preço médio institucional.', en: 'Institutional average price.', es: 'Precio promedio institucional.' }, video_pt: '', video_en: '', status: 'em_breve' },
-      { numero: '5.8', titulo: { pt: 'Fibonacci', en: 'Fibonacci', es: 'Fibonacci' }, descricao: { pt: 'Retração e zonas.', en: 'Retracement and zones.', es: 'Retracción y zonas.' }, video_pt: '', video_en: '', status: 'em_breve' },
-      { numero: '5.9', titulo: { pt: 'Confluência', en: 'Confluence', es: 'Confluencia' }, descricao: { pt: 'Combinar fatores.', en: 'Combining factors.', es: 'Combinar factores.' }, video_pt: '', video_en: '', status: 'em_breve' },
-      { numero: '5.10', titulo: { pt: 'Indicadores Juntos', en: 'Indicators Together', es: 'Indicadores Juntos' }, descricao: { pt: 'Integração.', en: 'Integration.', es: 'Integración.' }, video_pt: '', video_en: '', status: 'em_breve' }
-    ]
-  }
+    .modal {
+      background: var(--bg-card);
+      border: 1px solid var(--border-md);
+      border-radius: 18px;
+      width: 100%;
+      max-width: 1100px;
+      max-height: 92vh;
+      overflow-y: auto;
+      animation: slideUp 0.25s ease;
+    }
 
-];
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .modal-header-left { display: flex; flex-direction: column; gap: 3px; }
+
+    .modal-tag {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--teal);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .modal-title {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .modal-close {
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+      transition: all 0.15s;
+      flex-shrink: 0;
+    }
+
+    .modal-close:hover { background: var(--bg-hover); color: var(--text); }
+
+    .modal-body {
+      padding: 1.5rem;
+      display: grid;
+      grid-template-columns: 1.8fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .modal-player-col {}
+
+    .modal-player-wrap {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+
+    .modal-controls {
+      background: var(--bg-hover);
+      border-bottom: 1px solid var(--border);
+      padding: 8px 12px;
+      display: flex;
+      gap: 1.25rem;
+    }
+
+    .modal-video {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: #000;
+    }
+
+    .modal-video iframe {
+      width: 100%; height: 100%;
+      display: block; border: none;
+    }
+
+    .modal-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .modal-sidebar {}
+
+    .modal-sidebar-title {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .modal-lesson-list { display: flex; flex-direction: column; gap: 6px; }
+
+    .modal-lesson {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s;
+    }
+
+    .modal-lesson:hover { border-color: var(--border-md); background: var(--bg-hover); }
+    .modal-lesson.ml-active { border-color: rgba(0,201,141,0.3); background: var(--teal-dim); }
+
+    .ml-icon {
+      width: 28px; height: 28px;
+      border-radius: 7px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .ml-done   { background: rgba(0,201,100,0.12); }
+    .ml-active { background: rgba(110,179,247,0.12); }
+    .ml-locked { background: var(--bg-hover); }
+
+    .ml-info { flex: 1; min-width: 0; }
+    .ml-title { font-size: 12px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .ml-sub   { font-size: 11px; color: var(--text-muted); }
+
+    @media (max-width: 700px) {
+      .modal-body { grid-template-columns: 1fr; }
+    }
+
+    /* ─── LANG SELECTOR ─── */
+    .lang-selector {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 3px;
+    }
+
+    .lang-btn {
+      font-size: 11px;
+      font-weight: 600;
+      font-family: var(--font-mono);
+      padding: 4px 9px;
+      border-radius: 6px;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.15s;
+      letter-spacing: 0.04em;
+    }
+
+    .lang-btn:hover { color: var(--text); }
+    .lang-btn.active {
+      background: var(--teal);
+      color: #000;
+    }
+
+    @media (max-width: 640px) {
+      .lang-selector { display: flex; }
+      .lang-btn { padding: 3px 7px; font-size: 10px; }
+
+      /* Fix lesson titles wrapping */
+      .lesson-title { white-space: normal; overflow: visible; text-overflow: unset; }
+      .ml-title { white-space: normal; overflow: visible; text-overflow: unset; }
+
+      /* Fix modal close — large touch target at top right */
+      .modal-close {
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: var(--bg-hover);
+        border: 1px solid var(--border-md);
+        font-size: 20px;
+        z-index: 300;
+      }
+    }
+    .ticker-strip {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      background: var(--bg-card);
+    }
+
+    .ticker-inner {
+      display: flex;
+      gap: 2.5rem;
+      animation: ticker 30s linear infinite;
+      white-space: nowrap;
+      padding: 0 1rem;
+    }
+
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    .ticker-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .ticker-sym { color: var(--text); font-weight: 500; }
+    .ticker-up { color: #00C864; }
+    .ticker-dn { color: var(--red); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .progress-widget { display: none; }
+      .hero-title { font-size: 28px; }
+      .modal-body { grid-template-columns: 1fr; }
+    }
+
+    /* ─── MOBILE (Android prioritário) ─── */
+    @media (max-width: 640px) {
+
+      /* Top bar */
+      .top-bar {
+        padding: 0 1rem;
+        height: 52px;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      .top-nav { display: none; }
+      .search-bar { display: none; }
+
+      /* Bottom nav mobile */
+      .mobile-nav {
+        display: flex;
+        position: fixed;
+        bottom: 0; left: 0; right: 0;
+        background: rgba(10,12,15,0.95);
+        backdrop-filter: blur(16px);
+        border-top: 1px solid var(--border);
+        z-index: 100;
+        height: 60px;
+        padding: 0 0.5rem;
+        padding-bottom: env(safe-area-inset-bottom);
+      }
+
+      .mobile-nav-item {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 3px;
+        cursor: pointer;
+        color: var(--text-muted);
+        font-size: 10px;
+        font-family: var(--font-mono);
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        border: none;
+        background: none;
+        padding: 8px 4px;
+        border-radius: 10px;
+        transition: color 0.15s;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .mobile-nav-item.active { color: var(--teal); }
+      .mobile-nav-item svg { width: 20px; height: 20px; }
+
+      /* Hero */
+      .hero {
+        padding: 2rem 1.25rem 2rem;
+        grid-template-columns: 1fr;
+      }
+      .hero-title { font-size: 64px; }
+      .hero-eyebrow { font-size: 14px; }
+      .hero-desc { font-size: 15px !important; color: #C8CDD8; }
+      .hero-stats { gap: 1.5rem; }
+      .stat-num { font-size: 22px; }
+      .stat-label { font-size: 11px; }
+
+      /* Show player below hero content on mobile */
+      .hero-player-wrap {
+        display: block !important;
+        width: 100%;
+        margin-top: -1rem;
+      }
+
+      .hero-player-label { font-size: 11px; }
+
+      /* Main */
+      .main {
+        padding: 1.25rem 1rem 5rem;
+      }
+
+      /* Categories — scroll horizontal */
+      .categories-row {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding-bottom: 4px;
+        margin-bottom: 1.5rem;
+      }
+      .categories-row::-webkit-scrollbar { display: none; }
+      .cat-chip { flex-shrink: 0; }
+
+      /* Carousel — 1 card at a time, centered */
+      .courses-grid {
+        scroll-snap-type: x mandatory;
+        padding: 0 1rem;
+        gap: 12px;
+      }
+      .course-card {
+        flex: 0 0 88vw;
+        min-width: unset;
+        scroll-snap-align: center;
+        scroll-snap-stop: always;
+      }
+      .carousel-btn { display: none; }
+      .carousel-dots { display: flex; }
+      .carousel-hint { display: block; }
+
+      /* Course cards — touch friendly */
+      .course-card { cursor: pointer; }
+      .card-thumb { height: 110px; }
+      .btn-enroll { padding: 8px 16px; font-size: 13px; }
+
+      /* Section headers */
+      .section-title { font-size: 15px; }
+
+      /* Modal — tela cheia no mobile */
+      .modal-backdrop { padding: 0; align-items: flex-end; }
+
+      .modal {
+        border-radius: 20px 20px 0 0;
+        max-width: 100%;
+        max-height: 92vh;
+        width: 100%;
+      }
+
+      .modal-header { padding: 1rem 1.25rem; }
+      .modal-title { font-size: 16px; }
+
+      .modal-body {
+        padding: 1rem 1.25rem 2rem;
+        grid-template-columns: 1fr;
+      }
+
+      /* Modal controls — scroll horizontal */
+      .modal-controls {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        gap: 1rem;
+        scrollbar-width: none;
+      }
+      .modal-controls::-webkit-scrollbar { display: none; }
+
+      /* Lesson rows — touch targets maiores */
+      .modal-lesson { padding: 12px; min-height: 52px; }
+      .ml-title { font-size: 13px; }
+
+      /* Ticker */
+      .ticker-strip { height: 34px; }
+    }
+
+    /* Extra small — telas muito pequenas */
+    @media (max-width: 360px) {
+      .hero-title { font-size: 44px; }
+      .logo-edu { display: inline; font-size: 9px; }
+    }
+    .mobile-nav { display: none; }
+  </style>
+  <script src="cursos.js"></script>
+</head>
+<body>
+
+  <!-- ─── TOP BAR ─── -->
+  <nav class="top-bar">
+    <div class="logo">
+      <span style="font-size:20px;font-weight:800;letter-spacing:2px;color:#00D4FF;font-family:'JetBrains Mono',monospace;user-select:none">TRDR</span>
+      <span class="logo-edu">EDUCATION</span>
+    </div>
+
+    <div class="top-nav">
+      <a class="nav-link active" href="#" data-i18n="nav_courses">Cursos</a>
+    </div>
+
+    <div class="top-right">
+      <div class="lang-selector">
+        <button class="lang-btn active" onclick="setLang('pt')">PT</button>
+        <button class="lang-btn" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" onclick="setLang('es')">ES</button>
+      </div>
+      <div class="search-bar">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+          <circle cx="6.5" cy="6.5" r="5" stroke="currentColor" stroke-width="1.3"/>
+          <path d="M10.5 10.5L14 14" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+        </svg>
+        <input type="text" data-i18n-placeholder="search_placeholder" placeholder="Buscar cursos..." />
+      </div>
+      <div class="avatar">JR</div>
+    </div>
+  </nav>
+
+  <!-- ─── TICKER ─── -->
+  <div class="ticker-strip">
+    <div class="ticker-inner">
+      <div class="ticker-item"><span class="ticker-sym">DXY</span> <span class="ticker-dn">▼ 0.52%</span> 99.41</div>
+      <div class="ticker-item"><span class="ticker-sym">NASDAQ</span> <span class="ticker-up">▲ 1.23%</span> 21.879</div>
+      <div class="ticker-item"><span class="ticker-sym">SP500</span> <span class="ticker-up">▲ 1.02%</span> 6.582</div>
+      <div class="ticker-item"><span class="ticker-sym">DOW JONES</span> <span class="ticker-up">▲ 0.63%</span> 48.218</div>
+      <div class="ticker-item"><span class="ticker-sym">BITCOIN</span> <span class="ticker-up">▲ 1.80%</span> $83.741</div>
+      <div class="ticker-item"><span class="ticker-sym">BRENT</span> <span class="ticker-dn">▼ 1.22%</span> $98.14</div>
+      <div class="ticker-item"><span class="ticker-sym">WTI</span> <span class="ticker-dn">▼ 2.80%</span> $96.31</div>
+      <div class="ticker-item"><span class="ticker-sym">VIX</span> <span class="ticker-dn">▼ 0.52%</span> 19.12</div>
+      <div class="ticker-item"><span class="ticker-sym">GOLD</span> <span class="ticker-up">▲ 0.85%</span> $3.238</div>
+      <div class="ticker-item"><span class="ticker-sym">SILVER</span> <span class="ticker-up">▲ 0.43%</span> $32.18</div>
+      <div class="ticker-item"><span class="ticker-sym">ETHEREUM</span> <span class="ticker-up">▲ 1.14%</span> $1.618</div>
+      <div class="ticker-item"><span class="ticker-sym">IBOV</span> <span class="ticker-up">▲ 0.91%</span> 132.480</div>
+      <div class="ticker-item"><span class="ticker-sym">EWZ</span> <span class="ticker-up">▲ 1.12%</span> $33.21</div>
+      <!-- duplicate for seamless loop -->
+      <div class="ticker-item"><span class="ticker-sym">DXY</span> <span class="ticker-dn">▼ 0.52%</span> 99.41</div>
+      <div class="ticker-item"><span class="ticker-sym">NASDAQ</span> <span class="ticker-up">▲ 1.23%</span> 21.879</div>
+      <div class="ticker-item"><span class="ticker-sym">SP500</span> <span class="ticker-up">▲ 1.02%</span> 6.582</div>
+      <div class="ticker-item"><span class="ticker-sym">DOW JONES</span> <span class="ticker-up">▲ 0.63%</span> 48.218</div>
+      <div class="ticker-item"><span class="ticker-sym">BITCOIN</span> <span class="ticker-up">▲ 1.80%</span> $83.741</div>
+      <div class="ticker-item"><span class="ticker-sym">BRENT</span> <span class="ticker-dn">▼ 1.22%</span> $98.14</div>
+      <div class="ticker-item"><span class="ticker-sym">WTI</span> <span class="ticker-dn">▼ 2.80%</span> $96.31</div>
+      <div class="ticker-item"><span class="ticker-sym">VIX</span> <span class="ticker-dn">▼ 0.52%</span> 19.12</div>
+      <div class="ticker-item"><span class="ticker-sym">GOLD</span> <span class="ticker-up">▲ 0.85%</span> $3.238</div>
+      <div class="ticker-item"><span class="ticker-sym">SILVER</span> <span class="ticker-up">▲ 0.43%</span> $32.18</div>
+      <div class="ticker-item"><span class="ticker-sym">ETHEREUM</span> <span class="ticker-up">▲ 1.14%</span> $1.618</div>
+      <div class="ticker-item"><span class="ticker-sym">IBOV</span> <span class="ticker-up">▲ 0.91%</span> 132.480</div>
+      <div class="ticker-item"><span class="ticker-sym">EWZ</span> <span class="ticker-up">▲ 1.12%</span> $33.21</div>
+    </div>
+  </div>
+
+  <!-- ─── HERO ─── -->
+  <section class="hero">
+    <div class="hero-video-bg">
+      <video autoplay loop muted playsinline preload="auto">
+        <source src="fundo.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="hero-video-overlay"></div>
+    <div>
+      <div class="hero-eyebrow">
+        <span class="eyebrow-line"></span>
+        <span data-i18n="hero_eyebrow">Plataforma educacional de trading</span>
+      </div>
+      <h1 class="hero-title" id="hero-title-el">
+        Aprenda a operar<br>com <span id="hero-title-span" style="color:var(--teal)">consistência</span>
+      </h1>
+      <p class="hero-desc" data-i18n="hero_desc">
+        Do básico ao avançado — análise técnica, gestão de risco, renda variável e muito mais.
+        Aulas práticas desenvolvidas por traders profissionais para resultados reais.
+      </p>
+    </div>
+
+    <!-- Hero player -->
+    <div class="hero-player-wrap">
+      <div class="hero-player-box">
+        <div class="hero-player-controls">
+          <div class="fv-ctrl-group">
+            <span class="fv-ctrl-label" data-i18n="label_lang">Idioma</span>
+            <button class="fv-ctrl-btn active" onclick="switchModalLang(this,'market','pt')">🇧🇷 PT</button>
+            <button class="fv-ctrl-btn" onclick="switchModalLang(this,'market','en')">🇺🇸 EN</button>
+          </div>
+        </div>
+        <div class="hero-player-video">
+          <iframe id="player-market"
+            src="https://www.youtube.com/embed/Q2bqbIQaOTA?rel=0&modestbranding=1"
+            data-video-pt="Q2bqbIQaOTA"
+            data-video-en="9NMUAFez0ZY"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </div>
+
+  </section>
+  <div class="main">
+
+    <!-- CURSOS -->
+    <div class="section-header">
+      <h2 class="section-title" data-i18n="section_courses">Cursos em destaque</h2>
+      <a class="section-link" href="#" data-i18n="see_all">Ver todos →</a>
+    </div>
+
+    <div class="courses-grid-wrap">
+      <button class="carousel-btn prev" onclick="scrollCarousel(-1)">‹</button>
+      <div class="courses-grid" id="coursesGrid">
+        <!-- gerado automaticamente por cursos.js -->
+      </div>
+      <button class="carousel-btn next" onclick="scrollCarousel(1)">›</button>
+    </div>
+    <div class="carousel-dots" id="carouselDots"></div>
+    <p class="carousel-hint">deslize para ver mais ›</p>
+
+  </div><!-- /main -->
+
+  <!-- modais gerados automaticamente por cursos.js -->
+  <div id="modaisContainer"></div>
+
+    <script>
+    /* ── GERAÇÃO DINÂMICA DOS CURSOS ── */
+    let currentLangUI = 'pt';
+
+    const THUMB_CLASSES = ['thumb-teal','thumb-blue','thumb-amber','thumb-coral','thumb-purple'];
+
+    function iconDone() { return `<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3.5 8L6.5 11L12.5 5" stroke="#00C864" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`; }
+    function iconPlay() { return `<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><polygon points="5.5,4.5 11.5,8 5.5,11.5" fill="var(--blue)"/></svg>`; }
+    function iconLock() { return `<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="4.5" y="7.5" width="7" height="5.5" rx="1.5" stroke="var(--text-dim)" stroke-width="1.2"/><path d="M6 7.5V5.5a2 2 0 014 0v2" stroke="var(--text-dim)" stroke-width="1.2" stroke-linecap="round"/></svg>`; }
+
+    function buildCourseCard(curso, idx) {
+      const lang = currentLangUI;
+      const thumbClass = THUMB_CLASSES[idx % THUMB_CLASSES.length];
+      const topBadge = curso.badge_top ? `<span class="badge-new">TOP</span>` : '';
+      const aulas_ativas = curso.aulas.filter(a => a.status === 'ativo').length;
+      const total = curso.aulas.length;
+      return `
+      <div class="course-card" style="animation-delay:${0.05*(idx+1)}s" onclick="openModal('course-${curso.id}')">
+        <div class="card-thumb ${thumbClass}" style="background-image:url('${curso.imagem}');background-size:cover;background-position:center;">
+          <span class="badge-level ${curso.badge_class}">${curso.nivel[lang]}</span>
+          ${topBadge}
+        </div>
+        <div class="card-body">
+          <div class="card-title">${curso.titulo[lang]}</div>
+          <div class="card-meta">
+            <span>${total} ${lang === 'en' ? 'lessons' : lang === 'es' ? 'clases' : 'aulas'}</span>
+          </div>
+          <div class="card-desc">${curso.descricao[lang]}</div>
+          <div class="card-footer">
+            <div class="instructor">
+              <div class="avatar-xs av-teal">TR</div>
+              <span class="instructor-name">TRDR Education</span>
+            </div>
+            <button class="btn-enroll">${lang === 'en' ? 'View course' : lang === 'es' ? 'Ver curso' : 'Ver curso'}</button>
+          </div>
+        </div>
+      </div>`;
+    }
+
+    function buildLessonRow(aula, curso, lang) {
+      const hasVideo = aula.video_pt && aula.video_pt !== '';
+      const isSoon = aula.status === 'em_breve';
+      const modalId = `modal-${curso.id}-${aula.numero.replace('.','_')}`;
+
+      let iconClass, iconHtml, subText, opacity, clickAction;
+
+      if (isSoon || !hasVideo) {
+        iconClass = 'li-locked'; iconHtml = iconLock();
+        subText = lang === 'en' ? 'Coming soon' : lang === 'es' ? 'Próximamente' : 'Em breve';
+        opacity = 'opacity:.4;cursor:default;'; clickAction = '';
+      } else {
+        iconClass = 'li-active'; iconHtml = iconPlay();
+        const avail = aula.video_en && aula.video_en !== aula.video_pt
+          ? (lang === 'en' ? 'PT / EN available' : lang === 'es' ? 'PT / EN disponible' : 'PT / EN disponível')
+          : (lang === 'en' ? 'PT available' : lang === 'es' ? 'PT disponible' : 'PT disponível');
+        subText = avail;
+        opacity = ''; clickAction = `onclick="closeModal('course-${curso.id}');openModal('${modalId}')"`;
+      }
+
+      return `
+          <div class="modal-lesson" style="${opacity}" ${clickAction}>
+            <div class="ml-icon ${iconClass}">${iconHtml}</div>
+            <div class="ml-info">
+              <div class="ml-title">${aula.numero} — ${aula.titulo[lang]}</div>
+              <div class="ml-sub">${subText}</div>
+            </div>
+          </div>`;
+    }
+
+    function buildCourseModal(curso) {
+      const lang = currentLangUI;
+      const total = curso.aulas.length;
+      const countLabel = lang === 'en' ? `${total} lessons · Click to watch` : lang === 'es' ? `${total} clases · Haz clic para ver` : `${total} aulas · Clique para assistir`;
+      const sideLabel = lang === 'en' ? 'Course lessons' : lang === 'es' ? 'Clases del curso' : 'Aulas do curso';
+      const lessonRows = curso.aulas.map(a => buildLessonRow(a, curso, lang)).join('');
+
+      return `
+  <div class="modal-backdrop" id="course-${curso.id}" onclick="closeOnBackdrop(event,'course-${curso.id}')">
+    <div class="modal">
+      <div class="modal-header">
+        <div class="modal-header-left">
+          <span class="modal-tag">// ${curso.nivel[lang]}</span>
+          <span class="modal-title">${curso.titulo[lang]}</span>
+        </div>
+        <button class="modal-close" onclick="closeModal('course-${curso.id}')">✕</button>
+      </div>
+      <div class="modal-body" style="grid-template-columns:1fr;">
+        <div class="modal-sidebar-title" style="margin-bottom:14px;">${countLabel}</div>
+        <div class="modal-lesson-list">${lessonRows}</div>
+      </div>
+    </div>
+  </div>`;
+    }
+
+    function buildVideoModal(aula, curso) {
+      if (aula.status === 'em_breve' || !aula.video_pt) return '';
+      const lang = currentLangUI;
+      const modalId = `modal-${curso.id}-${aula.numero.replace('.','_')}`;
+      const hasEN = aula.video_en && aula.video_en !== aula.video_pt;
+      const langLabel = lang === 'en' ? 'Language' : 'Idioma';
+      const descLabel = lang === 'en' ? 'Course lessons' : lang === 'es' ? 'Clases del curso' : 'Aulas do curso';
+
+      const lessonSidebar = curso.aulas.filter(a => a.status === 'ativo' && a.video_pt).map(a => {
+        const sid = `modal-${curso.id}-${a.numero.replace('.','_')}`;
+        const isCurrent = sid === modalId;
+        const cls = isCurrent ? 'ml-active' : '';
+        const icon = isCurrent ? iconPlay() : iconLock();
+        const iconCls = isCurrent ? 'ml-active' : 'ml-locked';
+        return `
+            <div class="modal-lesson ${cls}" ${isCurrent ? '' : `onclick="closeModal('${modalId}');openModal('${sid}')"`}>
+              <div class="ml-icon ${iconCls}">${icon}</div>
+              <div class="ml-info"><div class="ml-title">${a.numero} — ${a.titulo[lang]}</div></div>
+            </div>`;
+      }).join('');
+
+      return `
+  <div class="modal-backdrop" id="${modalId}" onclick="closeOnBackdrop(event,'${modalId}')">
+    <div class="modal">
+      <div class="modal-header">
+        <div class="modal-header-left">
+          <span class="modal-tag">// ${curso.titulo[lang]} · ${lang === 'en' ? 'Lesson' : lang === 'es' ? 'Lección' : 'Aula'} ${aula.numero}</span>
+          <span class="modal-title">${aula.titulo[lang]}</span>
+        </div>
+        <button class="modal-close" onclick="closeModal('${modalId}')">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-player-col">
+          <div class="modal-player-wrap">
+            <div class="modal-controls">
+              <div class="fv-ctrl-group">
+                <span class="fv-ctrl-label">${langLabel}</span>
+                <button class="fv-ctrl-btn active" onclick="switchVideoLang(this,'${modalId}','pt','${aula.video_pt}','${aula.video_en || aula.video_pt}')">🇧🇷 PT</button>
+                ${hasEN ? `<button class="fv-ctrl-btn" onclick="switchVideoLang(this,'${modalId}','en','${aula.video_pt}','${aula.video_en}')">🇺🇸 EN</button>` : ''}
+              </div>
+            </div>
+            <div class="modal-video">
+              <iframe id="iframe-${modalId}"
+                src="https://www.youtube.com/embed/${aula.video_pt}?rel=0&modestbranding=1"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen>
+              </iframe>
+            </div>
+          </div>
+          <p class="modal-desc">${aula.descricao[lang]}</p>
+        </div>
+        <div class="modal-sidebar">
+          <div class="modal-sidebar-title">${descLabel}</div>
+          <div class="modal-lesson-list">${lessonSidebar}</div>
+        </div>
+      </div>
+    </div>
+  </div>`;
+    }
+
+    function renderAll() {
+      const lang = currentLangUI;
+
+      // Render course cards
+      const grid = document.getElementById('coursesGrid');
+      if (grid) grid.innerHTML = TRDR_CURSOS.map((c, i) => buildCourseCard(c, i)).join('');
+
+      // Render all modals
+      const container = document.getElementById('modaisContainer');
+      if (container) {
+        let html = '';
+        TRDR_CURSOS.forEach(curso => {
+          html += buildCourseModal(curso);
+          curso.aulas.forEach(aula => { html += buildVideoModal(aula, curso); });
+        });
+        container.innerHTML = html;
+      }
+
+      // Update hero player label + video + buttons
+      const heroLabel = document.querySelector('.hero-player-label');
+      const heroAula = TRDR_CURSOS[0]?.aulas.find(a => a.destaque_hero);
+      if (heroLabel && heroAula) {
+        const prefix = lang === 'en' ? 'Basic Course · Lesson' : lang === 'es' ? 'Curso Básico · Lección' : 'Curso Básico · Aula';
+        heroLabel.textContent = `${prefix} ${heroAula.numero}`;
+      }
+
+      if (heroAula) {
+        const heroIframe = document.getElementById('player-market');
+        const videoLang = lang === 'en' ? 'en' : 'pt';
+        if (heroIframe) {
+          const vid = videoLang === 'en'
+            ? (heroIframe.dataset.videoEn || heroIframe.dataset.videoPt)
+            : heroIframe.dataset.videoPt;
+          heroIframe.src = `https://www.youtube.com/embed/${vid}?rel=0&modestbranding=1`;
+        }
+
+        // Sync hero PT/EN buttons
+        document.querySelectorAll('.hero-player-controls .fv-ctrl-btn').forEach(btn => {
+          const btnLang = btn.getAttribute('onclick')?.includes("'en'") ? 'en' : 'pt';
+          btn.classList.toggle('active', btnLang === videoLang);
+        });
+      }
+    }
+
+    function switchVideoLang(btn, modalId, lang, vidPt, vidEn) {
+      btn.closest('.fv-ctrl-group').querySelectorAll('.fv-ctrl-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const vid = lang === 'en' ? vidEn : vidPt;
+      const iframe = document.getElementById(`iframe-${modalId}`);
+      if (iframe) iframe.src = `https://www.youtube.com/embed/${vid}?rel=0&modestbranding=1`;
+    }
+
+    function scrollCarousel(dir) {
+      const grid = document.getElementById('coursesGrid');
+      const card = grid?.querySelector('.course-card');
+      const amount = card ? (card.offsetWidth + 16) * dir : 300 * dir;
+      grid?.scrollBy({ left: amount, behavior: 'smooth' });
+    }
+
+    function buildDots() {
+      const dots = document.getElementById('carouselDots');
+      const grid = document.getElementById('coursesGrid');
+      if (!dots || !grid) return;
+      const count = grid.querySelectorAll('.course-card').length;
+      dots.innerHTML = Array.from({ length: count }, (_, i) =>
+        `<div class="carousel-dot ${i === 0 ? 'active' : ''}" data-i="${i}"></div>`
+      ).join('');
+      grid.addEventListener('scroll', () => {
+        const card = grid.querySelector('.course-card');
+        if (!card) return;
+        const idx = Math.round(grid.scrollLeft / (card.offsetWidth + 12));
+        dots.querySelectorAll('.carousel-dot').forEach((d, i) =>
+          d.classList.toggle('active', i === idx)
+        );
+      }, { passive: true });
+    }
+
+    function filterCat(el, cat) {
+      document.querySelectorAll('.cat-chip').forEach(c => c.classList.remove('active'));
+      el.classList.add('active');
+    }
+
+    /* ── MODAL ── */
+    function openModal(id) {
+      document.getElementById(id).classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(id) {
+      const modal = document.getElementById(id);
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+      // Pause video by resetting src
+      const iframe = modal.querySelector('iframe');
+      if (iframe) { const s = iframe.src; iframe.src = ''; iframe.src = s; }
+    }
+
+    function closeOnBackdrop(e, id) {
+      if (e.target === e.currentTarget) closeModal(id);
+    }
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') document.querySelectorAll('.modal-backdrop.open').forEach(m => closeModal(m.id));
+    });
+
+    /* ── MODAL LANG/SUB SWITCHER ── */
+    const modalVideos = {
+      elliott: { pt: 'bzrMIYiUsZ8', en: 'bzrMIYiUsZ8' },
+      market:  { pt: 'Q2bqbIQaOTA', en: '9NMUAFez0ZY' },
+      hmw:     { pt: 'hM62wuvXH9g', en: 'l4sZOE_L3J8' }
+    };
+
+    const modalState = {
+      elliott: { lang: 'pt', sub: 'none' },
+      market:  { lang: 'pt', sub: 'none' },
+      hmw:     { lang: 'pt', sub: 'none' }
+    };
+
+    function buildYTSrc(id, sub) {
+      let params = 'rel=0&modestbranding=1';
+      if (sub === 'none') {
+        params += '&cc_load_policy=0';
+      } else {
+        params += `&cc_load_policy=1&cc_lang_pref=${sub}`;
+      }
+      return `https://www.youtube.com/embed/${id}?${params}`;
+    }
+
+    function updateModalPlayer(key) {
+      const { lang, sub } = modalState[key];
+      const id = modalVideos[key][lang];
+      const src = buildYTSrc(id, sub);
+      const el = document.getElementById(`player-${key}`);
+      if (el) el.src = src;
+      const elModal = document.getElementById(`player-${key}-modal`);
+      if (elModal) elModal.src = src;
+    }
+
+    /* also update hero player-market when it exists */
+    function updateHeroPlayer() {
+      const { lang, sub } = modalState['market'];
+      const id = modalVideos['market'][lang];
+      const el = document.getElementById('player-market');
+      if (el) el.src = buildYTSrc(id, sub);
+    }
+
+    function switchModalLang(btn, key, lang) {
+      modalState[key].lang = lang;
+      btn.closest('.fv-ctrl-group').querySelectorAll('.fv-ctrl-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      updateModalPlayer(key);
+      updateHeroPlayer();
+    }
+
+    function switchModalSub(btn, key, sub) {
+      modalState[key].sub = sub;
+      btn.closest('.fv-ctrl-group').querySelectorAll('.fv-ctrl-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      updateModalPlayer(key);
+      updateHeroPlayer();
+    }
+
+    /* ── i18n ── */
+    const translations = {
+      pt: {
+        nav_courses: 'Cursos',
+        search_placeholder: 'Buscar cursos...',
+        hero_eyebrow: 'Plataforma educacional de trading',
+        hero_title_span: 'consistência',
+        hero_desc: 'Do básico ao avançado — análise técnica, gestão de risco, renda variável e muito mais. Aulas práticas desenvolvidas por traders profissionais para resultados reais.',
+        stat_courses: 'cursos ativos', stat_lessons: 'aulas gravadas', stat_students: 'alunos', stat_approval: 'aprovação',
+        hero_player_label: 'Curso Básico · Aula 1.1',
+        section_courses: 'Cursos em destaque', see_all: 'Ver todos →', btn_view: 'Ver curso',
+        course1_title: 'Curso Básico', course1_desc: 'Comece por aqui para entender os pontos-chave do mercado financeiro e iniciar suas operações com o pé direito.',
+        course2_title: 'Curso Intermediário', course2_desc: 'Refine sua leitura de mercado com dados, técnicas de leitura e estratégias.',
+        course3_title: 'Curso Avançado', course3_desc: 'Domine a gestão de risco, psicologia do trader e aprenda a tomar decisões sob pressão com consistência.',
+        course4_title: 'Curso Profissional', course4_desc: 'Opere como um profissional — liquidez, execução sob pressão, plano de trade e rotina de alto desempenho.',
+        course5_title: 'Indicadores', course5_desc: 'Entenda como usar indicadores de forma correta — sem ruído, com contexto e integrados ao price action.',
+        modal_basico_tag: '// Nível 1 · Análise Técnica',
+        modal_basico_title: 'Fundamentos do Trading',
+        modal_lessons_click: '11 aulas · Clique para assistir',
+        modal_lessons_prod: '11 aulas · Em produção',
+        sub_in_progress: 'Em andamento',
+        sub_pt_en: 'PT / EN disponível',
+        sub_pt_only: 'PT disponível',
+        sub_soon: 'Em breve',
+        l1_1: '1.1 — Mercado Futuro: Onde o Daytrade Ganha Forma',
+        l1_2: '1.2 — Livro de Ofertas — O coração do mercado',
+        l1_3: '1.3 — Ondas de Elliott com IA',
+        l1_4: '1.4 — Preço vs Indicador',
+        l1_5: '1.5 — Estrutura de Mercado',
+        l1_6: '1.6 — Suporte e Resistência',
+        l1_7: '1.7 — Ruptura de Mercado',
+        
+        
+        
+        
+        badge_basic: 'Básico', badge_inter: 'Intermediário', badge_adv: 'Avançado', badge_pro: 'Profissional',
+        meta1: 'Preço, estrutura, setup', meta2: 'Execução prática', meta3: 'Mente e banca', meta4: 'Nível institucional', meta5: 'EMA, RSI, VWAP, Fibonacci',
+        label_lang: 'Idioma',
+        tag_market: '// Curso Básico · Aula 1.1',
+        tag_hmw: '// Curso Básico · Aula 1.2',
+        tag_elliott: '// Análise Técnica · Aula 1.3',
+        title_market: 'Mercado Futuro — Onde o Daytrade Ganha Forma',
+        title_hmw: 'Livro de Ofertas — O coração do mercado',
+        title_elliott: 'Ondas de Elliott com IA',
+        desc_market: 'Entenda como funciona o mercado futuro — o ambiente onde o daytrade acontece de verdade. Contratos, liquidez, horários e como os grandes players movimentam o mercado.',
+        desc_hmw: 'Entenda como os mercados financeiros funcionam na prática — da formação de preços à dinâmica entre compradores e vendedores, liquidez e microestrutura de mercado.',
+        desc_elliott: 'Entenda como identificar e operar utilizando a teoria das Ondas de Elliott com inteligência artificial para identificação automática de padrões.',
+        sidebar_lessons: 'Aulas do curso',
+      },
+      en: {
+        nav_courses: 'Courses',
+        search_placeholder: 'Search courses...',
+        hero_eyebrow: 'Trading educational platform',
+        hero_title_span: 'consistency',
+        hero_desc: 'From basics to advanced — technical analysis, risk management, variable income and much more. Practical classes developed by professional traders for real results.',
+        stat_courses: 'active courses', stat_lessons: 'recorded lessons', stat_students: 'students', stat_approval: 'approval rate',
+        hero_player_label: 'Basic Course · Lesson 1.1',
+        section_courses: 'Featured courses', see_all: 'See all →', btn_view: 'View course',
+        course1_title: 'Basic Course', course1_desc: 'Start here to understand the key points of the financial market and begin your trading journey on the right foot.',
+        course2_title: 'Intermediate Course', course2_desc: 'Refine your market reading with data, reading techniques and strategies.',
+        course3_title: 'Advanced Course', course3_desc: 'Master risk management, trader psychology and learn to make decisions under pressure with consistency.',
+        course4_title: 'Professional Course', course4_desc: 'Operate like a professional — liquidity, execution under pressure, trade plan and high performance routine.',
+        course5_title: 'Indicators', course5_desc: 'Understand how to use indicators correctly — without noise, with context and integrated with price action.',
+        modal_basico_tag: '// Level 1 · Technical Analysis',
+        modal_basico_title: 'Trading Fundamentals',
+        modal_lessons_click: '11 lessons · Click to watch',
+        modal_lessons_prod: '11 lessons · In production',
+        sub_in_progress: 'In progress',
+        sub_pt_en: 'PT / EN available',
+        sub_pt_only: 'PT available',
+        sub_soon: 'Coming soon',
+        l1_1: '1.1 — Futures Market: Where Daytrading Takes Shape',
+        l1_2: '1.2 — Order Book — The Heart of the Market',
+        l1_3: '1.3 — Elliott Waves with AI',
+        l1_4: '1.4 — Price vs Indicator',
+        l1_5: '1.5 — Market Structure',
+        l1_6: '1.6 — Support and Resistance',
+        l1_7: '1.7 — Market Breakout',
+        
+        
+        
+        
+        badge_basic: 'Basic', badge_inter: 'Intermediate', badge_adv: 'Advanced', badge_pro: 'Professional',
+        meta1: 'Price, structure, setup', meta2: 'Practical execution', meta3: 'Mind and capital', meta4: 'Institutional level', meta5: 'EMA, RSI, VWAP, Fibonacci',
+        label_lang: 'Language',
+        tag_market: '// Basic Course · Lesson 1.1',
+        tag_hmw: '// Basic Course · Lesson 1.2',
+        tag_elliott: '// Technical Analysis · Lesson 1.3',
+        title_market: 'Futures Market — Where Daytrading Takes Shape',
+        title_hmw: 'Order Book — The Heart of the Market',
+        title_elliott: 'Elliott Waves with AI',
+        desc_market: 'Understand how the futures market works — the environment where daytrading actually happens. Contracts, liquidity, hours and how major players move the market.',
+        desc_hmw: 'Understand how financial markets work in practice — from price formation to the dynamics between buyers and sellers, liquidity and market microstructure.',
+        desc_elliott: 'Learn how to identify and trade using Elliott Wave theory — one of the most sophisticated technical analysis methods, applied with artificial intelligence.',
+        sidebar_lessons: 'Course lessons',
+      },
+      es: {
+        nav_courses: 'Cursos',
+        search_placeholder: 'Buscar cursos...',
+        hero_eyebrow: 'Plataforma educativa de trading',
+        hero_title_span: 'consistencia',
+        hero_desc: 'De lo básico a lo avanzado — análisis técnico, gestión de riesgo, renta variable y mucho más. Clases prácticas desarrolladas por traders profesionales para resultados reales.',
+        stat_courses: 'cursos activos', stat_lessons: 'clases grabadas', stat_students: 'alumnos', stat_approval: 'aprobación',
+        hero_player_label: 'Curso Básico · Lección 1.1',
+        section_courses: 'Cursos destacados', see_all: 'Ver todos →', btn_view: 'Ver curso',
+        course1_title: 'Curso Básico', course1_desc: 'Empieza aquí para entender los puntos clave del mercado financiero e iniciar tus operaciones con el pie derecho.',
+        course2_title: 'Curso Intermedio', course2_desc: 'Refina tu lectura del mercado con datos, técnicas de análisis y estrategias.',
+        course3_title: 'Curso Avanzado', course3_desc: 'Domina la gestión de riesgo, psicología del trader y aprende a tomar decisiones bajo presión con consistencia.',
+        course4_title: 'Curso Profesional', course4_desc: 'Opera como un profesional — liquidez, ejecución bajo presión, plan de trading y rutina de alto rendimiento.',
+        course5_title: 'Indicadores', course5_desc: 'Entiende cómo usar los indicadores correctamente — sin ruido, con contexto e integrados al price action.',
+        modal_basico_tag: '// Nivel 1 · Análisis Técnico',
+        modal_basico_title: 'Fundamentos del Trading',
+        modal_lessons_click: '11 clases · Haz clic para ver',
+        modal_lessons_prod: '11 clases · En producción',
+        sub_in_progress: 'En curso',
+        sub_pt_en: 'PT / EN disponible',
+        sub_pt_only: 'PT disponible',
+        sub_soon: 'Próximamente',
+        l1_1: '1.1 — Mercado de Futuros: Donde el Daytrade Toma Forma',
+        l1_2: '1.2 — Libro de Órdenes — El corazón del mercado',
+        l1_3: '1.3 — Ondas de Elliott con IA',
+        l1_4: '1.4 — Precio vs Indicador',
+        l1_5: '1.5 — Estructura de Mercado',
+        l1_6: '1.6 — Soporte y Resistencia',
+        l1_7: '1.7 — Ruptura de Mercado',
+        
+        
+        
+        
+        badge_basic: 'Básico', badge_inter: 'Intermedio', badge_adv: 'Avanzado', badge_pro: 'Profesional',
+        meta1: 'Precio, estructura, setup', meta2: 'Ejecución práctica', meta3: 'Mente y capital', meta4: 'Nivel institucional', meta5: 'EMA, RSI, VWAP, Fibonacci',
+        label_lang: 'Idioma',
+        tag_market: '// Curso Básico · Lección 1.1',
+        tag_hmw: '// Curso Básico · Lección 1.2',
+        tag_elliott: '// Análisis Técnico · Lección 1.3',
+        title_market: 'Mercado de Futuros — Donde el Daytrade Toma Forma',
+        title_hmw: 'Libro de Órdenes — El corazón del mercado',
+        title_elliott: 'Ondas de Elliott con IA',
+        desc_market: 'Entiende cómo funciona el mercado de futuros — el entorno donde el daytrading ocurre de verdad. Contratos, liquidez, horarios y cómo los grandes jugadores mueven el mercado.',
+        desc_hmw: 'Entiende cómo funcionan los mercados financieros en la práctica — desde la formación de precios hasta la dinámica entre compradores y vendedores.',
+        desc_elliott: 'Aprende a identificar y operar usando la teoría de las Ondas de Elliott con inteligencia artificial para la identificación automática de patrones.',
+        sidebar_lessons: 'Clases del curso',
+      }
+    };
+
+    const heroTitles = {
+      pt: 'Aprenda a operar<br>com <span id="hero-title-span" style="color:var(--teal)">consistência</span>',
+      en: 'Learn to trade<br>with <span id="hero-title-span" style="color:var(--teal)">consistency</span>',
+      es: 'Aprende a operar<br>con <span id="hero-title-span" style="color:var(--teal)">consistencia</span>',
+    };
+
+    function setLang(lang) {
+      currentLangUI = lang;
+      document.querySelectorAll('.lang-btn').forEach(b => {
+        b.classList.toggle('active', b.textContent.toLowerCase() === lang);
+      });
+      const t = translations[lang];
+
+      // Hero title
+      const titleEl = document.getElementById('hero-title-el');
+      if (titleEl) titleEl.innerHTML = heroTitles[lang];
+
+      // All data-i18n elements
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key] !== undefined) el.textContent = t[key];
+      });
+
+      // Placeholders
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (t[key]) el.placeholder = t[key];
+      });
+
+      // Re-render courses and modals in new language
+      renderAll();
+      buildDots();
+    }
+
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', () => { renderAll(); buildDots(); });
+  </script>
+
+  <!-- ─── MOBILE BOTTOM NAV ─── -->
+  <nav class="mobile-nav">
+    <button class="mobile-nav-item active">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+      Cursos
+    </button>
+    <button class="mobile-nav-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+      Trilhas
+    </button>
+    <button class="mobile-nav-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polygon points="10,8 16,12 10,16"/></svg>
+      Ao vivo
+    </button>
+    <button class="mobile-nav-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15l-2 5 2-1 2 1-2-5"/><path d="M8 13.5A7 7 0 1 1 16 13.5"/></svg>
+      Diplomas
+    </button>
+    <button class="mobile-nav-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+      Perfil
+    </button>
+  </nav>
+
+
+</body>
+</html>
