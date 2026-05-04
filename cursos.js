@@ -71,51 +71,19 @@ const TRDR_CURSOS = [
       },
       {
         numero: '1.6',
-        titulo: { pt: 'Preço vs Indicador', en: 'Price vs Indicator', es: 'Precio vs Indicador' },
-        descricao: { pt: 'Indicadores são derivativos do preço.', en: 'Indicators are price derivatives.', es: 'Los indicadores son derivados del precio.' },
-        video_pt: '',
-        video_en: '',
-        status: 'em_breve'
+        titulo: { pt: 'Estruturas de Mercado', en: 'Market Structure', es: 'Estructura de Mercado' },
+        descricao: { pt: 'Topos, fundos, tendência e lateralização.', en: 'Tops, bottoms, trends and sideways.', es: 'Techos, suelos, tendencia y lateralización.' },
+        video_pt: 'CRBbn49gIzU',
+        video_en: 'B2RDv79lp2c',
+        status: 'ativo'
       },
       {
         numero: '1.7',
-        titulo: { pt: 'Candlestick Útil', en: 'Useful Candlestick', es: 'Candlestick Útil' },
-        descricao: { pt: 'Rejeição, continuidade e força.', en: 'Rejection, continuity and strength.', es: 'Rechazo, continuidad y fuerza.' },
-        video_pt: '',
-        video_en: '',
-        status: 'em_breve'
-      },
-      {
-        numero: '1.8',
-        titulo: { pt: 'Timeframes', en: 'Timeframes', es: 'Temporalidades' },
-        descricao: { pt: 'Macro (direção) vs micro (entrada).', en: 'Macro (direction) vs micro (entry).', es: 'Macro (dirección) vs micro (entrada).' },
-        video_pt: '',
-        video_en: '',
-        status: 'em_breve'
-      },
-      {
-        numero: '1.9',
-        titulo: { pt: 'O que é Setup', en: 'What is a Setup', es: 'Qué es un Setup' },
-        descricao: { pt: 'Padrão repetível com vantagem.', en: 'Repeatable pattern with edge.', es: 'Patrón repetible con ventaja.' },
-        video_pt: '',
-        video_en: '',
-        status: 'em_breve'
-      },
-      {
-        numero: '1.10',
-        titulo: { pt: 'Regra nº1', en: 'Rule #1', es: 'Regla nº1' },
-        descricao: { pt: 'Preservação de capital.', en: 'Capital preservation.', es: 'Preservación de capital.' },
-        video_pt: '',
-        video_en: '',
-        status: 'em_breve'
-      },
-      {
-        numero: '1.11',
-        titulo: { pt: 'Horários de Mercado', en: 'Market Hours', es: 'Horarios del Mercado' },
-        descricao: { pt: 'Abertura, almoço e fechamento.', en: 'Opening, lunch and closing.', es: 'Apertura, almuerzo y cierre.' },
-        video_pt: '',
-        video_en: '',
-        status: 'em_breve'
+        titulo: { pt: 'Ruptura de Mercado', en: 'Market Breakout', es: 'Ruptura de Mercado' },
+        descricao: { pt: 'Entenda como identificar e operar rompimentos de mercado com consistência.', en: 'Understand how to identify and trade market breakouts with consistency.', es: 'Entiende cómo identificar y operar rupturas de mercado con consistencia.' },
+        video_pt: '8jb1S8nyqUM',
+        video_en: 'xF4_yljsGtU',
+        status: 'ativo'
       }
     ]
   },
