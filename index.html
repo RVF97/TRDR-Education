@@ -758,6 +758,28 @@
 
     .instructor-name { font-size: 12px; color: var(--text-muted); }
 
+    .badge-trdr {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #00D4FF;
+      color: #000;
+      font-size: 10px;
+      font-weight: 800;
+      font-family: var(--font-mono);
+      letter-spacing: 0.1em;
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+
+    .btn-trdr {
+      background: transparent !important;
+      border: 1px solid var(--teal) !important;
+      color: var(--teal) !important;
+    }
+
+    .btn-trdr:hover { background: rgba(0,212,255,0.1) !important; }
+
     .btn-enroll {
       font-size: 12px;
       font-weight: 500;
@@ -1555,13 +1577,23 @@
       const lang = currentLangUI;
       const thumbClass = THUMB_CLASSES[idx % THUMB_CLASSES.length];
       const topBadge = curso.badge_top ? `<span class="badge-new">TOP</span>` : '';
-      const aulas_ativas = curso.aulas.filter(a => a.status === 'ativo').length;
       const total = curso.aulas.length;
+      const isFree = curso.id === 'basico';
+
+      const trdrBadge = !isFree ? `<span class="badge-trdr">TRDR</span>` : '';
+
+      const btnLabel = isFree
+        ? (lang === 'en' ? 'View course' : 'Ver curso')
+        : (lang === 'en' ? 'Access with TRDR' : lang === 'es' ? 'Acceder con TRDR' : 'Acessar com TRDR');
+
+      const btnClass = isFree ? 'btn-enroll' : 'btn-enroll btn-trdr';
+      const btnAction = isFree ? '' : `onclick="event.stopPropagation();window.open('https://trdr.com','_blank')"`;
+
       return `
       <div class="course-card" style="animation-delay:${0.05*(idx+1)}s" onclick="openModal('course-${curso.id}')">
         <div class="card-thumb ${thumbClass}" style="background-image:url('${curso.imagem}');background-size:cover;background-position:center;">
           <span class="badge-level ${curso.badge_class}">${curso.nivel[lang]}</span>
-          ${topBadge}
+          ${topBadge}${trdrBadge}
         </div>
         <div class="card-body">
           <div class="card-title">${curso.titulo[lang]}</div>
@@ -1574,7 +1606,7 @@
               <div class="avatar-xs av-teal">TR</div>
               <span class="instructor-name">TRDR Education</span>
             </div>
-            <button class="btn-enroll">${lang === 'en' ? 'View course' : lang === 'es' ? 'Ver curso' : 'Ver curso'}</button>
+            <button class="${btnClass}" ${btnAction}>${btnLabel}</button>
           </div>
         </div>
       </div>`;
