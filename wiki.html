@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TRDR Wiki — Base de Conhecimento</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=IBM+Plex+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@800&family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0A0C0F;
+      --bg-card:   #111318;
+      --bg-hover:  #161A21;
+      --border:    rgba(255,255,255,0.07);
+      --border-md: rgba(255,255,255,0.13);
+      --text:      #E8E9EC;
+      --text-muted:#6B7280;
+      --text-dim:  #3D4451;
+      --teal:      #00D4FF;
+      --teal-dim:  rgba(0,212,255,0.10);
+      --teal-mid:  rgba(0,212,255,0.20);
+      --amber:     #F5A623;
+      --red:       #F05252;
+      --blue:      #6EB3F7;
+      --font-display: 'Syne', sans-serif;
+      --font-body:    'DM Sans', sans-serif;
+      --font-mono:    'IBM Plex Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.6;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── TOP BAR ─── */
+    .top-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10,12,15,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      padding: 0 2rem;
+      height: 52px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+    .logo-edu {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      color: rgba(255,255,255,0.5);
+      font-family: var(--font-mono);
+    }
+    .top-nav { display: flex; gap: 4px; }
+    .nav-link {
+      font-size: 13px;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: 8px;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: all 0.15s;
+    }
+    .nav-link:hover { color: var(--text); background: var(--bg-hover); }
+    .nav-link.active { color: var(--text); background: var(--bg-hover); }
+    .top-right { margin-left: auto; display: flex; align-items: center; gap: 12px; }
+    .lang-selector {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 3px;
+    }
+    .lang-btn {
+      font-size: 11px;
+      font-weight: 600;
+      font-family: var(--font-mono);
+      padding: 4px 9px;
+      border-radius: 6px;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .lang-btn:hover { color: var(--text); }
+    .lang-btn.active { background: var(--teal); color: #000; }
+    .avatar {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: var(--teal);
+      color: #000;
+      font-size: 12px;
+      font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-mono);
+    }
+    .search-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 6px 14px;
+      width: 220px;
+    }
+    .search-bar input {
+      background: none;
+      border: none;
+      outline: none;
+      color: var(--text);
+      font-size: 13px;
+      font-family: var(--font-body);
+      width: 100%;
+    }
+    .search-bar input::placeholder { color: var(--text-muted); }
+
+    /* ─── LAYOUT ─── */
+    .wiki-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      min-height: calc(100vh - 52px);
+    }
+
+    /* ─── SIDEBAR ─── */
+    .wiki-sidebar {
+      border-right: 1px solid var(--border);
+      padding: 1.5rem 0;
+      position: sticky;
+      top: 52px;
+      height: calc(100vh - 52px);
+      overflow-y: auto;
+    }
+    .wiki-sidebar::-webkit-scrollbar { width: 4px; }
+    .wiki-sidebar::-webkit-scrollbar-thumb { background: var(--border-md); border-radius: 2px; }
+
+    .sidebar-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      font-family: var(--font-mono);
+      padding: 0 1.25rem;
+      margin-bottom: 6px;
+      margin-top: 1.25rem;
+    }
+    .sidebar-label:first-child { margin-top: 0; }
+
+    .sidebar-category {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 1.25rem;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.15s;
+      border-left: 2px solid transparent;
+      user-select: none;
+    }
+    .sidebar-category:hover { color: var(--text); background: var(--bg-hover); }
+    .sidebar-category.open { color: var(--text); }
+    .sidebar-category .cat-icon { font-size: 14px; }
+    .sidebar-category .chevron {
+      margin-left: auto;
+      font-size: 10px;
+      transition: transform 0.2s;
+      color: var(--text-dim);
+    }
+    .sidebar-category.open .chevron { transform: rotate(90deg); }
+
+    .sidebar-items { display: none; }
+    .sidebar-items.open { display: block; }
+
+    .sidebar-item {
+      display: block;
+      padding: 6px 1.25rem 6px 2.5rem;
+      font-size: 13px;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.15s;
+      border-left: 2px solid transparent;
+      text-decoration: none;
+    }
+    .sidebar-item:hover { color: var(--text); background: var(--bg-hover); }
+    .sidebar-item.active {
+      color: var(--teal);
+      border-left-color: var(--teal);
+      background: var(--teal-dim);
+    }
+
+    /* ─── CONTENT ─── */
+    .wiki-content {
+      padding: 2.5rem 3rem;
+      max-width: 860px;
+    }
+
+    /* Home / Category view */
+    .wiki-home { display: block; }
+    .wiki-article { display: none; }
+
+    .wiki-home-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 48px;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .wiki-home-sub {
+      color: var(--text-muted);
+      font-size: 15px;
+      margin-bottom: 2.5rem;
+    }
+
+    .wiki-cats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 14px;
+    }
+    .wiki-cat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      cursor: pointer;
+      transition: border-color 0.15s, transform 0.15s;
+    }
+    .wiki-cat-card:hover { border-color: var(--teal); transform: translateY(-2px); }
+    .wiki-cat-icon { font-size: 28px; margin-bottom: 10px; }
+    .wiki-cat-name {
+      font-weight: 700;
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+    .wiki-cat-count {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+    }
+
+    /* Article */
+    .article-breadcrumb {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .article-breadcrumb a {
+      color: var(--teal);
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .article-breadcrumb a:hover { text-decoration: underline; }
+
+    .article-title {
+      font-family: var(--font-display);
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+    .article-meta {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .article-body h2 {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      margin: 2rem 0 0.75rem;
+      color: var(--text);
+    }
+    .article-body h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 1.5rem 0 0.5rem;
+      color: var(--text);
+    }
+    .article-body p {
+      color: #C8CDD8;
+      line-height: 1.75;
+      margin-bottom: 1rem;
+    }
+    .article-body ul, .article-body ol {
+      padding-left: 1.5rem;
+      margin-bottom: 1rem;
+      color: #C8CDD8;
+      line-height: 1.75;
+    }
+    .article-body li { margin-bottom: 4px; }
+    .article-body strong { color: var(--text); font-weight: 600; }
+    .article-body em { color: var(--teal); font-style: normal; font-weight: 500; }
+
+    .article-img {
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      margin: 1.5rem 0;
+    }
+
+    .info-box {
+      background: var(--teal-dim);
+      border: 1px solid rgba(0,212,255,0.2);
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      margin: 1.5rem 0;
+      font-size: 14px;
+      color: #C8CDD8;
+      line-height: 1.7;
+    }
+    .info-box strong { color: var(--teal); }
+
+    .spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 14px;
+    }
+    .spec-table th {
+      text-align: left;
+      padding: 10px 14px;
+      background: var(--bg-hover);
+      color: var(--text-muted);
+      font-size: 11px;
+      font-family: var(--font-mono);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--border);
+    }
+    .spec-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+      color: #C8CDD8;
+    }
+    .spec-table tr:last-child td { border-bottom: none; }
+    .spec-table td:first-child { color: var(--text); font-weight: 500; }
+
+    .tag-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 2rem; }
+    .tag {
+      font-size: 11px;
+      font-family: var(--font-mono);
+      padding: 3px 10px;
+      border-radius: 20px;
+      background: var(--bg-hover);
+      border: 1px solid var(--border-md);
+      color: var(--text-muted);
+    }
+
+    /* Empty state */
+    .wiki-empty {
+      text-align: center;
+      padding: 4rem 2rem;
+      color: var(--text-muted);
+    }
+    .wiki-empty-icon { font-size: 48px; margin-bottom: 1rem; }
+    .wiki-empty h3 { font-size: 18px; color: var(--text); margin-bottom: 8px; }
+
+    @media (max-width: 768px) {
+      .wiki-layout { grid-template-columns: 1fr; }
+      .wiki-sidebar {
+        position: static;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+      .wiki-content { padding: 1.5rem 1.25rem; }
+      .search-bar { display: none; }
+      .lang-selector .lang-btn { padding: 3px 7px; font-size: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── TOP BAR ─── -->
+  <nav class="top-bar">
+    <a href="index.html" class="logo">
+      <span style="font-size:20px;font-weight:800;letter-spacing:2px;color:#00D4FF;font-family:'JetBrains Mono',monospace;">TRDR</span>
+      <span class="logo-edu">EDUCATION</span>
+    </a>
+    <div class="top-nav">
+      <a class="nav-link" href="index.html">Cursos</a>
+      <a class="nav-link active" href="wiki.html">Wiki</a>
+    </div>
+    <div class="top-right">
+      <div class="lang-selector">
+        <button class="lang-btn active" onclick="setLang('pt')">PT</button>
+        <button class="lang-btn" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" onclick="setLang('es')">ES</button>
+      </div>
+      <div class="search-bar">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+          <circle cx="6.5" cy="6.5" r="5" stroke="currentColor" stroke-width="1.3"/>
+          <path d="M10.5 10.5L14 14" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+        </svg>
+        <input type="text" id="wikiSearch" placeholder="Buscar na Wiki..." oninput="searchWiki(this.value)" />
+      </div>
+      <div class="avatar">JR</div>
+    </div>
+  </nav>
+
+  <!-- ─── WIKI LAYOUT ─── -->
+  <div class="wiki-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="wiki-sidebar" id="wikiSidebar"></aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="wiki-content" id="wikiMain"></main>
+
+  </div>
+
+  <script src="wiki-content.js"></script>
+  <script>
+    let currentLang = 'pt';
+    let currentArticle = null;
+
+    // ── RENDER SIDEBAR ──
+    function renderSidebar() {
+      const sidebar = document.getElementById('wikiSidebar');
+      let html = '';
+
+      WIKI_CATEGORIES.forEach(cat => {
+        const itemCount = cat.articles.length;
+        html += `
+          <div class="sidebar-category" onclick="toggleCategory('${cat.id}')">
+            <span class="cat-icon">${cat.icon}</span>
+            <span>${cat.nome[currentLang]}</span>
+            <span class="chevron">›</span>
+          </div>
+          <div class="sidebar-items" id="cat-${cat.id}">
+            ${cat.articles.map(a => `
+              <a class="sidebar-item ${currentArticle === a.id ? 'active' : ''}"
+                 onclick="showArticle('${a.id}')">
+                ${a.titulo[currentLang]}
+              </a>
+            `).join('')}
+          </div>`;
+      });
+
+      sidebar.innerHTML = html;
+
+      // Keep open the category of the current article
+      if (currentArticle) {
+        WIKI_CATEGORIES.forEach(cat => {
+          if (cat.articles.find(a => a.id === currentArticle)) {
+            const el = document.getElementById(`cat-${cat.id}`);
+            if (el) {
+              el.classList.add('open');
+              el.previousElementSibling.classList.add('open');
+            }
+          }
+        });
+      }
+    }
+
+    function toggleCategory(id) {
+      const items = document.getElementById(`cat-${id}`);
+      const btn = items.previousElementSibling;
+      items.classList.toggle('open');
+      btn.classList.toggle('open');
+    }
+
+    // ── RENDER HOME ──
+    function renderHome() {
+      currentArticle = null;
+      const main = document.getElementById('wikiMain');
+      const t = currentLang;
+
+      const titles = { pt: 'Base de Conhecimento', en: 'Knowledge Base', es: 'Base de Conocimiento' };
+      const subs = { pt: 'Explore conceitos, ativos e estratégias do mundo dos investimentos.', en: 'Explore concepts, assets and strategies from the world of investments.', es: 'Explora conceptos, activos y estrategias del mundo de las inversiones.' };
+
+      let cards = WIKI_CATEGORIES.map(cat => `
+        <div class="wiki-cat-card" onclick="openCategory('${cat.id}')">
+          <div class="wiki-cat-icon">${cat.icon}</div>
+          <div class="wiki-cat-name">${cat.nome[t]}</div>
+          <div class="wiki-cat-count">${cat.articles.length} ${t === 'en' ? 'articles' : t === 'es' ? 'artículos' : 'artigos'}</div>
+        </div>
+      `).join('');
+
+      main.innerHTML = `
+        <div class="wiki-home">
+          <div class="wiki-home-title">${titles[t]}</div>
+          <div class="wiki-home-sub">${subs[t]}</div>
+          <div class="wiki-cats-grid">${cards}</div>
+        </div>`;
+
+      renderSidebar();
+    }
+
+    // ── OPEN CATEGORY ──
+    function openCategory(catId) {
+      const cat = WIKI_CATEGORIES.find(c => c.id === catId);
+      if (!cat) return;
+      const el = document.getElementById(`cat-${catId}`);
+      if (el) {
+        el.classList.add('open');
+        el.previousElementSibling.classList.add('open');
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      // Show first article if exists
+      if (cat.articles.length > 0) showArticle(cat.articles[0].id);
+    }
+
+    // ── SHOW ARTICLE ──
+    function showArticle(articleId) {
+      let article = null;
+      let category = null;
+      WIKI_CATEGORIES.forEach(cat => {
+        const found = cat.articles.find(a => a.id === articleId);
+        if (found) { article = found; category = cat; }
+      });
+      if (!article) return;
+
+      currentArticle = articleId;
+      const t = currentLang;
+      const main = document.getElementById('wikiMain');
+      const homeLabel = { pt: 'Wiki', en: 'Wiki', es: 'Wiki' };
+
+      main.innerHTML = `
+        <div class="article-breadcrumb">
+          <a onclick="renderHome()">${homeLabel[t]}</a>
+          ›
+          <span>${category.nome[t]}</span>
+          ›
+          <span>${article.titulo[t]}</span>
+        </div>
+        <div class="article-title">${article.titulo[t]}</div>
+        <div class="article-meta">${category.nome[t]} · ${t === 'en' ? 'Last updated' : t === 'es' ? 'Actualizado' : 'Atualizado'}: ${article.atualizado}</div>
+        <div class="article-body">${article.conteudo[t]}</div>
+        <div class="tag-list">${(article.tags || []).map(tag => `<span class="tag">${tag}</span>`).join('')}</div>
+      `;
+
+      renderSidebar();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // ── SEARCH ──
+    function searchWiki(query) {
+      if (!query.trim()) { renderHome(); return; }
+      const q = query.toLowerCase();
+      const results = [];
+      WIKI_CATEGORIES.forEach(cat => {
+        cat.articles.forEach(a => {
+          if (
+            a.titulo[currentLang].toLowerCase().includes(q) ||
+            (a.tags || []).some(t => t.toLowerCase().includes(q))
+          ) results.push({ article: a, cat });
+        });
+      });
+
+      const main = document.getElementById('wikiMain');
+      if (!results.length) {
+        main.innerHTML = `<div class="wiki-empty"><div class="wiki-empty-icon">🔍</div><h3>Nenhum resultado</h3><p>Tente outros termos.</p></div>`;
+        return;
+      }
+
+      main.innerHTML = `
+        <div class="wiki-home-title" style="font-size:24px;margin-bottom:1rem;">Resultados para "${query}"</div>
+        ${results.map(r => `
+          <div class="wiki-cat-card" style="margin-bottom:10px" onclick="showArticle('${r.article.id}')">
+            <div style="font-size:12px;color:var(--text-muted);font-family:var(--font-mono);margin-bottom:4px">${r.cat.icon} ${r.cat.nome[currentLang]}</div>
+            <div class="wiki-cat-name">${r.article.titulo[currentLang]}</div>
+          </div>
+        `).join('')}`;
+    }
+
+    // ── LANG ──
+    function setLang(lang) {
+      currentLang = lang;
+      document.querySelectorAll('.lang-btn').forEach(b => {
+        b.classList.toggle('active', b.textContent.toLowerCase() === lang);
+      });
+      const placeholder = { pt: 'Buscar na Wiki...', en: 'Search Wiki...', es: 'Buscar en Wiki...' };
+      document.getElementById('wikiSearch').placeholder = placeholder[lang];
+      if (currentArticle) showArticle(currentArticle);
+      else renderHome();
+    }
+
+    // ── INIT ──
+    renderHome();
+  </script>
+</body>
+</html>
